@@ -8,11 +8,12 @@
 
 ## 다음 세션 시작 전 확인 (덮어쓰기)
 
-_갱신: 2026-10-29 — 검토서 작성 완료(Fable 5.1). 사용자 결정 · 실행 대기_
+_갱신: 2026-10-29 — 세션 2(Opus 5.5): Planning README 복원 · GitHub MCP 설정 · P01 등재. 사용자 결정 · 실행 대기_
 
-1. **지금 어느 단계**: 검토 완료 — 결정 대기. 막는 것은 `_공통/README.md` 3절 Q-01~Q-04 와 4절 실행 요청 1~5(사용자 몫).
+1. **지금 어느 단계**: 검토 완료 — 결정 대기. 막는 것은 `_공통/README.md` 3절 Q-01~Q-05 와 4절 실행 요청 1~5(사용자 몫). GitHub MCP 는 설정만 끝났고 연결은 실행 요청 3(gh 로그인 · `GITHUB_PAT`) 뒤 — 새 세션에서 `/mcp` 로 `github` 승인 · 연결 확인 → 읽기 도구 하나(내 계정 조회)로 검산.
 2. **답이 오면 할 일 순서**: Q 답을 `_공통` G-nn 으로 옮긴다 → `02_계획/계획서_YYYYMMDD.md`(스트림 B · D · E · F 분할 — 코드 없음, 위험 저) → B(템플릿 Unity 화)는 답과 무관하니 먼저 해도 된다 → D 는 Unity 설치 확인 뒤(`ls /Applications | grep -i unity`, Hub 의 6000.x 버전 기록) → F 는 Q-01 · Q-02 · gh 로그인 뒤.
-3. **착수 전 확인**: 훅 첫 자동 실행 — `../../Defense.Logs/prompts/` 에 오늘 파일, `sessions/` 에 이 세션 파일. 안 돌았으면 `Defense.Logs/README.md` 「수동 실행」으로 재현하고 「함정」에 적는다. 이 세션(2026-10-29)의 다이제스트는 수동으로 만들었다(`sessions/20261029_f4cc0549.md`). 작업 공간 `.claude/settings.json` 은 git 밖 — 사본은 `Defense.Logs/README.md`.
+3. **D 에서 쓸 템플릿**: `../_템플릿/Unity_CLAUDE.md`(저장소 `CLAUDE.md` 정본 초안) · `../_템플릿/Unity_README.md`(공개 README 초안) — `Defense.Unity` 를 만들 때 복사하고 「(설치 뒤)」 · 「(채움)」을 실측으로.
+4. **착수 전 확인**: 훅 첫 자동 실행 — `../../Defense.Logs/prompts/` 에 오늘 파일, `sessions/` 에 이 세션 파일. 안 돌았으면 `Defense.Logs/README.md` 「수동 실행」으로 재현하고 「함정」에 적는다. 이 세션(2026-10-29)의 다이제스트는 수동으로 만들었다(`sessions/20261029_f4cc0549.md`). 작업 공간 `.claude/settings.json` 은 git 밖 — 사본은 `Defense.Logs/README.md`.
 
 ## 현재 상태 (덮어쓰기)
 
@@ -25,10 +26,12 @@ _갱신: 2026-10-29_
 | 계획 | 미작성(Q 답 뒤) |
 | 저장소 변경 | `Defense.Planning` `main` 첫 커밋 · `Defense.Logs` `main` 첫 커밋(해시는 작업색인) · 원격 없음 |
 | 환경 | Unity · Blender · .NET SDK · gh 미설치. brew cask: unity-hub 3.22.4 · blender 5.2.3 · dotnet-sdk 10.0.402 확인 ✔ |
+| 훅 | 2026-10-29 세션 2 에서 `UserPromptSubmit` 자동 실행 ✔(`../../Defense.Logs/prompts/20261029.md` 생성, 미커밋 — SessionEnd 훅 몫) |
+| GitHub MCP | 작업 공간 루트 `.mcp.json`(git 밖) — 공식 원격 서버 `https://api.githubcopilot.com/mcp/`, 헤더 `Authorization: Bearer ${GITHUB_PAT}` · `X-MCP-Toolsets: context,repos,issues,pull_requests,actions`. `.claude/settings.json` 에 `enabledMcpjsonServers: ["github"]` · `permissions.ask` 17개(저장소 생성 · 파일 쓰기 · 브랜치 · PR · 머지 · 이슈 · 댓글 · 워크플로 실행). `claude mcp list` → `Missing environment variables: GITHUB_PAT` ✔(토큰 전이라 정상) |
 
 ## 사용자 대기 (덮어쓰기)
 
-- `_공통/README.md` Q-01~Q-04 · 실행 요청 1~5.
+- `_공통/README.md` Q-01~Q-05 · 실행 요청 1~5(3 에 `GITHUB_PAT` 추가).
 
 ---
 
@@ -38,6 +41,9 @@ _갱신: 2026-10-29_
 - 2026-10-29 첫 골격은 루트 단일 `games.planning`(InvestBuddy 판 기반)이었고 사용자 지시로 게임별 분리 · EasyCheck 원본 기준으로 다시 만들었다(G-06). 옛 골격은 삭제했다 — 내용은 이 과제와 `_공통` 에 옮겼다.
 
 ## 발견 로그 (누적, 최신 위)
+
+- 2026-10-29 — `Defense.Planning/README.md` 가 0바이트로 첫 커밋 `07e187b` 에 들어가 있었다(AirShooter · RideShooter 판은 11.6 KB). AirShooter 판에서 이름만 바꿔 복원하고 현황판 · 8절을 Defense 기준으로 고쳤다. ✔
+- 2026-10-29 — GitHub MCP 는 OAuth 대신 PAT 헤더 방식으로 등록했다. 토큰은 파일에 쓰지 않고 `gh auth token`(키체인)을 환경 변수로 넘긴다 — gh 로그인 한 번으로 `gh` · MCP 가 같이 된다. [추정] VS Code 를 Dock 에서 열어도 로그인 셸 환경을 읽으므로 `~/.zshrc` 의 export 가 확장에 전달된다 — 연결 확인 때 검산.
 
 - 2026-10-29 — Unity 공식 Claude Code 플러그인(2026-09-09 블로그 △): 스킬 29개 · `unity-cli` 로 열린 에디터 제어. 비용 · macOS 표기 없음 — D 에서 확인. 구 Unity MCP(AI Assistant 패키지)는 deprecated · AI 도구 체험 · 구독 필요 → 쓰지 않는다.
 - 2026-10-29 — Blender Lab 공식 MCP v1.0.3(2026-09-11 △). 구 blender-mcp 는 개명 · CVE 보고(2차). 공식 것만.

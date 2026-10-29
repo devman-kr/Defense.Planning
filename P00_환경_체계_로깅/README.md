@@ -1,6 +1,6 @@
 # P00 — 환경 · 체계 · 로깅
 
-**상태** 검토 완료 — 결정 대기 · **등재** 2026-10-29 · **다음 행동** 사용자 `_공통` Q-01~Q-04 답 · 실행 요청 1~5 → 계획서 → 스트림 B · D · F
+**상태** 검토 완료 — 결정 대기 · **등재** 2026-10-29 · **다음 행동** 사용자 `_공통` Q-01~Q-05 답 · 실행 요청 1~5(3 에 `GITHUB_PAT`) → 계획서 → 스트림 B · D · F
 
 **한 줄**: Defense 작업 공간을 시작할 수 있는 상태로 만든다 — EasyCheck 체계 골격(완료) · 세션 로깅 훅(완료) · Unity 6 와 도구 설치 · 템플릿 Unity 화 · `Defense.Unity` 저장소 생성 · GitHub 연결. 세 게임 중 첫 번째라 환경 · 도구 설치는 여기서 한 번만 하고, 다른 두 게임의 P00 은 이것을 복사한다. 세 게임 공통 결정은 `_공통` G-01~G-09.
 
@@ -31,7 +31,7 @@
 | A | 체계 골격 — 게임별 작업 공간 · Planning · Logs · 루트 CLAUDE.md · `_공통` | ✔ 2026-10-29 | ✔ | | ✔ | | | — |
 | B | 템플릿 · 코드리뷰 가이드 · 리뷰어 지시 · 작업지시서 · 계획서를 Unity 저장소 하나 기준으로(게이트 · 고위험 경로 · 실행 환경 · 경로) | 예정 | | | | | Unity 설치(실행 요청 1) | — |
 | C | 로깅 훅 — 프롬프트 로그 · 세션 다이제스트 · 로컬 자동 커밋 | | ✔ 2026-10-29 | | ✔ settings.json | | 첫 세션에서 자동 실행 확인 | — |
-| D | 도구 설치 확인 · Unity 공식 Claude Code 플러그인 · Blender 공식 MCP 연결 · `Defense.Unity` 생성(URP · 모바일 · Force Text · .gitignore · ASSETS.md · CLAUDE.md) | 기록 | | 생성 | `.mcp.json` | 설치 · 로그인 | 실행 요청 1~3 | `DEF-M00` |
+| D | 도구 설치 확인 · Unity 공식 Claude Code 플러그인 · Blender 공식 MCP 연결 · `Defense.Unity` 생성(URP · 모바일 · Force Text · .gitignore · ASSETS.md · CLAUDE.md) | 기록 · 템플릿 `Unity_CLAUDE.md` · `Unity_README.md` ✔ | | 생성 | `.mcp.json` ✔ GitHub(2026-10-29, 연결은 토큰 뒤) · Blender 예정 | 설치 · 로그인 | 실행 요청 1~3 | `DEF-M00` |
 | E | 레퍼런스 스타일 보드 확정 · 무료 에셋 라이선스 확인 → P01 검토서 입력 | | | | | 캡처 제공(실행 요청 5) | | — |
 | F | GitHub 저장소 생성(Planning · Logs · Unity · `_공통`) · 원격 연결 · 첫 푸시(허락 뒤) | | | | | 계정 · gh 로그인 | Q-01 · Q-02 · 실행 요청 3 | — |
 
