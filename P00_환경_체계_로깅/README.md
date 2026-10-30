@@ -32,7 +32,7 @@
 | B | 템플릿 · 코드리뷰 가이드 · 리뷰어 지시 · 작업지시서 · 계획서를 Unity 저장소 하나 기준으로(게이트 · 고위험 경로 · 실행 환경 · 경로) | ✔ 2026-10-30 S1(`1fab994` · X-03). 게이트 명령은 `Defense.Unity/CLAUDE.md` 한 곳 — S2 에서 실측 | | | 루트 `CLAUDE.md` ✔ | | — | — |
 | C | 로깅 훅 — 프롬프트 로그 · 세션 다이제스트 · 로컬 자동 커밋 | | ✔ 2026-10-29 | | ✔ settings.json | | 첫 세션에서 자동 실행 확인 | — |
 | D | 도구 설치 확인 · Unity 공식 Claude Code 플러그인 · Blender 공식 MCP 연결 · `Defense.Unity` 생성(URP · 모바일 · Force Text · .gitignore · ASSETS.md · CLAUDE.md) | 기록 · 템플릿 `Unity_CLAUDE.md` · `Unity_README.md` ✔ | | 생성(D1 · S2) | `.mcp.json` ✔ GitHub · Blender 예정(D2 · S3) | 설치 · 로그인 | 실행 요청 1 · 2 · 4 · 계획서 7절 | `DEF-M00` |
-| E | 레퍼런스 스타일 보드 확정 · 무료 에셋 라이선스 확인 | | | | | 캡처 제공(실행 요청 5) | | — · **P01 `DEF-M03` 로 이관 제안**(계획서 7절 #2 — P01 설계가 E 없이 확정됨) |
+| E | 레퍼런스 스타일 보드 확정 · 무료 에셋 라이선스 확인 | | | | | 캡처 제공(실행 요청 5) | | — · **P01 `DEF-M03` 로 이관**(D-04) |
 | F | F0 공개 전 정리(작성자 이메일 · 비밀값 검사 · `.gitignore`) → GitHub 저장소 생성(`_공통` · Planning · Design · Logs · Unity) · 원격 연결 · 첫 푸시(허락 뒤) · `main` 보호 | | | | | gh 로그인 ✔ · 계정 | Q-01 · Q-02 · Q-03 · 계획서 7절 #1 | — |
 
 ## 알아 둘 것
