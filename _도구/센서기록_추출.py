@@ -1,13 +1,14 @@
 # 센서기록_추출.py — 코드 리뷰 센서(서브에이전트)의 지시 원문 · 최종 보고 · 토큰을 세션 기록에서 뽑아 파일로 남긴다.
 #
-# 왜: 센서 · 검증 · 반론 에이전트의 보고 원문은 세션 기록(`%USERPROFILE%\.claude\projects\d--UBM\<세션 id>\subagents\agent-*.jsonl`)에만
+# 왜: 센서 · 검증 · 반론 에이전트의 보고 원문은 세션 기록(`~/.claude/projects/<작업 공간 경로를 바꾼 이름>/<세션 id>/subagents/agent-*.jsonl`)에만
 #     남고, 그 기록은 영구 보존이 아니다. 작업 보고 「코드 리뷰」 절은 압축본이라 나중의 검산 · 유형 집계 · 반론 이력 추적에 모자란다
 #     (코드리뷰_가이드.md 8절 — 2026-10-21 검토서). 센서가 끝난 직후 작성 세션이 이 스크립트로 원문을 과제 폴더에 복사한다.
 #
 # 쓰는 법(한글 출력 때문에 -X utf8 필수, 스크립트 자체는 표준 라이브러리만 쓴다):
-#   python -X utf8 -I _도구/센서기록_추출.py <세션 id 또는 subagents 폴더> <출력 폴더> [--only <에이전트 id 접두,...>]
-#   예) python -X utf8 -I _도구/센서기록_추출.py 9f0f4e51-5aee-4278-bfef-236c46c1065d "P02_전시후속_시스템개선/03_작업기록/코드리뷰_20261021_R1"
-#   Mac 은 세션 id 로 찾지 못한다(폴더 이름이 d--UBM 이 아니다) — subagents 폴더 경로를 통째로 넘긴다(가이드 8.1).
+#   python3 -X utf8 -I _도구/센서기록_추출.py <세션 id 또는 subagents 폴더> <출력 폴더> [--only <에이전트 id 접두,...>]
+#   예) python3 -X utf8 -I _도구/센서기록_추출.py 0f0e49ba-0279-4b34-a2d3-08d4d6981e33 "P00_환경_체계_로깅/03_작업기록/코드리뷰_20261030_S1"
+#   세션 id 만 주면 `~/.claude/projects/*/<세션 id>/subagents` 를 찾는다(세션 id 는 프로젝트를 가로질러 하나뿐이다).
+#   여러 개 · 0개면 멈춘다 — 그때는 subagents 폴더 경로를 통째로 넘긴다(가이드 8.1).
 #   Mac 기본 python3 는 3.9 다 — 아래 __future__ 줄이 `str | None` 표기를 3.9 에서도 돌게 한다.
 #
 # 산출(출력 폴더):
@@ -34,11 +35,11 @@ KST = timezone(timedelta(hours=9))
 def resolve_src(arg: str) -> str:
     if os.path.isdir(arg):
         return arg
-    home = os.environ.get("USERPROFILE") or os.path.expanduser("~")
-    cand = os.path.join(home, ".claude", "projects", "d--UBM", arg, "subagents")
-    if os.path.isdir(cand):
-        return cand
-    sys.exit(f"subagents 폴더를 찾지 못했다: {arg} (시도: {cand})")
+    pattern = os.path.join(os.path.expanduser("~"), ".claude", "projects", "*", arg, "subagents")
+    found = [p for p in glob.glob(pattern) if os.path.isdir(p)]
+    if len(found) == 1:
+        return found[0]
+    sys.exit(f"subagents 폴더를 하나로 찾지 못했다: {arg} (찾은 수 {len(found)}, 시도: {pattern})")
 
 
 def to_kst(ts: str | None) -> str:

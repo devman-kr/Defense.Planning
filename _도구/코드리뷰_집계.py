@@ -4,9 +4,9 @@
 #     처리표를 모아 세어야 한다(X-14, 2026-10-21). 과제 종결 때 계획 세션이 돌리고, 결과를 보고 판정한다 — 이 스크립트는 세기만 한다.
 #
 # 쓰는 법(Planning 루트에서):
-#   python -X utf8 -I _도구/코드리뷰_집계.py                 # 전체(z.completed 포함) — 표준 출력
-#   python -X utf8 -I _도구/코드리뷰_집계.py --task P02      # 과제 하나(지표 행 초안용)
-#   python -X utf8 -I _도구/코드리뷰_집계.py --write         # 전체 결과를 코드리뷰_집계.md 로 덮어쓴다(과제 종결 때)
+#   python3 -X utf8 -I _도구/코드리뷰_집계.py                 # 전체(z.completed 포함) — 표준 출력
+#   python3 -X utf8 -I _도구/코드리뷰_집계.py --task P01      # 과제 하나(지표 행 초안용)
+#   python3 -X utf8 -I _도구/코드리뷰_집계.py --write         # 전체 결과를 코드리뷰_집계.md 로 덮어쓴다(과제 종결 때)
 #
 # 읽는 것: 처리.md 의 표 행 가운데 첫 칸이 식별자(`<과제>.<세션>.<저장소>.<번호>`)인 행. 열 순서는 가이드 8절 고정 —
 #   식별자 · 원본 · 라운드 · 종류 · 심각도 · 기원 · 영역 · 유형 · 파일:줄 · 실패 시나리오 · 확신 · 처리 · 근거 · 커밋 · 반론 (14열).
@@ -23,7 +23,8 @@ from collections import Counter, defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ID_RE = re.compile(r"^`?([A-Z]\d{2}[A-Za-z0-9]*)\.([^.`|]+)\.([A-Z]+)\.(\d+)`?$")
-AREAS = ["AUTH", "AUTHZ", "LIMIT", "INPUT", "DATA", "CONTRACT", "TEST", "LOG", "UI", "BUILD"]
+# 영역 코드는 가이드 부록 A(Unity 판, X-03) — 바꾸면 같이 바꾼다
+AREAS = ["SAVE", "ECON", "LIFE", "TIME", "PERF", "INPUT", "CONTRACT", "TEST", "UI", "BUILD"]
 PROCS = ["고침", "틀림", "의도", "범위 밖", "처리 안 함", "미해결"]
 
 
@@ -36,7 +37,7 @@ def norm_proc(v: str) -> str:
 
 
 def first_file(cell: str) -> str:
-    m = re.search(r"`?([\w./\\-]+\.(?:cs|razor|dart|md|json|sql|yml|yaml|xml|js|ts|csproj|dockerignore|gitignore))", cell)
+    m = re.search(r"`?([\w./\\-]+\.(?:cs|asmdef|asset|unity|prefab|shader|hlsl|uss|uxml|inputactions|md|json|py|yml|yaml|xml|js|ts|html|gitignore|gitattributes))", cell)
     if not m:
         return cell.strip().split()[0].strip("`") if cell.strip() else ""
     return os.path.basename(m.group(1).replace("\\", "/"))
@@ -117,7 +118,7 @@ def main() -> None:
         out.append(f"| `{a}` | {len(rs)} | {c['고침']} | {c['틀림']} | {c['의도']} | {c['범위 밖']} | {c['처리 안 함']} | {c['미해결']} | {ids} |")
     out.append("")
     # 3. 같은 저장소 · 같은 영역 · 같은 파일 3세션
-    #    저장소를 키에 넣는다 — Console 과 Server 에 같은 이름의 파일(AuthService.cs)이 있어 이름만으로 묶으면 거짓 후보가 난다(P02 검산 2026-10-22).
+    #    저장소를 키에 넣는다 — 저장소가 다른 같은 이름의 파일을 이름만으로 묶으면 거짓 후보가 난다(EasyCheck 검산 2026-10-22).
     #    한 과제의 구현 세션과 마일스톤 리뷰 세션이 같은 파일을 짚는 것은 둘로 세되 재발은 아니다 — 「과제 수」 열로 사람이 가른다.
     out.append("## 3. 같은 저장소 · 영역 · 파일이 세 세션 이상 (6절 「3회 반복」 가로지르기 — 사용자에게 올릴 후보. 과제 수 1 이면 구현 + 마일스톤 리뷰가 겹친 것일 수 있다)")
     out.append("")
