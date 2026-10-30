@@ -1,0 +1,32 @@
+[
+ {
+  "id": "agent-a5dfa64ca586ffdf9",
+  "description": "S1 도구 변경 세션 센서",
+  "model_requested": "sonnet",
+  "model": "claude-sonnet-5-5",
+  "start_kst": "2026-10-30 15:41:49",
+  "end_kst": "2026-10-30 15:46:41",
+  "tool_calls": 21,
+  "cache_creation": 244423,
+  "input": 66,
+  "output": 88207,
+  "cache_read": 2669610,
+  "new_tokens": 332696,
+  "final_source": "SubagentHandback"
+ },
+ {
+  "id": "agent-aa40ae23f35eccd4b",
+  "description": "S1 수정 커밋 2라운드 센서",
+  "model_requested": "sonnet",
+  "model": "claude-sonnet-5-5",
+  "start_kst": "2026-10-30 15:48:01",
+  "end_kst": "2026-10-30 15:51:28",
+  "tool_calls": 13,
+  "cache_creation": 144076,
+  "input": 42,
+  "output": 56493,
+  "cache_read": 1266385,
+  "new_tokens": 200611,
+  "final_source": "SubagentHandback"
+ }
+]
