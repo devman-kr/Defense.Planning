@@ -1,3 +1,14 @@
+---
+id: "{YYYYMMDD}-{slug}"
+title: "NOTES — {Pnn} 작업 메모"
+summary: "{한 문장 — 이 과제의 세션 인계 메모가 지금 무엇을 담는지}"
+doc_type: note
+status: final
+lifecycle: living
+created: "{YYYY-MM-DD}"
+updated: "{YYYY-MM-DD}"
+work_unit: "{Pnn}"
+---
 # NOTES — Pnn 작업 메모
 
 세션이 작업하면서 **다음 세션이 알아야 할 것**을 적는 곳이다. 과제 지도는 [`README.md`](README.md), 결정은 [`결정기록.md`](결정기록.md), 여러 과제에 걸치는 메모는 [`../NOTES.md`](../NOTES.md).

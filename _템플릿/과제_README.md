@@ -1,3 +1,14 @@
+---
+id: "{YYYYMMDD}-{slug}"
+title: "{Pnn} — {과제 제목}"
+summary: "{한 문장 — 무엇을 왜 하는 과제이고 어느 저장소에 걸치는지}"
+doc_type: guide
+status: final
+lifecycle: living
+created: "{YYYY-MM-DD}"
+updated: "{YYYY-MM-DD}"
+work_unit: "{Pnn}"
+---
 # Pnn — 과제 제목
 
 **상태** 검토 | 결정 대기 | 계획 | 실행 | 검증 | 종결 | 보류 · **등재** YYYY-MM-DD · **다음 행동** 한 줄
@@ -35,5 +46,3 @@
 ## 알아 둘 것
 
 - 이 과제만의 전제 · 제약을 한 줄씩.
-
-_갱신: YYYY-MM-DD_
