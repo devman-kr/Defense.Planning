@@ -12,11 +12,11 @@
 
 ## 다음 세션 시작 전 확인 (덮어쓰기)
 
-_갱신: 2026-10-30 — 세션 3 이어서(Opus 5.5): P01 설계 확정(D-07~D-11) · 기획 저장소 `Defense.Design` 신설(X-02)_
+_갱신: 2026-10-30 — 세션 3 이어서(Opus 5.5): P01 설계 확정(D-07~D-11) · 기획 저장소 신설 → 세 게임 공통 G-10 · 룩앤필 목업 v1_
 
 1. `P00_환경_체계_로깅/NOTES.md` 「다음 세션 시작 전 확인」부터.
 2. `_공통/README.md` 3절 Q · 4절 실행 요청의 상태를 확인하고, 답이 없어도 P00 스트림 B(템플릿 Unity 화)는 진행한다.
-3. P01 은 설계 확정 — 기획 정본은 `../Defense.Design/기획서.md`(X-02). 다음 일은 `P01_게임설계_코어/NOTES.md` 「다음 세션」.
+3. P01 은 설계 확정 — 기획 정본은 `../Defense.Design/기획서.md`. 게임 기획 · 특징은 Design 에만 적고 `CLAUDE.md` 에는 적지 않는다(`_공통` G-10, 세 게임 공통). 다음 일은 `P01_게임설계_코어/NOTES.md` 「다음 세션」.
 4. 훅: `UserPromptSubmit` ✔(`../Defense.Logs/prompts/20261030.md`), 다이제스트 ✔(`sessions/20261029_7a119d3c.md`, 훅 커밋 `7c6c0cd`) — 2026-10-30 확인. `SessionEnd` 는 세션이 끝난 뒤 `git log` 로 확인한다.
 5. GitHub MCP: 연결 ✔(2026-10-29, `devman-kr`). 도구 목록이 바뀌면 권한 대조(P00 NOTES 「함정」).
 
@@ -26,7 +26,7 @@ _갱신: 2026-10-30_
 
 | 항목 | 상태 |
 |---|---|
-| 저장소 | `Defense.Planning` `main` · `Defense.Design` `main`(2026-10-30 신설, X-02) · `Defense.Logs` `main` — 로컬만, 원격 없음. `Defense.Unity` 없음(Unity 설치 뒤) |
+| 저장소 | `Defense.Planning` `main` · `Defense.Design` `main`(2026-10-30 신설, X-02 → G-10) · `Defense.Logs` `main` — 로컬만, 원격 없음. `Defense.Unity` 없음(Unity 설치 뒤) |
 | 도구 | Unity · Blender · gh · .NET SDK 미설치. Xcode 26.6 · Node 24.21 · Python 3.9.6 · uv · Homebrew 있음(`_공통/README.md` 실행 요청) |
 | 훅 | `.claude/settings.json` 등록 완료(G-05). 프롬프트 훅 자동 실행 확인 2026-10-29 |
 | MCP | `.mcp.json` GitHub(공식 원격) 연결 ✔ 2026-10-29 — 계정 `devman-kr`. 쓰기 도구 `permissions.ask` 24 · 저장소 삭제 `deny` |
@@ -34,8 +34,7 @@ _갱신: 2026-10-30_
 ## 사용자 대기 (덮어쓰기)
 
 - `_공통/README.md` 3절 Q-01~Q-05 · 4절 실행 요청 1 · 2 · 4 · 5(3 은 완료).
-- P01 룩앤필 목업 착수 여부 · 방식(권장 HTML + three.js 3D — `../Defense.Design/목업/README.md`).
-- 기획 저장소 배치(X-02)를 AirShooter · RideShooter 에도 둘지 — `_공통` G-06 보완.
+- P01 룩앤필 목업 v1 검토 — 링크 · 바로 가기는 `../Defense.Design/목업/README.md`.
 
 ---
 
