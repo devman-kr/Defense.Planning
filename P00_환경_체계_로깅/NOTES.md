@@ -35,6 +35,7 @@ _갱신: 2026-10-30_
 
 ## 사용자 대기 (덮어쓰기)
 
+- **키체인 대화상자 「항상 허용」** — `unity` CLI 가 토큰을 읽을 때 뜨는 macOS 대화상자에서 「항상 허용」을 누를지(누르면 다음 실행부터 안 뜬다 — 세션이 게이트를 혼자 돌릴 수 있다). 2026-10-30.
 - **에디터를 여는 주체** — 루트 `CLAUDE.md` 「공유 자원」 · `_공통` 상위 `CLAUDE.md` 「한 기기」의 「Unity 에디터는 사용자가 연다」를 「세션이 Unity CLI 로 창 없는 에디터를 띄워도 된다(Blender 와 동시 금지는 그대로)」로 바꿀지(D-08 은 이 세션 한정). 바꾸면 `_공통` G-nn 과 두 정본(`_공통/_템플릿/Games_CLAUDE.md` · `_템플릿/루트_CLAUDE.md`).
 - `Defense.Unity` 실기기 설치(선택) — `z.builds/debug/defense_20261030_3d4abc4_android-dev.apk`.
 - `_공통` Q-01~Q-03(S5 선행).
@@ -43,6 +44,7 @@ _갱신: 2026-10-30_
 
 ## 함정 · 주의 (누적)
 
+- **`unity` CLI 는 실행마다 macOS 키체인 접근 대화상자를 띄운다**(저장된 로그인 토큰 읽기 — Hub `broker-audit` 「stored-token-valid」). 사용자가 「항상 허용」을 누르기 전까지 batchmode 게이트도 그 응답을 기다린다 — 2026-10-30 19:28:33 프롬프트 → 19:35:16 허용(403초), 실제 게이트 7초. 세션은 게이트를 돌릴 때 대화상자를 알리고 시간에서 뺀다. 「항상 허용」 여부는 사용자 결정(사용자 대기에 올림). `securityd` 로그 확인: `/usr/bin/log show --predicate 'process == "securityd"' | grep 'keychain prompt'`(zsh 의 `log` 는 내장 명령이라 `/usr/bin/log`).
 - **`unity command` 의 전역 옵션은 `command` 앞에** — `unity command … --no-banner editor status` 처럼 뒤에 두면 `--no-banner` 가 다음 낱말을 값으로 먹어 `status` 만 남는다(2026-10-30). `unity --no-banner command --project-path "$PWD" --caller plugin --skill unity-cli <그룹> <이름>` 꼴로 쓴다(`Defense.Unity/CLAUDE.md` 의 `U`).
 - **`build create_profile --platform Web` 은 PlayerSettings 전체 사본(944줄)을 프로필에 넣는다** — 그대로 두면 `ProjectSettings/` 를 바꿔도 Web 빌드에 반영되지 않는다. 내부 `BuildProfile.RemovePlayerSettings(true)` 로는 안 지워졌고 `SerializedObject` 로 `m_PlayerSettingsYaml.m_Settings` 를 비워야 했다(Android 프로필은 사본 없이 생성). `Defense.Unity/CLAUDE.md` 「검토 기준」 한 줄.
 - **`build run --profileName` 만 주면 활성 대상(macOS)으로 빌드된다** — pipeline 0.9.1 `Editor/Commands/Build/BuildCommand.cs` 가 대상을 프로필 적용 전에 정하고 개발 빌드도 `options` 로만 받는다. `--target Android --options '["Development"]'` 를 같이 준다. 첫 시도가 `.app` 을 만들어 지웠다(2026-10-30).
@@ -62,7 +64,7 @@ _갱신: 2026-10-30_
 ## 발견 로그 (누적, 최신 위)
 
 - 2026-10-30 — 세션 8(Opus 5.5) NRE 조기 감지 웹 조사 → X-04 · [`01_검토/기술근거_20261030_NRE감지.md`](01_검토/기술근거_20261030_NRE감지.md). 첫 제안의 Nullable 참조 형식은 코딩 표준 §5.5(`#nullable` 금지)와 충돌해 뺐다 — 웹 조사 전에 저장소 표준 · 작업 보고를 먼저 대조했어야 했다(S2 가 이미 끝나 「S2 에서 확인할 것」 셋 중 둘은 실측으로 답이 있었다). 공식 내장 직렬화 참조 검증 도구는 찾지 못했다(웹 검색 기준 △).
-- 2026-10-30 — S1c 세션 센서(sonnet 1): 폴더 [`03_작업기록/코드리뷰_20261030_S1c/`](03_작업기록/코드리뷰_20261030_S1c/) · 미해결 0 · H 후보 없음. 장부(G-02)에 문서 · AI 생성 사본도 적어야 한다는 지적 — 코드 아닌 파일을 장부 대상으로 생각하지 못했다. 둘째 게이트 실행 410초(첫 14초) 원인 미확인 [추정 — 다른 세션 활동 중 재임포트]. 세션 창이 닫혀도 서브에이전트 전사는 `subagents/` 에 남아 추출 도구가 그대로 뽑았다 ✔
+- 2026-10-30 — S1c 세션 센서(sonnet 1): 폴더 [`03_작업기록/코드리뷰_20261030_S1c/`](03_작업기록/코드리뷰_20261030_S1c/) · 미해결 0 · H 후보 없음. 장부(G-02)에 문서 · AI 생성 사본도 적어야 한다는 지적 — 코드 아닌 파일을 장부 대상으로 생각하지 못했다. 둘째 게이트 실행 410초(첫 14초)는 `unity` CLI 의 키체인 접근 대화상자를 사용자가 6분 43초 뒤에 허용한 시간 — `securityd` 로그로 확인 ✔(「함정」). 세션 창이 닫혀도 서브에이전트 전사는 `subagents/` 에 남아 추출 도구가 그대로 뽑았다 ✔
 - 2026-10-30 — S1b 세션 센서(sonnet, 2라운드 + 반론 D): 폴더 [`03_작업기록/코드리뷰_20261030_S1b/`](03_작업기록/코드리뷰_20261030_S1b/) · 미해결 0 · H 후보 없음(S1c 몫 1). 문서 리뷰에 Unity 매뉴얼 WebFetch 대조를 넣으니 「왜」의 사실 오류 2(파일 이름 · MPB)와 근거 없는 「왜」 6줄을 잡았다 — 결정 D-07 ⑦ 「매뉴얼로 확인한 것만」이 규칙으로 있어서 센서가 그 기준으로 대조할 수 있었다. 2라운드의 「처리표 고침 표본 검산」이 「부분만 고침」 4건을 되돌려 줬다. 분량 목표(12 KB)는 결정 항목(신설 7절 · 「왜」 · 근거)만으로 넘는 추정 오류였다 ✔
 - 2026-10-30 — S2 세션 센서(sonnet) + 판정 반론 1: 폴더 `03_작업기록/코드리뷰_20261030_S2/` · 미해결 0 · H 후보 H-02(PC 품질 단계 WebGL 제외 · 프로필 사본 테스트 · WebGL 게시처 압축). 고침 커밋 `Defense.Unity` `59f9a07`. ✔
 - 2026-10-30 — S2: `com.unity.pipeline` 런타임 어셈블리는 `defineConstraints` 가 `UNITY_EDITOR || ENABLE_RUNTIME_PIPELINE(_DEV)` 라 플레이어에 안 들어간다 — Android APK `global-metadata.dat` 에서 `Unity.Pipeline` 0건 · `Defense.Core` 1건으로 확인. 라이선스는 Unity Terms of Service(패키지 `LICENSE.md`), 템플릿 `com.unity.template.urp-blank` 17.1.0 은 Unity Companion License. ✔
