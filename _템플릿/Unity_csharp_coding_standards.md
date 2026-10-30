@@ -2,7 +2,7 @@
 
 Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyCheck.Server 의 C# 코딩 표준(POCU C# 표준 계열 — 원문은 Planning 커밋 `caf8ac8`)을 Unity 6 · 모바일 · 오프라인 · 공개 포트폴리오 전제로 고쳤다(Planning P00 검토서 2026-10-30 · 결정 D-06 · D-07). 정본은 Planning `_템플릿/Unity_csharp_coding_standards.md`, 사본은 `Defense.Unity/z.docs/dev/csharp_coding_standards.md` — 고칠 때는 정본을 고치고 복사한다.
 
-**읽는 법**: 규칙은 번호 한 줄이라 「표준 §5.7」처럼 인용한다. Unity 전용 규칙에는 「왜」 한 줄이 붙고, 번호는 끝의 「근거」 표다. 절 머리의 대괄호는 코드리뷰 가이드 영역 코드(`SAVE` · `ECON` · `LIFE` · `TIME` · `PERF` · `INPUT` · `CONTRACT` · `TEST` · `UI` · `BUILD`)이고, 대괄호가 없는 절(이름 · 서식 · 주석)은 리뷰 영역이 아니라 IDE · 리뷰어 취향 밖의 약속이다. 폴더 · 어셈블리 · 게이트 · 패키지 규칙은 저장소 `CLAUDE.md` 에만 있고 여기서는 가리키기만 한다. 이 표준은 규칙이지 게이트가 아니다 — 지키는지는 코드 리뷰가 본다. 언어는 C# 9.0(Unity 6000.3, 근거 1).
+**읽는 법**: 규칙은 번호 한 줄이라 「표준 §5.7」처럼 인용한다. Unity 전용 규칙에는 「왜」 한 줄이 붙고, 번호는 끝의 「근거」 표다. 절 머리의 대괄호는 코드리뷰 가이드 영역 코드(`SAVE` · `ECON` · `LIFE` · `TIME` · `PERF` · `INPUT` · `CONTRACT` · `TEST` · `UI` · `BUILD`)이고, 대괄호가 없는 절(기본 원칙 · 이름 · 클래스 구조 · 서식 · 에셋 이름 · 주석)도 리뷰가 보지만, 처리표의 영역 열은 지적이 닿는 동작 영역(예: §1.1 위반은 `BUILD`, §1.3 은 `CONTRACT`)으로 작성 세션이 매긴다. 폴더 · 어셈블리 이름과 위치 · 게이트 · 패키지 규칙은 저장소 `CLAUDE.md` 「코딩」 에만 있고 여기서는 가리키기만 한다. 「작성 세션이 더한 규칙」 표시는 결정 D-06 · D-07 에 없던 규칙이라 사용자 확인 대기라는 뜻이다. 이 표준은 규칙이지 게이트가 아니다 — 지키는지는 코드 리뷰가 본다. 언어는 C# 9.0(Unity 6000.3, 근거 1).
 
 ---
 
@@ -26,7 +26,7 @@ Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyChec
 | 상수(`const` · `static readonly`) | UPPER_SNAKE_CASE | Unity 관례는 `k_PascalCase` 이나 이 저장소는 UPPER_SNAKE(D-07) |
 | 프로퍼티 | PascalCase | 자리는 §3 순서(필드 뒤) |
 | 지역 변수 · 매개변수 | camelCase | |
-| 메서드 | PascalCase, 동사 + 명사 | 코루틴은 동사 + `Routine`(`SpawnWaveRoutine`) |
+| 메서드 | PascalCase, 동사 + 명사 | 코루틴은 동사 + `Routine`(`SpawnWaveRoutine`, 작성 세션이 더한 규칙) |
 | bool 반환 메서드 · 프로퍼티 | `Is` · `Can` · `Has` · `Should` 접두 | |
 | 이벤트 | 동사구 과거형 `WaveStarted` · `EnemyDied`, 발생 메서드 `OnWaveStarted` | C# `event Action<T>`(§7.5) |
 | 줄임말 | 단독이면 대문자, 뒤에 단어가 오면 파스칼 · 카멜 | `OrderID` · `HttpCode` |
@@ -35,7 +35,7 @@ Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyChec
 | 저장 타입 | `Save` 로 시작 — `SaveData` · `SaveSystem` | 코드리뷰 가이드 고위험 경로 `**/Save*` 가 이 이름으로 잡는다 |
 | 시스템 · 서비스 | `<이름>System` · `I<이름>Service` | `WaveSystem` · `ISaveService` |
 
-1. **코어 경계**: 다른 게임에서 수정 없이 쓰는 것(저장 · 광고 자리 · 플랫폼 · 풀 · 로그 래퍼 · 시간 배속 · 범용 유틸)은 `Devman.Core`, 이 게임의 규칙(웨이브 · 무기 · 드래프트 · 강화)은 `Defense.Game`. Core 는 Game 을 참조하지 않고 Core 코드에 게임 이름이 들어가지 않는다. 애매하면 Game 에 두고 두 번째 게임이 필요로 할 때 Core 로 올린다 — 개별 시스템의 소속은 `DEF-M01` asmdef 분할 때 정한다.
+1. **코어 경계**: 다른 게임에서 수정 없이 쓰는 것(저장 · 광고 자리 · 플랫폼 · 풀 · 로그 래퍼 · 시간 배속 · 범용 유틸)은 `Devman.Core`, 이 게임의 규칙(웨이브 · 무기 · 드래프트 · 강화)은 `Defense.Game`. Core 코드에는 게임 이름이 들어가지 않는다(참조 금지는 `CLAUDE.md` 의 asmdef 규칙). 애매하면 Game 에 두고 두 번째 게임이 필요로 할 때 Core 로 올린다(작성 세션이 더한 규칙) — 개별 시스템의 소속은 `DEF-M01` asmdef 분할 때 정한다.
    — 왜: 코어는 다음 게임이 복사해 간다(G-07). 게임 이름이 들어 있으면 복사할 때마다 고쳐야 한다.
 2. 반복문 인덱스 말고는 의미 있는 이름. getter · setter 메서드 대신 프로퍼티. `OrNull` 접미는 §6.1.
 3. **경계의 이름**: 기획 데이터 표의 열 ↔ 데이터 에셋 필드는 `_` 와 대소문자를 빼면 같은 이름이고 단위는 접미(`Seconds` · `PerSecond` · `Percent` · `Meters`). 저장 DTO 의 public 필드는 camelCase — 그 이름이 JSON 키가 된다(§12.1). 태그 · 레이어 · 씬 · 애니메이터 파라미터 · 입력 액션 이름은 상수 클래스 하나(`GameIds`)에 — 문자열 리터럴을 흩뿌리지 않는다.
@@ -45,7 +45,7 @@ Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyChec
 ## 2. 파일 · 프로젝트 구조 [BUILD]
 
 1. **클래스 하나 = 파일 하나**, 파일 이름 = 클래스 이름(대소문자까지). 한 파일에 클래스 여럿을 두지 않는다.
-   — 왜: 클래스가 하나면 Unity 가 이름이 달라도 찾아 주지만, 여럿이면 파일 이름과 같은 클래스만 고르고 못 고르면 경고를 낸다(근거 7).
+   — 왜: MonoBehaviour · ScriptableObject 파생은 클래스가 하나면 Unity 가 이름이 달라도 찾아 주지만, 여럿이면 파일 이름과 같은 클래스만 고르고 못 고르면 경고를 낸다(근거 7).
 2. partial 은 `클래스명.세부.cs` 로 나누되 `클래스명.cs` 를 반드시 둔다. 드물게 쓴다.
    — 왜: MonoBehaviour 를 partial 로 나누면 파일 이름이 클래스 이름과 같은 파일만 컴포넌트로 붙는다(근거 7).
 3. `using` 은 IDE 정렬 — `System` 계열 먼저, 나머지는 알파벳. 안 쓰는 `using` 은 지운다. 파일 범위 네임스페이스(C# 10)는 쓸 수 없다 — 블록으로.
@@ -83,7 +83,7 @@ Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyChec
 3. 컨테이너는 `System.Collections.Generic`. 예외: 코루틴 반환형 `IEnumerator`(`System.Collections`).
    — 왜: Unity 코루틴은 비제네릭 `IEnumerator` 를 반환하는 메서드다(근거 5).
 4. 디폴트 매개변수는 비트 패턴 0(`null` · `false` · `0`). 자주 쓰는 호출은 축약형 오버로딩.
-5. **금지**: `using` 선언(C# 8) · `??` · `??=` · 대상 형식 `new()`(C# 9) · 레코드 · `init` 세터 · `#nullable` 컨텍스트.
+5. **금지**: `using` 선언(C# 8) · `??` · `??=`(작성 세션이 더한 규칙) · 대상 형식 `new()`(C# 9) · 레코드 · `init` 세터 · `#nullable` 컨텍스트.
    — 왜(레코드 · `init`): Unity 6000.3 은 C# 9 이지만 `init` 세터를 지원하지 않고 레코드는 직렬화되지 않는다(근거 1). — 왜(`#nullable`): UnityEngine API 에 null 주석이 없어 경고만 늘고, Unity 의 가짜 null(§6.3)을 표현하지 못한다.
 6. **필수**: `new` 뒤 명시적 타입. `out` 변수는 별도 줄에 선언(단순하면 인라인 허용).
 7. **핫패스 금지**(매 프레임 · 적 · 투사체 단위로 도는 코드): LINQ · 박싱 · 문자열 결합 · 보간 · 클로저 · `params` · 인터페이스 타입으로 받은 컬렉션의 `foreach`(열거자가 박싱된다) · 새 배열 · `yield` 열거.
@@ -97,9 +97,9 @@ Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyChec
 
 1. public 메서드의 매개변수 · 반환값은 null 을 허용하지 않는 것을 추구한다. 허용하면 이름 뒤에 **`OrNull`**(`FindTargetOrNull`).
 2. 순수 C# 타입에는 `?.` 허용, `??` 는 금지(§5.5).
-3. **`UnityEngine.Object` 파생**(GameObject · Component · MonoBehaviour · ScriptableObject)은 **`== null` · `!= null` 만.** `?.` · `??` · `is null` · `is not null` · `ReferenceEquals` 금지.
+3. **`UnityEngine.Object` 파생**(GameObject · Component · MonoBehaviour · ScriptableObject)은 **`== null` · `!= null` 만.** `?.` · `??` · `is null` · `is not null` · `ReferenceEquals`(작성 세션이 더한 규칙) 금지.
    — 왜: Unity 의 `==` 는 관리 참조뿐 아니라 네이티브 객체 포인터도 검사해 파괴된 객체를 null 로 본다(근거 2). `is null` 은 컴파일러가 사용자 정의 `==` 를 부르지 않도록 보장하고, `?.` · `??` 는 피연산자 자체가 null 인지만 본다(근거 3) — 파괴된 객체를 산 것으로 다룬다.
-4. Unity 객체를 인터페이스 · `object` · 제네릭 `T` 변수로 들고 있으면 `== null` 도 Unity 의 `==` 가 아니다(정적 타입으로 묶인다). 그런 참조의 수명은 넘겨준 쪽(부트스트랩)이 보장하고, 파괴 여부를 꼭 봐야 하면 `(service as UnityEngine.Object) == null` 로 본다.
+4. Unity 객체를 인터페이스 · `object` · 제약 없는 제네릭 `T` 변수로 들고 있으면 `== null` 도 Unity 의 `==` 가 아니다(연산자는 정적 타입으로 묶인다 — `where T : UnityEngine.Object` 면 Unity 의 `==` 다). 그런 참조의 수명은 넘겨준 쪽(부트스트랩)이 보장하고, 파괴 여부를 꼭 봐야 하면 `(service as UnityEngine.Object) == null` 로 본다.
 5. 예외는 **경계에서만** 다룬다 — 저장 파일 읽기(§12.4) · 데이터 에셋 검증(`OnValidate` · EditMode 테스트) · 플랫폼 API(광고 · 파일). 안으로 들어온 데이터는 유효하다고 가정하고 던지지 않는다.
 6. `catch (Exception)` 일괄 처리 금지 — 구체 타입. catch 하면 반드시 로그(§13). 정리 코드의 빈 catch 만 허용.
 7. **MonoBehaviour 메시지에서 시작하는 호출 경로에서는 예외를 던지지 않는다**(Core 순수 로직이라도 `Update` 에서 불리면 같은 경로다).
@@ -114,7 +114,7 @@ Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyChec
 
 1. 인스펙터 노출은 **`[SerializeField] private`** 만. public 필드 금지(저장 DTO 는 §12.1 이 예외). `[field: SerializeField]` 는 쓰지 않는다.
    — 왜: 자동 프로퍼티의 직렬화 이름은 C# 컴파일러가 프로퍼티 이름으로 만든 백킹 필드 이름이라, 프로퍼티 이름을 바꾸면 값이 끊긴다(C# 쪽 — 근거 표 밖, 세션 지식).
-2. 메시지의 역할: `Awake` = 자기 초기화 · 컴포넌트 캐시 / `Start` = 다른 객체 참조 · 부트스트랩이 넘긴 값 사용 / `OnEnable` · `OnDisable` = 구독 · 해제 **짝** / `OnDestroy` = 마지막 정리. 구독에 주입된 참조가 필요하면 첫 구독은 `Start`(또는 `Init`)에서 하고 해제는 그래도 `OnDisable` 에서 — 부트스트랩은 Script Execution Order 로 가장 먼저 `Awake` 가 돌게 한다.
+2. 메시지의 역할: `Awake` = 자기 초기화 · 컴포넌트 캐시 / `Start` = 다른 객체 참조 · 부트스트랩이 넘긴 값 사용 / `OnEnable` · `OnDisable` = 구독 · 해제 **짝** / `OnDestroy` = 마지막 정리. 주입된 참조가 필요한 구독은 참조를 받은 뒤에만 — `OnEnable` 은 참조가 있을 때(`_system != null`)만 구독하고, `Init` 은 참조를 넣은 뒤 같은 구독을 한 번 한다(풀 재활성화 때는 `OnEnable` 이 다시 구독한다). 부트스트랩은 Script Execution Order 로 가장 먼저 `Awake` 가 돌게 한다(작성 세션이 더한 규칙).
 3. **서비스 접근**: 씬의 부트스트랩 하나(`GameBootstrap`)가 시스템을 만들고 생성자 · `Init` 으로 참조를 넘긴다. `Instance` 싱글톤 · `FindObjectOfType` · `FindAnyObjectByType` · `GameObject.Find` · `SendMessage` 로 찾지 않는다. 정적 접근점은 순수 유틸(수학 · 상수)과 로그 래퍼(§13.2)뿐 — 꼭 필요하면 이유를 주석 한 줄로 남기고, 둘을 넘기면 설계를 다시 본다(§0 ⑤).
 4. 바깥과 닿는 것(광고 · 플랫폼 · 파일 · 시간)은 인터페이스(`I<이름>Service`) + 모의 구현(`Mock<이름>Service`). 게임 코드는 인터페이스만 보고, 기획서 8절 모의 광고가 첫 예다.
 5. 이벤트는 C# `event Action<T>`. `UnityEvent` 는 인스펙터에서 연결해야 하는 UI 에만.
@@ -123,7 +123,7 @@ Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyChec
 7. `FixedUpdate` 는 물리만. 게임 로직은 `Update` + `Time.deltaTime`(§10.1).
 8. `GetComponent` · `Camera.main` · `transform` 체인은 `Awake` 에서 캐시. 루프 안에서 부르지 않는다.
 9. `[RequireComponent]` · `[DisallowMultipleComponent]` 로 전제를 선언하고, 필수 참조는 `Awake` 에서 `Debug.Assert`. 커스텀 어트리뷰트는 `sealed` + `[AttributeUsage]` 명시.
-10. static 필드 · static 이벤트는 씬 로드로 초기화되지 않는다. 초기화는 `[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]` 한 곳에 모은다.
+10. static 필드 · static 이벤트는 되도록 두지 않는다. 두면 씬 로드로는 초기화되지 않으므로 자리는 둘 — 앱 · 플레이 시작은 `[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]`, 런 재시작 · 씬 전환은 부트스트랩(§9.6)(작성 세션이 더한 규칙).
     — 왜: 도메인 리로드를 끈 플레이 모드에서는 static 값과 static 이벤트 구독자가 플레이 세션 사이에도 남고, Unity 가 권하는 초기화 자리가 그 어트리뷰트다(근거 9).
 
 ---
@@ -166,7 +166,7 @@ Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyChec
 1. **매 프레임 할당 0** 이 목표 — 프로파일러 GC Alloc 열로 확인한다. 금지 목록은 §5.7. 성능은 추측하지 않고 프로파일러 수치로 말한다.
 2. 문자열은 UI 갱신 때만 만들고, 숫자 표시는 값이 바뀔 때만 갱신한다.
 3. 물리 질의는 `NonAlloc` 계열 + 레이어 마스크. 콜라이더를 껐다 켜기보다 레이어로 거른다.
-4. 개체별 색 · 변형은 팔레트 텍스처 UV(기획서 9절)나 머티리얼 변형 몇 개로. `renderer.material` 인스턴스화와 `MaterialPropertyBlock` 은 쓰지 않는다. 같은 메시 수백 개는 `Graphics.RenderMeshInstanced` 를 검토.
+4. 개체별 색 · 변형은 팔레트 텍스처 UV(기획서 9절)나 머티리얼 변형 몇 개로. `renderer.material` 인스턴스화와 `MaterialPropertyBlock` 은 쓰지 않는다(검토서 4.1 과 반대 방향 — 작성 세션이 더한 규칙). 같은 메시 수백 개는 `Graphics.RenderMeshInstanced` 를 검토.
    — 왜: URP 의 SRP Batcher 는 `MaterialPropertyBlock` 을 붙인 렌더러를 배칭에서 뺀다(근거 8).
 5. 목표는 적 300 · 중급 Android 60 fps(P01 NOTES — 측정 전 목표, 실측은 `DEF-M04`).
 
@@ -199,11 +199,11 @@ Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyChec
 
 ## 14. 비동기 · 코루틴 [TIME · LIFE]
 
-1. 프레임에 걸친 연출 · 대기는 **코루틴**. 저장 파일은 작아 동기로 읽고 쓴다(§12.4). SDK 콜백(광고)처럼 완료를 기다려야 하는 것은 Unity 6 **`Awaitable`** 로 감싼다(`AwaitableCompletionSource`). 우리가 `System.Threading.Tasks.Task` · UniTask 를 만들지 않는다 — SDK 가 `Task` 를 주면 `await` 는 허용(D-07).
+1. 프레임에 걸친 연출 · 대기는 **코루틴**. 저장 파일은 작아 동기로 읽고 쓴다(§12.4). SDK 콜백(광고)처럼 완료를 기다려야 하는 것은 Unity 6 **`Awaitable`** 로 감싼다(`AwaitableCompletionSource`). 우리가 `System.Threading.Tasks.Task` · UniTask 를 만들지 않는다(D-07). SDK 가 `Task` 를 주면 `await` 는 허용(작성 세션이 더한 예외).
    — 왜: `Awaitable` 은 Unity 가 플레이어 루프에 맞춰 제공하는 비동기 타입이고 패키지가 필요 없다(근거 5).
 2. `async void` 금지 → `async Awaitable`(이벤트 핸들러만 예외).
-3. 코루틴은 소유 GameObject 가 비활성화되거나 파괴되면 멈추지만 **`enabled = false` 로는 멈추지 않는다**(근거 5). 컴포넌트만 끄는 경우는 `OnDisable` 에서 `StopAllCoroutines()`.
-4. `await` 에는 `destroyCancellationToken` 을 넘기고, 돌아온 뒤 Unity 객체를 만지기 전에 자신이 파괴됐는지(`this == null`) 본다. 씬 전환 뒤 돌아오는 결과는 버린다.
+3. 코루틴은 소유 GameObject 가 비활성화되거나 파괴되면 멈추지만 **`enabled = false` 로는 멈추지 않는다**(근거 5). 컴포넌트만 끄는 경우는 `OnDisable` 에서 `StopAllCoroutines()`. 다른 객체가 이 객체를 대상으로 띄운 코루틴은 띄운 쪽이 `StopCoroutine` 한다.
+4. `await` 에는 `destroyCancellationToken` 을 넘긴다(작성 세션이 더한 규칙) — 취소되면 `OperationCanceledException` 으로 돌아오므로 그것만 잡아 조용히 끝낸다(§6.6 로그 규칙의 예외). 토큰이 없는 경로는 돌아온 뒤 Unity 객체를 만지기 전에 자신이 파괴됐는지(`this == null`) 본다. 씬 전환 뒤 돌아오는 결과는 버린다.
 5. Unity API 는 메인 스레드에서만. 스레드 · 잡 시스템은 이 게임 범위 밖(필요하면 보류 항목으로).
 6. `StartCoroutine("문자열")` 금지 — 메서드 참조로(작성 세션이 더한 규칙 — D-07 비고).
 
@@ -212,11 +212,11 @@ Defense(Lantern Rush!)와 뒤이은 게임들의 Unity C# 규칙이다. EasyChec
 ## 15. 테스트 [TEST]
 
 1. 순수 로직(저장 변환 · 곡선 평가 · 스탯 계산 · 추첨 — Core 든 Game 이든)은 MonoBehaviour 에 의존하지 않는 POCO 로 두어 EditMode 로 검사한다.
-   — 왜: EditMode 는 약 0.3초, PlayMode 는 씬이 필요하다(`CLAUDE.md` 「결정론 게이트」 실측).
+   — 왜: EditMode 는 열린 에디터에서 약 0.3초 · batchmode 약 20초이고, PlayMode 는 씬이 필요하다(`CLAUDE.md` 「결정론 게이트」 실측).
 2. 테스트 이름은 `메서드_상태_기대`(`Convert_V1Save_ProducesV2Fields`). 한 테스트에 한 가지 뜻.
 3. 필수 테스트: 데이터 에셋 검증(모든 `*Def` 로드 · 범위 · 표 대조, §8.5) · 저장 포맷 변환(§12.3) · 열거값 전수(§6.8).
 4. PlayMode 스모크(자동 선택 + 가속 한 판)는 런 흐름을 바꿨을 때.
-5. 테스트 어셈블리는 코드 어셈블리마다 짝 — Core 는 `Devman.Core.Tests.EditMode`(Core 폴더 안, 코어와 같이 복사된다), Game 은 `Defense.Tests.EditMode` · `Defense.Tests.PlayMode`. `internal` 은 각 어셈블리가 자기 테스트 어셈블리에만 `[assembly: InternalsVisibleTo]` 로 연다 — Core 의 IVT 에 게임 이름이 들어가지 않고(§1.1), 테스트 때문에 public 으로 올리지 않는다.
+5. 테스트 어셈블리는 코드 어셈블리마다 짝(이름 · 위치는 `CLAUDE.md` 「코딩」 — Core 의 것은 코어와 같이 복사된다). `internal` 은 각 어셈블리가 자기 테스트 어셈블리에만 `[assembly: InternalsVisibleTo]` 로 연다 — Core 의 IVT 에 게임 이름이 들어가지 않고(§1.1), 테스트 때문에 public 으로 올리지 않는다.
 6. 새 동작에 맞춰 단언만 바꾼 테스트는 지적 대상. 실제 연결(wiring)도 테스트에 넣는다.
 
 ---

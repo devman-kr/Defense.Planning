@@ -9,10 +9,7 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# Unity 가 직렬화하는 YAML 은 손대지 않는다 — 끝 공백 · 마지막 줄을 IDE 가 바꾸면 재직렬화 diff 가 난다.
-[*.{unity,asset,prefab,meta,mat,anim,controller,physicMaterial,playable,signal}]
-trim_trailing_whitespace = false
-insert_final_newline = false
+# Unity 가 직렬화하는 YAML(.unity · .asset · .prefab · .meta …)은 위 글롭에 없어 IDE 가 손대지 않는다 — 끝 공백 · 마지막 줄을 바꾸면 재직렬화 diff 가 난다.
 
 [*.cs]
 indent_style = space
@@ -24,12 +21,12 @@ csharp_style_var_for_built_in_types = false:warning
 csharp_style_var_when_type_is_apparent = false:suggestion
 csharp_style_var_elsewhere = false:warning
 
-# §4.2 Allman. 중괄호는 여러 줄 블록에 제안만 — 단일 흐름 제어문(return · continue · break)의 생략 허용은 IDE 가 표현 못 한다
+# §4.2 Allman. 한 줄 블록에도 중괄호 — 단일 흐름 제어문(return · continue · break)의 생략 허용은 IDE 가 표현 못 하므로 제안(suggestion) 수준
 csharp_new_line_before_open_brace = all
 csharp_new_line_before_else = true
 csharp_new_line_before_catch = true
 csharp_new_line_before_finally = true
-csharp_prefer_braces = when_multiline:suggestion
+csharp_prefer_braces = true:suggestion
 
 # §2.3 using — System 먼저, 나머지는 알파벳(Defense · Devman 이 UnityEngine 앞에 온다), 그룹 사이 빈 줄 없음
 dotnet_sort_system_directives_first = true
@@ -40,8 +37,7 @@ csharp_style_implicit_object_creation_when_type_is_apparent = false:warning
 csharp_prefer_simple_using_statement = false:warning
 dotnet_style_coalesce_expression = false:silent
 
-# §1 명명 — 접근성을 적은 규칙이 우선하고, 그다음 한정자가 더 구체적인 규칙이 이긴다(순서 무관).
-# 모든 심볼 그룹에 접근성을 적어 const · static readonly 가 private 필드 규칙에 밀리지 않게 한다.
+# §1 명명 — 심볼 그룹마다 접근성을 적는다(MS 문서 필수 항목). 실측(.NET SDK 10 Roslyn, 2026-10-30 2라운드 센서): const · static readonly 규칙이 private 필드 규칙을 이긴다. Rider 는 미확인.
 dotnet_naming_rule.constants_upper_snake.symbols = constants
 dotnet_naming_rule.constants_upper_snake.style = upper_snake
 dotnet_naming_rule.constants_upper_snake.severity = warning
