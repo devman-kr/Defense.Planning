@@ -6,7 +6,7 @@ doc_type: note
 status: final
 lifecycle: living
 created: 2026-10-29
-updated: 2026-10-30
+updated: 2026-10-31
 work_unit: P00
 ---
 # NOTES — P00 작업 메모
@@ -40,6 +40,7 @@ _갱신: 2026-10-30 — 세션 10(Opus 5.5): P00 잔여 작업 정리 — 완료
 3. **에디터는 세션이 연다 — `_공통` G-12**: 세션이 Unity CLI 로 창 없는 에디터를 띄워 `unity command` 로 다루고 끈다. 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」(`e227f1f` — 띄우기 4초 · 끄기 1초 실측). 사용자가 연 에디터의 종료 · 재시작은 승인 지점. 사용자 GUI 에디터를 쓰는 경로는 아직 실측 없음.
 4. **`Defense.Unity` 지금 모습**: 로컬 `main`, 원격 없음 — S2 `e46ecab`..`4dfe06d` · S1c `aeccdae` · `6130ea4` · `4d20f5b` · G-12 `e227f1f` · `e5741e3`. 게이트 에디터 닫힘 `unity test` 약 20초 · 열림 `unity command` 0.3초. 빌드 장부 `z.builds/BUILDS.md`(Android 개발 APK 42.7 MB · WebGL 14 MB). 작업 보고 `Defense.Unity/z.docs/work_reports/20261030/` 3편 · 센서 기록 `03_작업기록/코드리뷰_20261030_S1` · `_S1b` · `_S1c` · `_S2`. 코딩 표준 정본 `../_템플릿/Unity_csharp_coding_standards.md`(D-06 · D-07) = 사본 `Defense.Unity/z.docs/dev/csharp_coding_standards.md`, 네임스페이스 `Devman.Core.*` / `Defense.Game.*`.
 5. **닫은 확인(2026-10-30 세션 10)**: `csharp-lsp` 가 `Defense.Unity` 의 `.cs` 에서 호버(`GateSmokeTests.cs:20` → `Assembly core`) · 정의 이동(`:20` → `:13`) ✔ — 이 세션은 프로젝트가 생긴 뒤 열렸다. 개명 전 생성물 `Defense.Core.csproj`(17:30, git 밖)가 남아 있지만 `Defense.Unity.slnx` 는 `Devman.Core.csproj` 만 문다.
+6. **P02(문서 프론트매터, G-18)에서 넘겨받을 것**(2026-10-31 종결, 세션 af266641 — 기록 `../z.completed/P02_문서_프론트매터/`): ④ 복사 목록 — 세 작업 공간 `.claude/settings.json` 에는 PostToolUse 훅(`fm_lint.py --hook`)이 이미 들어 있고, `_템플릿/` 은 프론트매터 골격이 붙은 판이며, `Unity_README.md` 는 복사할 때 블록을 뗀다(`_공통/문서규약.md` 10절). ② 비밀값 검사 대상에 P02 의 새 파일이 든다 — `_공통/_도구/fm_lint.py` · `fm_migrate.py` · `tests/`(픽스처 포함) · `_공통/문서규약.md` · 이 과제 폴더. 세션 종료 5번에 문서 검사(`fm_lint.py --strict`)가 들어갔다. 새 세션을 처음 열면 프론트매터가 붙은 CLAUDE.md 를 그대로 따르는지 본다(P02 계획서 6절 — S3 에서 하네스가 블록을 떼고 읽는 것을 한 번 봄). GitHub 이 프론트매터를 표로 그리는지는 ⑧ 공개 뒤 화면으로 본다. 이 파일을 고칠 때마다 훅이 「Supercent 스타일은 [추정]」으로 시작하는 줄에 L20 경고를 낸다 — 괄호 표기가 링크 꼴이라서다(지난 기록이라 P02 는 고치지 않았다 — `]` 뒤를 띄우면 사라진다).
 
 ## 현재 상태 (덮어쓰기)
 
