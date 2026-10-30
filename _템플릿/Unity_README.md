@@ -70,7 +70,7 @@ z.docs/      마일스톤 · 작업 보고서(기획서는 별도 기획 저장�
 | CC0 · 오픈 라이선스 | (채움) | 3D 모델 · 효과음 · 폰트 — 전체 목록 [`ASSETS.md`](ASSETS.md) |
 | AI 생성 | (채움) | 도구 · 모델 표기는 `ASSETS.md` |
 
-개발 과정(기획 · 과제 · 결정 · 세션 로그): (채움 — `_공통` Q-02 · Q-03 결정 뒤 Design · Planning · Logs 저장소 링크)
+개발 과정(기획 · 과제 · 결정 · 세션 로그): (채움 — `https://github.com/devman-kr/<게임>.Design` · `.Planning` · `.Logs` · `games-common` 링크, `_공통` G-14 — 살아 있는 예는 `Defense.Unity/README.md`)
 
 ## 라이선스
 
