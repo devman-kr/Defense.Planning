@@ -1,10 +1,8 @@
 # Defense 작업 공간
 
-이 폴더(`~/_Projects/_Personal/Games/Defense`)는 git 저장소가 아니라 **작업 공간**이다 — EasyCheck 작업 공간(`~/UBM`)과 같은 배치다. 안에 독립 git 저장소가 있다 — `Defense.Unity`(Unity 6 프로젝트, 공개 포트폴리오 저장소 — Unity 설치 뒤 생성) · `z.docs/Defense.Planning`(과제 관리 — 마일스톤 단위 작업 계획) · `z.docs/Defense.Design`(기획 문서 — 살아 있는 기획서, X-02) · `z.docs/Defense.Logs`(세션 로그 — 훅이 쓴다). 이 문서의 정본은 `z.docs/Defense.Planning/_템플릿/루트_CLAUDE.md` 이고 여기는 사본이다 — 고칠 때는 정본을 고치고 복사한다(X-01). 세 게임에 공통인 규칙은 상위 `../CLAUDE.md`(G-nn 은 `../_공통/README.md`). git 밖 설정은 이 Mac 에만 있다 — `.claude/settings.json`(로깅 훅 · 권한) · `.mcp.json`(GitHub MCP, 토큰은 환경 변수 `GITHUB_PAT`). 사본 · 설명은 Planning `P00_환경_체계_로깅/NOTES.md` 「현재 상태」.
+이 폴더(`~/_Projects/_Personal/Games/Defense`)는 git 저장소가 아니라 **작업 공간**이다 — EasyCheck 작업 공간(`~/UBM`)과 같은 배치다. 안에 독립 git 저장소가 있다 — `Defense.Unity`(Unity 6 프로젝트, 공개 포트폴리오 저장소 — Unity 설치 뒤 생성) · `z.docs/Defense.Planning`(과제 관리 — 마일스톤 단위 작업 계획) · `z.docs/Defense.Design`(기획 문서, G-10) · `z.docs/Defense.Logs`(세션 로그 — 훅이 쓴다). 이 문서의 정본은 `z.docs/Defense.Planning/_템플릿/루트_CLAUDE.md` 이고 여기는 사본이다 — 고칠 때는 정본을 고치고 복사한다(X-01). 세 게임에 공통인 규칙은 상위 `../CLAUDE.md`(G-nn 은 `../_공통/README.md`). git 밖 설정은 이 Mac 에만 있다 — `.claude/settings.json`(로깅 훅 · 권한) · `.mcp.json`(GitHub MCP, 토큰은 환경 변수 `GITHUB_PAT`). 사본 · 설명은 Planning `P00_환경_체계_로깅/NOTES.md` 「현재 상태」.
 
-게임: **디펜스**(제목 「Lantern Rush!」 — 랜턴 러시!, D-07) — 맵 중앙에 플레이어(타워 · 타운)가 있고 사방에서 적(괴물 · 좀비)이 무한히 몰려온다. 컨트롤 최소화, 방치형 + 로그라이크. 스테이지 없음, 적은 계속 강해지고, 처치하면 경험치 · 화폐로 스킬 · 아이템 · 업그레이드. 3D · 캐주얼 · 로그라이크 · 탑다운, 1게임 10~30분, 모바일(Android · iOS) + 포트폴리오용 WebGL. 레퍼런스 Supercent(G-03).
-
-설계: 정본은 `z.docs/Defense.Design/기획서.md`(X-02) — 결정 경위는 Planning `P01_게임설계_코어/결정기록.md`(D-01~D-11), 2026-10-29 검토 시점 기록은 같은 과제 `01_검토/검토서_20261029.md`. 축은 「탑은 스스로 싸우고 플레이어는 고르기만 한다」(슬로건 「고르는 건 당신, 싸우는 건 탑.」) — 판 안 입력은 레벨업 카드 3장 중 1장 · 쿨다운 스킬 탭뿐이고 「자동 선택」 · 「배속 ×2」로 완전 방치도 된다. 건설은 없다. 재화는 경험치(판 안 → 카드) · 골드(판에서 벌어 낮에 영구 강화) 둘. 한 판은 하룻밤 — 로비 「낮의 섬」(같은 섬의 낮)에서 「하루 보내기」 → 밤 → 30분 생존 새벽 승리(이후 무한) 또는 등불이 꺼지면 패배 → 아침. 첫 실행은 로비 없이 튜토리얼 첫 밤. 설계와 다른 지시를 받으면 결정기록에 남기고 기획서를 고친 뒤 구현한다 — 코드가 기획서보다 앞서가지 않는다.
+게임 기획 · 특징(규칙 · 재화 · 화면 흐름 · 아트 · 범위 · 제목)은 전부 `z.docs/Defense.Design/` 에서 정리한다 — 정본 `기획서.md`(G-10). 이 문서에는 적지 않는다. 기획과 다른 지시를 받으면 Planning 과제 `결정기록.md` 에 D-nn 을 남기고 기획서를 고친 뒤 구현한다 — 코드가 기획서보다 앞서가지 않는다.
 
 ## 답변
 - 모든 최종 답변은 한글로 대답한다. 사용자에게 보이는 글은 전부 한글 — 진행 메시지, 질문(선택지 포함), 보고, 세션 끝 요약. 코드 · 명령 · 파일 경로 · 식별자는 원문 그대로 둔다.

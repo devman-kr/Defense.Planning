@@ -2,7 +2,7 @@
 
 # Defense.Unity
 
-Unity 6 · URP 모바일 게임 「Lantern Rush!」(랜턴 러시!)의 공개 포트폴리오 저장소(저장소 이름은 게임 순서 가칭 `Defense`, G-09). 작업 공간 규칙은 `../CLAUDE.md`(루트), 세 게임 공통은 `../../CLAUDE.md`, 과제 · 결정은 `../z.docs/Defense.Planning/`, 기획은 `../z.docs/Defense.Design/`. 이 문서는 저장소 안 작업(코드 · 문서 · 커밋)의 규칙이고, 루트와 충돌하면 이 문서가 우선한다.
+Defense 게임의 Unity 6 · URP 프로젝트이자 공개 포트폴리오 저장소. 게임 기획 · 특징은 `../z.docs/Defense.Design/`(G-10)에만 있고 이 문서에는 적지 않는다. 작업 공간 규칙은 `../CLAUDE.md`(루트), 세 게임 공통은 `../../CLAUDE.md`, 과제 · 결정은 `../z.docs/Defense.Planning/`. 이 문서는 저장소 안 작업(코드 · 문서 · 커밋)의 규칙이고, 루트와 충돌하면 이 문서가 우선한다.
 
 ## 작업 시작 전
 - 작업 계획을 다음 형식으로 제시한 뒤 승인을 기다린다:
