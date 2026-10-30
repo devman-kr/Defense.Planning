@@ -37,15 +37,35 @@ def norm_proc(v: str) -> str:
 
 
 LINE_RE = re.compile(r":\d+(?:-\d+)?$")
-FILE_RE = re.compile(r"[\w./\\-]*\.[A-Za-z0-9]+")
+# 파일로 볼 확장자 — 점이 든 일반 단어(`API.Spec` · `Time.timeScale` · `v1.2`)를 파일로 잡지 않게 목록으로 가른다.
+# 목록 밖 확장자라도 경로(`/` · `\`)가 붙어 있으면 파일로 본다
+EXTS = {
+    "cs", "asmdef", "asmref", "asset", "unity", "prefab", "mat", "meta", "shader", "shadergraph", "shadersubgraph",
+    "hlsl", "cginc", "compute", "uss", "uxml", "tss", "inputactions", "anim", "controller", "overridecontroller",
+    "mask", "physicmaterial", "rendertexture", "playable", "spriteatlas", "png", "jpg", "jpeg", "tga", "psd", "exr",
+    "fbx", "glb", "gltf", "obj", "blend", "wav", "ogg", "mp3", "ttf", "otf", "md", "json", "jsonl", "py", "sh",
+    "yml", "yaml", "xml", "js", "ts", "html", "css", "txt", "csv", "ini", "cfg", "toml",
+    "vue", "jsx", "tsx", "scss", "razor", "dart", "sql", "csproj", "sln", "props", "targets",
+}
+DOTFILES = {".gitignore", ".gitattributes", ".editorconfig", ".globalconfig", ".dockerignore"}
+PATH_RE = re.compile(r"(?<![\w.])([\w./\\-]*\.([A-Za-z][A-Za-z0-9]*))(?![A-Za-z0-9])")
+SEG_RE = re.compile(r"^([^`:·,;#]*?\.([A-Za-z][A-Za-z0-9]*))(?=$|[\s:·,;#])")
 
 
 def first_file(cell: str) -> str:
-    # 칸의 첫 「경로.확장자」 토큰 — 확장자 목록에 묶지 않는다(Unity 파일 종류가 많고, 목록은 접두 일치로 `.shadergraph` 를 `.shader` 로 자른다)
-    for tok in re.split(r"[\s,`()]+", cell):
-        tok = LINE_RE.sub("", tok)
-        if FILE_RE.fullmatch(tok):
-            return os.path.basename(tok.replace("\\", "/"))
+    # 「파일:줄」 칸의 첫 파일 이름 — 같은 파일을 줄이 달라도 한 키로 묶는다(6절 「3회 반복」). 칸을 왼쪽부터 본다
+    for piece in re.split(r"(`[^`]*`)", cell):
+        if piece.startswith("`") and piece.endswith("`") and len(piece) > 1:
+            # 백틱 안은 공백 · 괄호가 든 이름도 통째로(`Assets/Mats/New Material 1.mat:2` · `Foo_01 (1).png`)
+            m = SEG_RE.match(piece[1:-1].strip())
+            if m and m.group(2).lower() in EXTS:
+                return os.path.basename(m.group(1).replace("\\", "/"))
+        # 조사 · 기호 · 줄 표기(`SaveData.cs의` · `**Foo.cs:12**` · `Foo.cs#L41`)는 경계에서 떨어진다
+        for m in PATH_RE.finditer(piece):
+            path = m.group(1)
+            name = os.path.basename(path.replace("\\", "/"))
+            if m.group(2).lower() in EXTS or name in DOTFILES or "/" in path or "\\" in path:
+                return name
     return LINE_RE.sub("", cell.strip().split()[0].strip("`")) if cell.strip() else ""
 
 
