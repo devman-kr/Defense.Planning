@@ -24,7 +24,7 @@ _갱신: 2026-10-29_
 | 검토 | 검토서 2026-10-29 ✔ |
 | 결정 | D-01~D-03 · 공통 G-01~G-09 · 미결 Q-01~Q-04(`_공통`) |
 | 계획 | 미작성(Q 답 뒤) |
-| 저장소 변경 | `Defense.Planning` `main` 첫 커밋 · `Defense.Logs` `main` 첫 커밋(해시는 작업색인) · 원격 없음 |
+| 저장소 변경 | `Defense.Planning` `main` 첫 커밋 · `Defense.Logs` `main` 첫 커밋(해시는 작업색인) · `Defense.Design` `main` 신설 `a667577`(2026-10-30, Planning X-02) · 원격 없음 |
 | 환경 | Unity · Blender · .NET SDK · gh 미설치. brew cask: unity-hub 3.22.4 · blender 5.2.3 · dotnet-sdk 10.0.402 확인 ✔ |
 | 훅 | 2026-10-29 세션 2 에서 `UserPromptSubmit` 자동 실행 ✔(`../../Defense.Logs/prompts/20261029.md` 생성, 미커밋 — SessionEnd 훅 몫) |
 | GitHub MCP | 작업 공간 루트 `.mcp.json`(git 밖) — 공식 원격 서버 `https://api.githubcopilot.com/mcp/`, 헤더 `Authorization: Bearer ${GITHUB_PAT}` · `X-MCP-Toolsets: context,repos,issues,pull_requests,actions`. `.claude/settings.json` 에 `enabledMcpjsonServers: ["github"]` · `permissions.deny` `delete_repository` · `permissions.ask` 24개(저장소 생성 · 포크 · 파일 쓰기/삭제 · 브랜치 · PR 생성/수정/머지/리뷰 · 이슈 · 하위 이슈 · 댓글 · 워크플로 실행). **연결 ✔ 2026-10-29** — `get_me` 로그인 `devman-kr`, `search_repositories user:devman-kr` 공개 3(`devman-kr.github.io` · `medieval_inn_simulator` · `vscode-gdd-framework-preview`). `gh auth status` 범위 `repo` · `workflow` · `read:org` · `gist` |

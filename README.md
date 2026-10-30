@@ -1,6 +1,6 @@
 # Defense.Planning — 저장소를 가로지르는 과제의 관리 체계
 
-이 폴더는 `Defense.Unity` · `Defense.Logs` 두 저장소와 작업 공간에 걸치는 **과제(P-nn)** 의 검토 · 결정 · 계획 · 진행 상태 · 세션 인계를 담는다. 2026-10-29 신설. 체계는 EasyCheck.Planning(`~/UBM/z.docs/EasyCheck.Planning`, 2026-09-22~)을 그대로 가져왔고, 이 게임에 맞게 바꾼 것만 7절 X-nn 에 적는다. 세 게임 공통 결정(G-nn)은 `../../../_공통/README.md`. 작업 공간의 에이전트 지침은 루트 [`CLAUDE.md`](../../CLAUDE.md)(정본 [`_템플릿/루트_CLAUDE.md`](_템플릿/루트_CLAUDE.md)).
+이 폴더는 `Defense.Unity` · `Defense.Design` · `Defense.Logs` 저장소와 작업 공간에 걸치는 **과제(P-nn)** 의 검토 · 결정 · 계획 · 진행 상태 · 세션 인계를 담는다 — 마일스톤 단위의 작업 계획이다. 게임 기획(기획서 · 데이터 표 · 목업)은 [`../Defense.Design/`](../Defense.Design/README.md)(X-02). 2026-10-29 신설. 체계는 EasyCheck.Planning(`~/UBM/z.docs/EasyCheck.Planning`, 2026-09-22~)을 그대로 가져왔고, 이 게임에 맞게 바꾼 것만 7절 X-nn 에 적는다. 세 게임 공통 결정(G-nn)은 `../../../_공통/README.md`. 작업 공간의 에이전트 지침은 루트 [`CLAUDE.md`](../../CLAUDE.md)(정본 [`_템플릿/루트_CLAUDE.md`](_템플릿/루트_CLAUDE.md)).
 
 각 저장소 안의 규약 — `CLAUDE.md` · `z.docs/dev/milestone/` · `z.docs/work_reports/` · 커밋 규칙 — 은 **그대로 둔다.** 이 폴더는 그 위의 층이다. 저장소 하나로 끝나는 일은 여기 만들지 않는다.
 
@@ -11,7 +11,7 @@
 | ID | 과제 | 상태 | 다음 행동 | 갱신 |
 |---|---|---|---|---|
 | [P00](P00_환경_체계_로깅/README.md) | 환경 · 체계 · 로깅 | 검토 완료 — 결정 · 실행 대기 | 사용자 `_공통` Q-01~Q-05 답 · 실행 요청 1 · 2 · 4 · 5(3 은 완료) → 계획서 → 스트림 B · D · F. GitHub MCP 연결 ✔ 2026-10-29(`devman-kr`) | 2026-10-29 |
-| [P01](P01_게임설계_코어/README.md) | 게임 설계 구체화 · 코어 프로토타입(수직 슬라이스) | 검토 완료 — 결정 대기(Q4 · Q7) | D-01~D-06 확정(2026-10-29). 사용자 Q4 골드 · Q7 가제 답 → 설계 확정 → 계획서(`DEF-M01`~`M05`). 코드는 P00 D(`Defense.Unity` 생성) 뒤 | 2026-10-29 |
+| [P01](P01_게임설계_코어/README.md) | 게임 설계 구체화 · 코어 프로토타입(수직 슬라이스) | 계획 — 설계 확정 | D-01~D-11 확정(2026-10-30), 기획 정본 [`../Defense.Design/기획서.md`](../Defense.Design/기획서.md) v0.1(X-02). 다음: 룩앤필 목업(사용자 착수 승인 대기) · 데이터 표 · 플레이검사 체크리스트 → 계획서(`DEF-M01`~`M05`, P00 B 뒤). 코드는 P00 D(`Defense.Unity` 생성) 뒤 | 2026-10-30 |
 
 ---
 
@@ -22,6 +22,7 @@
 | **이어받는 세션** | 위 현황판 → [`NOTES.md`](NOTES.md) 「다음 세션 시작 전 확인」 → 과제 `NOTES.md` 같은 절 → 작업할 저장소의 `CLAUDE.md` → 그 저장소의 마일스톤 문서 |
 | 새 과제를 만든다 | 3절 규격대로 폴더를 만들고 `_템플릿/` 을 복사한다. 현황판에 한 줄 추가 |
 | 결정 근거를 찾는다 | 과제 `결정기록.md`(D-nn). 세 게임 공통 결정은 `_공통` G-nn. 체계 자체의 결정은 이 문서 7절(X-nn). 검토 시점의 전체 그림은 `01_검토/검토서_*.md` |
+| 게임 기획(지금의 모습)을 본다 | [`../Defense.Design/기획서.md`](../Defense.Design/기획서.md) — 왜 그렇게 정했는지는 과제 `결정기록.md` |
 | 보류된 일을 재개한다 | 과제 `보류작업.md`(H-nn) — 설계가 있는 곳 · 선행 조건 · 재개 방법 |
 | 저장소 규약을 확인한다 | `Defense.Unity/CLAUDE.md`. 마일스톤 · 작업 보고 템플릿은 그 저장소 `z.docs/`(P01 에서 만든다) |
 | 세션 로그를 찾는다 | `../Defense.Logs/prompts/YYYYMMDD.md` · `sessions/YYYYMMDD_<세션8>.md`(훅이 쓴다, G-05) |
@@ -94,6 +95,7 @@ Pnn_한글슬러그/
 | 무엇 | 어디 | 비고 |
 |---|---|---|
 | 과제의 검토 · 결정 · 계획 · 상태 · 인계 · 보류 | 이 폴더 | 저장소를 가로지르는 것만 |
+| 게임 기획 — 기획서 · 데이터 표 · 플레이검사 체크리스트 · 목업 | `../Defense.Design/` | 살아 있는 문서(X-02). 결정 경위는 이 폴더 과제 결정기록 |
 | 세 게임 공통 결정 · 조사 · 훅 정본 | `../../../_공통/` | G-nn · Q-nn. 여기에 다시 적지 않는다 |
 | 마일스톤 상세 설계 | `Defense.Unity/z.docs/dev/milestone/NN_slug/milestone.md` | 템플릿은 P01 에서 EasyCheck 것을 가져와 만든다. 과제 README 가 색인 |
 | 작업 보고 | `Defense.Unity/z.docs/work_reports/YYYYMMDD/N_verb_제목.md` | 작업색인이 링크. 이 폴더는 작업 보고서를 쓰지 않는다 |
@@ -108,14 +110,15 @@ Pnn_한글슬러그/
 | ID | 날짜 | 결정 | 기각한 대안 | 상태 |
 |---|---|---|---|---|
 | X-01 | 2026-10-29 | **EasyCheck.Planning 체계를 이 게임 작업 공간에 그대로 둔다**(G-06). 템플릿 · 가이드 · 도구는 EasyCheck 원본 사본이고, Server · Console · App 세 저장소 전제인 곳(계획서 1 · 2 · 5절, 작업지시서 「작업 위치」 · 「검증」, 리뷰어 지시 경로, 코드리뷰 가이드 5절 고위험 경로)은 P00 스트림 B 에서 Unity 저장소 하나 기준으로 고친다. 그 전에는 절차만 따르고 명령 · 경로는 루트 `CLAUDE.md` 우선. 루트 `CLAUDE.md` 정본은 `_템플릿/루트_CLAUDE.md`, 루트는 사본 | 세 게임이 Planning 하나를 공유(2026-10-29 첫 골격 — 사용자가 게임별 분리로 바꿈) | 채택(사용자 2026-10-29) · 골격 생성 완료 · Unity 화 미완 |
+| X-02 | 2026-10-30 | **기획 문서는 독립 저장소 `z.docs/Defense.Design` 에 둔다** — 살아 있는 기획서 · 데이터 표 · 플레이검사 체크리스트 · 룩앤필 목업. 이 폴더는 마일스톤 단위 작업 계획 · 결정 경위(D-nn) · 인계만 맡고, 검토서는 시점 기록. 규칙은 그 저장소 `README.md`. 기획서를 `Defense.Unity/z.docs/design/` 에 두려던 계획(8절 옛 줄 · P01 README · `_템플릿/Unity_CLAUDE.md`)을 대체 | `Defense.Unity/z.docs/design/`(Unity 저장소가 아직 없고, 기획은 코드보다 먼저 · 자주 바뀐다) · 이 폴더 안 하위 폴더(사용자 — Planning 은 작업 계획 용도) | 채택(사용자 2026-10-30) · 저장소 생성 `a667577`. GitHub 이름은 폴더 이름 그대로(`_공통` Q-02). 다른 두 게임에 같은 배치를 둘지는 `_공통` G-06 보완 — 사용자 결정 |
 
 ---
 
 ## 8. 알아 둘 것
 
-- `z.docs` 루트는 git 이 아니다. `Defense.Planning` · `Defense.Logs` 만 독립 git 저장소다. 원격은 공개 GitHub(G-04, 계정은 Q-02) — 아직 연결 전.
+- `z.docs` 루트는 git 이 아니다. `Defense.Planning` · `Defense.Design` · `Defense.Logs` 가 독립 git 저장소다. 원격은 공개 GitHub(G-04, 계정은 Q-02) — 아직 연결 전.
 - GitHub MCP 는 작업 공간 루트 `.mcp.json`(git 밖)에 공식 원격 서버(`https://api.githubcopilot.com/mcp/`)로 등록했고, 토큰은 환경 변수 `GITHUB_PAT`(값은 `gh auth token`)에서 읽는다. 쓰기 도구는 푸시와 같은 승인 지점이다 — 루트 `CLAUDE.md` 「푸시」 · `.claude/settings.json` `permissions.ask`. 설정 사본은 `P00_환경_체계_로깅/NOTES.md` 「현재 상태」.
 - Unity · Blender · gh 는 2026-10-29 현재 미설치(`_공통/README.md` 실행 요청). `Defense.Unity` 저장소는 Unity 설치 뒤 P00 스트림 D 에서 만든다.
-- 게임 설계는 P01 검토서가 정본(결정 전). 결정이 나면 `Defense.Unity/z.docs/design/` 의 살아 있는 기획서로 옮기고 검토서는 시점 기록으로 둔다.
+- 게임 기획의 정본은 `../Defense.Design/기획서.md`(X-02, 2026-10-30 — `Defense.Unity/z.docs/design/` 에 두려던 계획을 대체). P01 검토서는 2026-10-29 시점 기록이다(추기만).
 - `_템플릿/Unity_CLAUDE.md` · `Unity_README.md` 는 `Defense.Unity` 저장소의 `CLAUDE.md` · 공개 README 정본 초안이다(2026-10-29). P00 D 에서 복사한다.
 - 템플릿 · 가이드에 붙은 「사본 메모」가 EasyCheck 전제인 곳을 가리킨다. P00 B 가 끝나면 메모를 지운다.
