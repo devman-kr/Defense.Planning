@@ -28,7 +28,7 @@ _갱신: 2026-10-30_
 | 항목 | 상태 |
 |---|---|
 | 저장소 | `Defense.Planning` `main` · `Defense.Design` `main`(2026-10-30 신설, X-02 → G-10) · `Defense.Logs` `main` — 로컬만, 원격 없음. `Defense.Unity` 없음(Unity 설치 뒤) |
-| 도구 | Unity · Blender · gh · .NET SDK 미설치. Xcode 26.6 · Node 24.21 · Python 3.9.6 · uv · Homebrew 있음(`_공통/README.md` 실행 요청) |
+| 도구 | Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) + Android(OpenJDK 17 · SDK · NDK r27c) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(`~/.dotnet/tools`) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`) · Claude Code `unity` 플러그인 0.1.6-beta · Xcode 26.6 · Node 24.21 · Python 3.9.6 · uv · Homebrew · gh(2026-10-30 실측) |
 | 훅 | `.claude/settings.json` 등록 완료(G-05). 프롬프트 훅 자동 실행 확인 2026-10-29 |
 | MCP | `.mcp.json` GitHub(공식 원격) 연결 ✔ 2026-10-29 — 계정 `devman-kr`. 쓰기 도구 `permissions.ask` 24 · 저장소 삭제 `deny` |
 
@@ -52,4 +52,4 @@ _갱신: 2026-10-30_
 
 ## 미해결 (누적)
 
-- Unity 6 정확한 버전(6000.x LTS)은 설치 뒤 기록.
+- ~~Unity 6 정확한 버전(6000.x LTS)은 설치 뒤 기록.~~ → 6000.3.27f1 LTS(2026-10-30, `_공통` G-01 비고).

@@ -13,7 +13,7 @@ _갱신: 2026-10-30 — 세션 6(Fable 5.1): 6번 C# 코딩 표준 사본 추가
 1. **지금 어느 단계**: 계획 — [`02_계획/계획서_20261030.md`](02_계획/계획서_20261030.md). 끝난 것(A 골격 · C 훅 · gh · GitHub MCP · Design · Unity 템플릿 초안)은 0절에 한 번 적고 다시 계획하지 않는다(사용자 2026-10-30).
 2. **S1 완료**: 템플릿 · 가이드 · 도구가 Unity 판(Planning README 7절 X-03). 게이트 명령은 템플릿에 쓰지 않고 `Defense.Unity/CLAUDE.md` 「결정론 게이트」 한 곳 — **S2 에서 실측해 거기와 `_템플릿/Unity_CLAUDE.md` 에 같이 쓴다**. S4 는 이것으로 흡수(계획서 추기). 세션 센서 기록 `03_작업기록/코드리뷰_20261030_S1/`. 세션 5(Fable 5.1)가 가이드를 검토해 5절 「고」 범위를 재화 · 영구 강화 · 해금 · 저장으로 좁혔다(X-03 추기).
 3. **결정 끝(2026-10-30)**: 7절 #1 → `_공통` G-11(커밋 이메일 noreply — 저장소 10개 로컬 설정 완료, 기존 커밋 재작성은 F0) · #2 → D-04(E 는 P01 `DEF-M03` 으로) · #3~#8 → D-05. `Defense.Unity` 를 만들 때 로컬 `user.email` 도 noreply 로(G-11).
-4. **설치 뒤**: S2 D1 은 실행 요청 1(Unity) · 4(.NET — 이제 권장) 뒤, S3 D2 는 실행 요청 2(Blender) 뒤이고 **S2 와 같은 시간에 하지 않는다**(G-01). 설치 확인은 `ls /Applications/Unity/Hub/Editor` · `ls /Applications/Blender.app` · `dotnet --version`.
+4. **설치 끝(2026-10-30)**: Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) + Android(OpenJDK 17 · SDK · NDK r27c) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(`~/.dotnet/tools`) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`) · Claude Code `unity` 플러그인 0.1.6-beta. Hub 권장판 6000.6.7f1 은 LTS 가 아니라 지웠다(17 GB). **다음은 S2** — 사용자가 Unity Hub 에서 에디터를 열 수 있는 상태면 된다(프로젝트는 S2 가 만든다). S3(Blender)는 S2 와 같은 시간에 하지 않는다(G-01). 토큰 노출 확인: 이 세션 다이제스트에 값 형태 0건 ✔.
 5. **R1**: 이 세션이 끝난 뒤 `git -C z.docs/Defense.Logs log -1` 에 새 `chore: 세션 로그` 커밋이 있는지(작업 공간 루트에서). 10-29 16:08 `7c6c0cd` 뒤로 훅 커밋이 없고 미커밋 변경 3건이 남아 있다(2026-10-30 실측).
 6. **C# 코딩 표준 사본**: 사용자 요청(2026-10-30)으로 EasyCheck.Server `z.docs/dev/csharp_coding_standards.md`(EasyCheck 커밋 `eb7628e6`, `CLAUDE.md:95` 가 가리키는 현행 판)를 **그대로** [`../_템플릿/Unity_csharp_coding_standards.md`](../_템플릿/Unity_csharp_coding_standards.md) 에 두었다(SHA-256 일치 ✔). Unity 화(ASP.NET · DB · `[Developer]` · `>>`/`<<` 로깅 · INI 등 서버 전용 절 정리, `_템플릿/Unity_CLAUDE.md` 「코딩」과 대조)는 **아직 안 했다** — 사용자 「우선 가져오기만」. 자리는 S2 D1 7번 「우리 파일」에 `z.docs/dev/csharp_coding_standards.md` 로 넣는다. 예제가 든 긴 판(32 KB)은 EasyCheck `z.docs/z.old/csharp_coding_standards.md` 에 있다.
 
@@ -27,20 +27,23 @@ _갱신: 2026-10-30_
 | 결정 | D-01~D-03 · 공통 G-01~G-10 · 미결 `_공통` Q-01~Q-05 · 이 과제 계획서 7절 #1~#8 |
 | 계획 | 계획서 1차 2026-10-30 — S1 B1 · S2 D1 · S3 D2 · S4 B2 · F0 · S5 F · R1 |
 | 저장소 변경 | `Defense.Planning` · `Defense.Design` · `Defense.Logs` · `_공통` 모두 `main` 로컬, 원격 없음. 커밋 작성자 이메일이 전부 noreply 아님(계획서 1절 #9) |
-| 환경 | 2026-10-30 실측: Unity · Unity Hub · Blender · .NET SDK · `csharp-ls` · git-lfs · git-filter-repo 없음. gh ✔ `devman-kr`. `brew list --cask` 비어 있음. 디스크 여유 333 GiB |
+| 환경 | 2026-10-30 설치 뒤 실측: Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) + Android(OpenJDK 17 · SDK · NDK r27c) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(`~/.dotnet/tools`) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`) · Claude Code `unity` 플러그인 0.1.6-beta. gh ✔ `devman-kr`. 디스크 여유 304 GiB. 없음: git-lfs(D-05 — 쓰지 않음) · git-filter-repo(F0 때) |
 | Claude Code 플러그인 | 설치됨 `session-report` · `microsoft-docs` · `csharp-lsp`(.NET SDK 없어 미동작). Unity 플러그인 `unity@claude-plugins-official` 은 카탈로그에만 |
 | 훅 | 프롬프트 · 다이제스트 동작 ✔. `SessionEnd` 커밋은 1회(`7c6c0cd`)만 확인 → R1 |
 | GitHub MCP | 작업 공간 루트 `.mcp.json`(git 밖) — 공식 원격 서버 `https://api.githubcopilot.com/mcp/`, 헤더 `Authorization: Bearer ${GITHUB_PAT}` · `X-MCP-Toolsets: context,repos,issues,pull_requests,actions`. `.claude/settings.json` 에 `enabledMcpjsonServers: ["github"]` · `permissions.deny` `delete_repository` · `permissions.ask` 24개(저장소 생성 · 포크 · 파일 쓰기/삭제 · 브랜치 · PR 생성/수정/머지/리뷰 · 이슈 · 하위 이슈 · 댓글 · 워크플로 실행). **연결 ✔ 2026-10-29** — `get_me` 로그인 `devman-kr`. `gh auth status` 범위 `repo` · `workflow` · `read:org` · `gist` |
 
 ## 사용자 대기 (덮어쓰기)
 
-- `_공통` 실행 요청 1(Unity Hub · Unity 6 LTS · 모듈) · 2(Blender) · 4(.NET SDK · `csharp-ls`) — 사용자가 직접 설치(2026-10-30 답). 설치 뒤 S2.
+- `~/.zshrc` 끝에 `export PATH="$PATH:$HOME/.dotnet/tools"` 한 줄 · VS Code 재시작(⌘Q) — `csharp-ls` 가 Claude Code 에 잡히게(세션의 셸 설정 수정은 권한 정책에 막힘).
 - `_공통` Q-01~Q-03(S5 선행). 계획서 7절 #1~#8 은 결정 끝(G-11 · D-04 · D-05).
 
 ---
 
 ## 함정 · 주의 (누적)
 
+- **Unity 에디터 프로세스의 명령줄을 출력하지 않는다**(`pgrep -fl Unity` · `ps aux`) — Hub 가 띄운 에디터는 `-accessToken <값>` 을 인자로 받는다. 2026-10-30 세션 4 가 한 번 출력했다(다이제스트는 도구 결과 앞 600자만 남겨 Logs 에는 0건 — `grep -c accessToken` 으로 확인). 실행 여부는 `pgrep -q -f 'Unity.app/Contents/MacOS/Unity' && echo 실행 중` 처럼 개수 · 참거짓만 본다.
+- Homebrew 에 `csharp-ls` formula 가 없다(2026-10-30 — `brew install csharp-ls` 가 비슷한 이름의 cask 만 제안). `dotnet tool install --global csharp-ls` 로 `~/.dotnet/tools` 에 설치한다. .NET 설치기가 만든 `/etc/paths.d/dotnet-cli-tools` 는 `~/.dotnet/tools` 를 문자 그대로 담아 macOS `path_helper` 가 풀지 못한다 — 셸 설정에 `export PATH="$PATH:$HOME/.dotnet/tools"` 가 따로 필요하다(세션의 `~/.zshrc` 수정은 권한 정책에 막혀 사용자가 넣는다).
+- Unity Hub 「권장」 표시는 LTS 가 아니다 — 2026-10-30 Hub 가 권장한 `6000.6.7f1` 은 stream `SUPPORTED`, LTS 는 `6000.3.27f1`. Hub 캐시(`~/Library/Application Support/UnityHub/graphqlCache/*-data.json` 의 `UnityRelease:<버전>.stream`) 또는 `unity releases --stream lts` 로 확인한다.
 - **커밋 작성자를 확인할 때 `%ae` 를 찍지 않는다** — G-11 이전 커밋은 개인 이메일이라 그대로 출력되고, 출력은 세션 다이제스트(Logs)에 남는다. noreply 여부만 `grep -c noreply` 로 센다. 2026-10-30 세션 4 가 `git log --format='%h %ae %s' -3` 으로 한 번 노출 → F0 비밀값 검사 대상에 넣었다.
 - GitHub MCP 도구 이름은 서버 판마다 바뀐다(2026-10-29 실측: `issue_write` · `sub_issue_write` · `actions_run_trigger` · `pull_request_review_write` · `delete_repository` 가 세션 2 의 예상 목록에 없었다). **서버를 다시 연결하거나 도구 목록이 바뀌면 쓰기 도구가 전부 `permissions.ask` · `deny` 에 있는지 다시 대조한다** — 빠진 도구는 확인 없이 원격에 쓴다.
 
@@ -64,5 +67,5 @@ _갱신: 2026-10-30_
 
 ## 미해결 (누적)
 
-- Unity 6 정확한 버전은 설치 뒤.
+- ~~Unity 6 정확한 버전은 설치 뒤.~~ → 6000.3.27f1 LTS(2026-10-30).
 - Supercent 스타일은 [추정](`_공통/조사/Supercent_스타일보드.md` 3절) — 캡처 뒤 확정(E).
