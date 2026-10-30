@@ -12,10 +12,10 @@
 
 ## 다음 세션 시작 전 확인 (덮어쓰기)
 
-_갱신: 2026-10-30 — 세션 7(Opus 5.5): P00 S2 `Defense.Unity` 생성 · 게이트 실측 · 빌드 스모크_
+_갱신: 2026-10-30 — 세션 9(Opus 5.5): `_공통` G-12 에디터는 세션이 연다 · 코딩 표준 적용 확인. 그 전 세션 7: P00 S2 `Defense.Unity` 생성_
 
 1. `P00_환경_체계_로깅/NOTES.md` 「다음 세션 시작 전 확인」부터.
-2. P00 은 S1 · S2 끝 — `Defense.Unity` 가 생겼고 결정론 게이트 명령은 `../../Defense.Unity/CLAUDE.md` 「결정론 게이트」(에디터 닫힘 `unity test` · `unity build` / 열림 `unity command`). 남은 것은 C# 코딩 표준 결정 · S3 Blender MCP · F0 · S5 GitHub. 계획은 `P00_환경_체계_로깅/02_계획/계획서_20261030.md`.
+2. P00 은 S1 · S2 끝 — `Defense.Unity` 가 생겼고 결정론 게이트 명령은 `../../Defense.Unity/CLAUDE.md` 「결정론 게이트」(에디터 닫힘 `unity test` · `unity build` / 열림 `unity command`). C# 코딩 표준은 S1c 로 반영 끝(`Defense.Unity/z.docs/dev/csharp_coding_standards.md`). **Unity 에디터는 세션이 연다**(`_공통` G-12 — 사용자에게 열어 달라 하지 않는다). 남은 것은 S3 Blender MCP · F0 · S5 GitHub. 계획은 `P00_환경_체계_로깅/02_계획/계획서_20261030.md`.
 3. P01 은 설계 확정 — 기획 정본은 `../Defense.Design/기획서.md`. 게임 기획 · 특징은 Design 에만 적고 `CLAUDE.md` 에는 적지 않는다(`_공통` G-10, 세 게임 공통). P00 B · D 가 끝나 **계획서 2차를 쓸 수 있다** — 다음 일은 `P01_게임설계_코어/NOTES.md` 「다음 세션」.
 4. 훅: 프롬프트 · 다이제스트 · `SessionEnd` 커밋 모두 ✔(Logs `99e4e35` 등 2026-10-30 — P00 R1 닫음).
 5. GitHub MCP: 연결 ✔(2026-10-29, `devman-kr`). 도구 목록이 바뀌면 권한 대조(P00 NOTES 「함정」).
@@ -37,8 +37,6 @@ _갱신: 2026-10-30_
 ## 사용자 대기 (덮어쓰기)
 
 - `_공통/README.md` 3절 Q-01~Q-05(Q-01~Q-03 은 P00 S5 선행).
-- P00 C# 코딩 표준 Unity 화 결정(`P00_환경_체계_로깅/01_검토/검토서_20261030_코딩표준.md` 6절).
-- 에디터를 여는 주체 — 루트 · `_공통` 「Unity 에디터는 사용자가 연다」를 「세션이 Unity CLI 로 창 없는 에디터를 띄워도 된다」로 바꿀지(P00 D-08 4번은 S2 한정).
 - P01 계획서 1차 · 지시서 S1 승인.
 
 ---

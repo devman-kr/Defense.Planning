@@ -8,13 +8,13 @@
 
 ## 다음 세션 시작 전 확인 (덮어쓰기)
 
-_갱신: 2026-10-30 — 세션 8(Opus 5.5): NRE 감지 X-04 · 기술근거(4번 ③). 그 전 세션 6(Fable 5.1): 코딩 표준 D-06 · D-07 · S1b · S1c ✔(표준 Unity 판 · `Defense.Unity` 반영 · 센서). 그 전 세션 7(Opus 5.5): S2 D1 `Defense.Unity` 생성 · 게이트 실측 · 빌드 스모크_
+_갱신: 2026-10-30 — 세션 9(Opus 5.5): `_공통` G-12 에디터는 세션이 연다 · 코딩 표준 적용 확인 · 키체인 대화상자 닫음. 그 전 세션 8(Opus 5.5): NRE 감지 X-04 · 기술근거(4번 ③). 그 전 세션 6(Fable 5.1): 코딩 표준 D-06 · D-07 · S1b · S1c ✔(표준 Unity 판 · `Defense.Unity` 반영 · 센서). 그 전 세션 7(Opus 5.5): S2 D1 `Defense.Unity` 생성 · 게이트 실측 · 빌드 스모크_
 
-1. **지금 어느 단계**: 실행 — [`02_계획/계획서_20261030.md`](02_계획/계획서_20261030.md). S1 ✔ · **S2 ✔(2026-10-30)** · S4 는 S1 · S2 로 흡수 끝(`_템플릿/Unity_CLAUDE.md` = `Defense.Unity/CLAUDE.md`, diff 0). R1 ✔. 남은 것: S3 D2 Blender MCP · 코딩 표준(6번) · F0 · S5 F(`_공통` Q-01~Q-03 뒤).
+1. **지금 어느 단계**: 실행 — [`02_계획/계획서_20261030.md`](02_계획/계획서_20261030.md). S1 ✔ · **S2 ✔(2026-10-30)** · S4 는 S1 · S2 로 흡수 끝(`_템플릿/Unity_CLAUDE.md` = `Defense.Unity/CLAUDE.md`, diff 0). R1 ✔. 남은 것: S3 D2 Blender MCP · F0 · S5 F(`_공통` Q-01~Q-03 뒤). 코딩 표준은 S1c 로 반영 끝(6번).
 2. **S2 결과**: `Defense.Unity`(로컬 `main`, 원격 없음) — `e46ecab` 템플릿 생성물 그대로 · `3d4abc4` 골격(CLAUDE.md · README · ASSETS · LICENSE MIT · `.gitattributes` · Core/Tests asmdef · 스모크 테스트 1 · `com.unity.pipeline` · PlayerSettings · 빌드 프로필 2) · `4ec4f97` · `4fdea24` 빌드 때 에디터 자동 변환 · `a89d77b` 작업 보고 · `59f9a07` 센서 지적 고침 · `4dfe06d` 보고 코드 리뷰 절. 게이트 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」 — 에디터 닫힘 `unity test` 약 20초 · 열림 `unity command` 0.3초. 빌드 장부 `z.builds/BUILDS.md`(Android 개발 APK 42.7 MB · WebGL 14 MB). 작업 보고 `Defense.Unity/z.docs/work_reports/20261030/1_create_저장소_골격.md`. 센서 기록 [`03_작업기록/코드리뷰_20261030_S2/`](03_작업기록/코드리뷰_20261030_S2/).
-3. **에디터를 누가 여나**: 이번 세션은 사용자 말(「unity cli 로 당신이 진행하면 될 것 같은데요」)대로 세션이 창 없는 에디터를 직접 띄워 `unity command` 로 다뤘다(D-08). 루트 `CLAUDE.md` · `_공통` 상위 `CLAUDE.md` 는 아직 「에디터는 사용자가 연다」 — 규칙으로 올릴지는 사용자 대기.
+3. **에디터는 세션이 연다 — `_공통` G-12(2026-10-30, 사용자 결정)**: 에디터가 필요하면 세션이 Unity CLI 로 창 없는 에디터를 띄워 `unity command` 로 다루고 일이 끝나면 끈다. 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」(`e227f1f` — 띄우기 4초 · 끄기 1초 실측). 승인 지점은 사용자가 연 에디터의 종료 · 재시작. 상위 · 세 게임 루트 `CLAUDE.md` 정본 · 사본과 `_템플릿/작업지시서.md` 반영.
 4. **다음 세션이 확인할 것**: ① Claude Code `csharp-lsp` 가 `Defense.Unity` 의 `.cs` 에서 정의 이동 · 호버가 되는지 — 이 세션의 LSP 는 프로젝트가 생기기 전에 떠서 문서 심볼만 됐다(`csharp-ls --diagnose` 는 `Defense.Unity.slnx` 로드 ✔) ② Unity 플러그인 상시 컨텍스트 비용(`/context`) — 세션이 볼 수 없어 사용자가 보면 적는다. ③ X-04(NRE 감지) 남은 확인 2 — 콘솔 개별 메시지를 읽는 Pipeline 명령 유무 · `csharp-ls` 가 분석기 진단을 보이는지(P01 `DEF-M01` 에서 분석기를 넣은 뒤, [기술근거](01_검토/기술근거_20261030_NRE감지.md) 4절).
-5. **결정 끝(2026-10-30)**: G-11(커밋 이메일 noreply — `Defense.Unity` 도 로컬 설정 ✔) · D-04 · D-05 · D-08(S2 실행 세부).
+5. **결정 끝(2026-10-30)**: G-12(에디터는 세션이 연다) · G-11(커밋 이메일 noreply — `Defense.Unity` 도 로컬 설정 ✔) · D-04 · D-05 · D-08(S2 실행 세부).
 6. **C# 코딩 표준 사본**: 사용자 요청(2026-10-30)으로 EasyCheck.Server `z.docs/dev/csharp_coding_standards.md`(EasyCheck 커밋 `eb7628e6`, `CLAUDE.md:95` 가 가리키는 현행 판)를 **그대로** [`../_템플릿/Unity_csharp_coding_standards.md`](../_템플릿/Unity_csharp_coding_standards.md) 에 두었다(SHA-256 일치 ✔). Unity 화(ASP.NET · DB · `[Developer]` · `>>`/`<<` 로깅 · INI 등 서버 전용 절 정리, `_템플릿/Unity_CLAUDE.md` 「코딩」과 대조)는 **아직 안 했다** — 사용자 「우선 가져오기만」. 자리는 S2 D1 7번 「우리 파일」에 `z.docs/dev/csharp_coding_standards.md` 로 넣는다. 예제가 든 긴 판(32 KB)은 EasyCheck `z.docs/z.old/csharp_coding_standards.md` 에 있다. **검토서 ✔ 2026-10-30** [`01_검토/검토서_20261030_코딩표준.md`](01_검토/검토서_20261030_코딩표준.md) — 절별 처리(유지 2 · 수정 13 · 교체 9 · 신설 7)와 6절 결정 14개(묶음 A 7 · 취향 B 7). **결정 ✔ D-06(묶음 A) · D-07(B)** 2026-10-30 → **S1b ✔**(표준 Unity 판 `6aefbe1` → 센서 고침 `df7ae07` · 회귀 고침 `736e8c7`; 기록 [`03_작업기록/코드리뷰_20261030_S1b/`](03_작업기록/코드리뷰_20261030_S1b/) — 지적 57 · 고침 54 · 의도 2(반론 수락) · S1c 1 · 미해결 0). 사용자 확인 ✔ 2026-10-30(더한 규칙 13 · `PlayerPrefs` · 분량). **S1c ✔** — `Defense.Unity` `aeccdae`(사본 2 · `CLAUDE.md` diff 0 · asmdef `Devman.Core` · IVT `Devman.Core.Tests.EditMode`) · `6130ea4`(센서 고침 — 장부 2행 · IVT 테스트) · `4d20f5b`(보고서 `z.docs/work_reports/20261030/2_modify_S1c_코딩표준반영_asmdef개명.md`), 기록 [`03_작업기록/코드리뷰_20261030_S1c/`](03_작업기록/코드리뷰_20261030_S1c/) 지적 6 · 미해결 0. 게이트 EditMode 2/2 · 경고 0. `Defense.Game` asmdef · `Devman.Core.Tests.EditMode` 어셈블리 · 템플릿 잔재 정리는 `DEF-M01`. S2 는 끝났다(`c543eeb` · Unity `4dfe06d`) — `Defense.Unity` 반영은 **S1c**(사본 2 · `CLAUDE.md` · asmdef `Defense.Core` → `Devman.Core` 개명 · 게이트, 승인 지점). 네임스페이스는 `Devman.Core.*` / `Defense.Game.*`(D-07 ⑤) — 웨이브 디렉터 · 드래프트의 소속은 P01 `DEF-M01` 에서.
 
 ## 현재 상태 (덮어쓰기)
@@ -35,7 +35,6 @@ _갱신: 2026-10-30_
 
 ## 사용자 대기 (덮어쓰기)
 
-- **에디터를 여는 주체** — 루트 `CLAUDE.md` 「공유 자원」 · `_공통` 상위 `CLAUDE.md` 「한 기기」의 「Unity 에디터는 사용자가 연다」를 「세션이 Unity CLI 로 창 없는 에디터를 띄워도 된다(Blender 와 동시 금지는 그대로)」로 바꿀지(D-08 은 이 세션 한정). 바꾸면 `_공통` G-nn 과 두 정본(`_공통/_템플릿/Games_CLAUDE.md` · `_템플릿/루트_CLAUDE.md`).
 - `Defense.Unity` 실기기 설치(선택) — `z.builds/debug/defense_20261030_3d4abc4_android-dev.apk`.
 - `_공통` Q-01~Q-03(S5 선행).
 
@@ -43,7 +42,7 @@ _갱신: 2026-10-30_
 
 ## 함정 · 주의 (누적)
 
-- **`unity` CLI 는 실행마다 macOS 키체인 접근 대화상자를 띄운다**(저장된 로그인 토큰 읽기 — Hub `broker-audit` 「stored-token-valid」). 사용자가 「항상 허용」을 누르기 전까지 batchmode 게이트도 그 응답을 기다린다 — 2026-10-30 19:28:33 프롬프트 → 19:35:16 허용(403초), 실제 게이트 7초. 세션은 게이트를 돌릴 때 대화상자를 알리고 시간에서 뺀다. 사용자 결정 2026-10-30: **다음에 뜨면 「항상 허용」을 누른다** — 그 뒤 첫 `unity` 실행에서 대화상자가 안 뜨는지(실행 시간이 7초 안팎인지) 다음 세션이 확인하고 이 항목을 「닫음」으로. `securityd` 로그 확인: `/usr/bin/log show --predicate 'process == "securityd"' | grep 'keychain prompt'`(zsh 의 `log` 는 내장 명령이라 `/usr/bin/log`).
+- **`unity` CLI 는 실행마다 macOS 키체인 접근 대화상자를 띄운다**(저장된 로그인 토큰 읽기 — Hub `broker-audit` 「stored-token-valid」). 사용자가 「항상 허용」을 누르기 전까지 batchmode 게이트도 그 응답을 기다린다 — 2026-10-30 19:28:33 프롬프트 → 19:35:16 허용(403초), 실제 게이트 7초. 세션은 게이트를 돌릴 때 대화상자를 알리고 시간에서 뺀다. 사용자 결정 2026-10-30: **다음에 뜨면 「항상 허용」을 누른다** — 그 뒤 첫 `unity` 실행에서 대화상자가 안 뜨는지(실행 시간이 7초 안팎인지) 다음 세션이 확인하고 이 항목을 「닫음」으로. **닫음 2026-10-30 19:47** — 세션 9 에서 대화상자 두 번(19:45:57 게이트 · 19:47:31 `unity auth status`), 둘째에 「항상 허용」, 셋째 실행은 대화상자 없이 1초(`securityd` 새 기록 0). `securityd` 로그 확인: `/usr/bin/log show --predicate 'process == "securityd"' | grep 'keychain prompt'`(zsh 의 `log` 는 내장 명령이라 `/usr/bin/log`).
 - **`unity command` 의 전역 옵션은 `command` 앞에** — `unity command … --no-banner editor status` 처럼 뒤에 두면 `--no-banner` 가 다음 낱말을 값으로 먹어 `status` 만 남는다(2026-10-30). `unity --no-banner command --project-path "$PWD" --caller plugin --skill unity-cli <그룹> <이름>` 꼴로 쓴다(`Defense.Unity/CLAUDE.md` 의 `U`).
 - **`build create_profile --platform Web` 은 PlayerSettings 전체 사본(944줄)을 프로필에 넣는다** — 그대로 두면 `ProjectSettings/` 를 바꿔도 Web 빌드에 반영되지 않는다. 내부 `BuildProfile.RemovePlayerSettings(true)` 로는 안 지워졌고 `SerializedObject` 로 `m_PlayerSettingsYaml.m_Settings` 를 비워야 했다(Android 프로필은 사본 없이 생성). `Defense.Unity/CLAUDE.md` 「검토 기준」 한 줄.
 - **`build run --profileName` 만 주면 활성 대상(macOS)으로 빌드된다** — pipeline 0.9.1 `Editor/Commands/Build/BuildCommand.cs` 가 대상을 프로필 적용 전에 정하고 개발 빌드도 `options` 로만 받는다. `--target Android --options '["Development"]'` 를 같이 준다. 첫 시도가 `.app` 을 만들어 지웠다(2026-10-30).
@@ -62,6 +61,7 @@ _갱신: 2026-10-30_
 
 ## 발견 로그 (누적, 최신 위)
 
+- 2026-10-30 — 세션 9: G-12 열림 경로를 문서 명령 그대로 실측 — Blender 확인 → 창 없는 에디터 `ready` 4초(`Library/` 캐시) → `U test run --mode editor` 실패 0 → `script eval` 로 `EditorApplication.Exit(0)` 1초. 사용자 GUI 에디터를 쓰는 경로는 아직 실측 없음. ✔
 - 2026-10-30 — 세션 8(Opus 5.5) NRE 조기 감지 웹 조사 → X-04 · [`01_검토/기술근거_20261030_NRE감지.md`](01_검토/기술근거_20261030_NRE감지.md). 첫 제안의 Nullable 참조 형식은 코딩 표준 §5.5(`#nullable` 금지)와 충돌해 뺐다 — 웹 조사 전에 저장소 표준 · 작업 보고를 먼저 대조했어야 했다(S2 가 이미 끝나 「S2 에서 확인할 것」 셋 중 둘은 실측으로 답이 있었다). 공식 내장 직렬화 참조 검증 도구는 찾지 못했다(웹 검색 기준 △).
 - 2026-10-30 — S1c 세션 센서(sonnet 1): 폴더 [`03_작업기록/코드리뷰_20261030_S1c/`](03_작업기록/코드리뷰_20261030_S1c/) · 미해결 0 · H 후보 없음. 장부(G-02)에 문서 · AI 생성 사본도 적어야 한다는 지적 — 코드 아닌 파일을 장부 대상으로 생각하지 못했다. 둘째 게이트 실행 410초(첫 14초)는 `unity` CLI 의 키체인 접근 대화상자를 사용자가 6분 43초 뒤에 허용한 시간 — `securityd` 로그로 확인 ✔(「함정」). 세션 창이 닫혀도 서브에이전트 전사는 `subagents/` 에 남아 추출 도구가 그대로 뽑았다 ✔
 - 2026-10-30 — S1b 세션 센서(sonnet, 2라운드 + 반론 D): 폴더 [`03_작업기록/코드리뷰_20261030_S1b/`](03_작업기록/코드리뷰_20261030_S1b/) · 미해결 0 · H 후보 없음(S1c 몫 1). 문서 리뷰에 Unity 매뉴얼 WebFetch 대조를 넣으니 「왜」의 사실 오류 2(파일 이름 · MPB)와 근거 없는 「왜」 6줄을 잡았다 — 결정 D-07 ⑦ 「매뉴얼로 확인한 것만」이 규칙으로 있어서 센서가 그 기준으로 대조할 수 있었다. 2라운드의 「처리표 고침 표본 검산」이 「부분만 고침」 4건을 되돌려 줬다. 분량 목표(12 KB)는 결정 항목(신설 7절 · 「왜」 · 근거)만으로 넘는 추정 오류였다 ✔

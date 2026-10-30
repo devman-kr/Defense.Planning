@@ -121,6 +121,7 @@ Pnn_한글슬러그/
 - `z.docs` 루트는 git 이 아니다. `Defense.Planning` · `Defense.Design` · `Defense.Logs` 가 독립 git 저장소다. 원격은 공개 GitHub(G-04, 계정은 Q-02) — 아직 연결 전.
 - GitHub MCP 는 작업 공간 루트 `.mcp.json`(git 밖)에 공식 원격 서버(`https://api.githubcopilot.com/mcp/`)로 등록했고, 토큰은 환경 변수 `GITHUB_PAT`(값은 `gh auth token`)에서 읽는다. 쓰기 도구는 푸시와 같은 승인 지점이다 — 루트 `CLAUDE.md` 「푸시」 · `.claude/settings.json` `permissions.ask`. 설정 사본은 `P00_환경_체계_로깅/NOTES.md` 「현재 상태」.
 - Unity 6000.3.27f1 LTS · Blender 5.2.3 · gh 설치 끝(2026-10-30). `Defense.Unity` 저장소는 2026-10-30 P00 S2 에서 만들었다(`e46ecab` 템플릿 생성물 · `3d4abc4` 골격) — 로컬만, 원격 없음.
+- Unity 에디터는 세션이 연다(`_공통` G-12, 2026-10-30) — 사용자에게 열어 달라 하지 않고 창 없는 에디터를 띄워 `unity command` 로 다루고 끈다. 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」.
 - 게임 기획의 정본은 `../Defense.Design/기획서.md`(X-02, 2026-10-30 — `Defense.Unity/z.docs/design/` 에 두려던 계획을 대체). P01 검토서는 2026-10-29 시점 기록이다(추기만).
 - `_템플릿/Unity_CLAUDE.md` 는 `Defense.Unity/CLAUDE.md` 의 정본이다 — 둘을 같게 둔다(2026-10-30 P00 S2 에서 실측 게이트로 채워 diff 0). `Unity_README.md` 는 2026-10-30 복사 끝 — 이제 살아 있는 판은 `Defense.Unity/README.md` 이고 템플릿은 다른 게임의 골격으로만 쓴다.
 - 템플릿 · 가이드는 Unity 저장소 하나 기준이다(X-03, 2026-10-30). 코드리뷰 가이드 본문의 X-11 · X-12 · X-14 · P02 · P05 선례는 EasyCheck 번호다 — 원문은 `~/UBM/z.docs/EasyCheck.Planning/`. 결정론 게이트 명령은 템플릿에 쓰지 않고 `Defense.Unity/CLAUDE.md` 「결정론 게이트」 한 곳에 둔다(P00 S2 실측 2026-10-30 — 에디터 닫힘 `unity test` · `unity build`, 열림 `unity command`).

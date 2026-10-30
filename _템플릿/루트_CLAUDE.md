@@ -32,7 +32,7 @@
 - Logs 저장소의 훅 커밋도 로컬까지다. 푸시는 같은 규칙.
 
 ## 공유 자원 — Unity 에디터 · 기기
-- **Unity 에디터는 사용자가 연다.** 세션은 열린 에디터를 `unity-cli`(Unity 공식 Claude Code 플러그인)로 다룬다 — 씬 · GameObject · 프리팹 · 컴포넌트 값 · 콘솔 · 빌드. 에디터 재시작 · 패키지 설치 · 프로젝트 설정 · 플랫폼 전환 · 빌드 설정 변경은 **승인 지점**이다.
+- **Unity 에디터는 세션이 연다(G-12).** 사용자에게 열어 달라 하지 않고 Unity CLI 로 창 없는 에디터를 띄워 `unity-cli`(Unity 공식 Claude Code 플러그인)로 다룬다 — 씬 · GameObject · 프리팹 · 컴포넌트 값 · 콘솔 · 빌드. 일이 끝나면 끈다. 띄우고 끄는 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」, 컴파일 · 테스트 · 빌드만이면 에디터 없이 `unity test` · `unity build`. 사용자가 GUI 에디터를 열어 두었으면 그것을 쓴다. 띄우기 전에 Blender · 로컬 이미지 생성이 떠 있지 않은지 본다. 사용자가 연 에디터의 종료 · 재시작 · 패키지 설치 · 프로젝트 설정 · 플랫폼 전환 · 빌드 설정 변경은 **승인 지점**이다.
 - 씬 · 프리팹 · 에셋(`.unity` · `.prefab` · `.asset`)은 텍스트 직렬화(Force Text)로 두고 손으로 YAML 을 고치지 않는다 — 에디터로 바꾸고 저장한 뒤 `git status` 로 확인한다. `.meta` 는 반드시 커밋한다.
 - `Library/` · `Temp/` · `Logs/` · `obj/` · `Builds/` · `UserSettings/` 는 커밋하지 않는다. 빌드 산출물(APK · AAB · IPA · WebGL)은 작업 공간 `z.builds/` 에 둔다(규칙 `z.builds/README.md`). 서명 자료는 git 에 넣지 않는다.
 - 실기기 설치 · 플레이는 사용자 실행 요청. 세션은 에디터 플레이 모드 · 시뮬레이터 · WebGL 로컬 서버까지 한다.
