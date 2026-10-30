@@ -1,3 +1,4 @@
 __pycache__/
 *.pyc
 _도구/out/
+.DS_Store
