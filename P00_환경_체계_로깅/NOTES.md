@@ -8,14 +8,27 @@
 
 ## 다음 세션 시작 전 확인 (덮어쓰기)
 
-_갱신: 2026-10-30 — 세션 9(Opus 5.5): `_공통` G-12 에디터는 세션이 연다 · 코딩 표준 적용 확인 · 키체인 대화상자 닫음. 그 전 세션 8(Opus 5.5): NRE 감지 X-04 · 기술근거(4번 ③). 그 전 세션 6(Fable 5.1): 코딩 표준 D-06 · D-07 · S1b · S1c ✔(표준 Unity 판 · `Defense.Unity` 반영 · 센서). 그 전 세션 7(Opus 5.5): S2 D1 `Defense.Unity` 생성 · 게이트 실측 · 빌드 스모크_
+_갱신: 2026-10-30 — 세션 10(Opus 5.5): P00 잔여 작업 정리 — 완료 기준 실측 · 남은 일 표 · F0 비용 재측정 · `csharp-lsp` 확인 · 작업지시서 G-12 잔재. 그 전 세션 9: G-12 에디터는 세션이 연다 · 세션 8: NRE 감지 X-04 · 세션 6: 코딩 표준 S1b · S1c · 세션 7: S2 `Defense.Unity` 생성_
 
-1. **지금 어느 단계**: 실행 — [`02_계획/계획서_20261030.md`](02_계획/계획서_20261030.md). S1 ✔ · **S2 ✔(2026-10-30)** · S4 는 S1 · S2 로 흡수 끝(`_템플릿/Unity_CLAUDE.md` = `Defense.Unity/CLAUDE.md`, diff 0). R1 ✔. 남은 것: S3 D2 Blender MCP · F0 · S5 F(`_공통` Q-01~Q-03 뒤). 코딩 표준은 S1c 로 반영 끝(6번).
-2. **S2 결과**: `Defense.Unity`(로컬 `main`, 원격 없음) — `e46ecab` 템플릿 생성물 그대로 · `3d4abc4` 골격(CLAUDE.md · README · ASSETS · LICENSE MIT · `.gitattributes` · Core/Tests asmdef · 스모크 테스트 1 · `com.unity.pipeline` · PlayerSettings · 빌드 프로필 2) · `4ec4f97` · `4fdea24` 빌드 때 에디터 자동 변환 · `a89d77b` 작업 보고 · `59f9a07` 센서 지적 고침 · `4dfe06d` 보고 코드 리뷰 절. 게이트 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」 — 에디터 닫힘 `unity test` 약 20초 · 열림 `unity command` 0.3초. 빌드 장부 `z.builds/BUILDS.md`(Android 개발 APK 42.7 MB · WebGL 14 MB). 작업 보고 `Defense.Unity/z.docs/work_reports/20261030/1_create_저장소_골격.md`. 센서 기록 [`03_작업기록/코드리뷰_20261030_S2/`](03_작업기록/코드리뷰_20261030_S2/).
-3. **에디터는 세션이 연다 — `_공통` G-12(2026-10-30, 사용자 결정)**: 에디터가 필요하면 세션이 Unity CLI 로 창 없는 에디터를 띄워 `unity command` 로 다루고 일이 끝나면 끈다. 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」(`e227f1f` — 띄우기 4초 · 끄기 1초 실측). 승인 지점은 사용자가 연 에디터의 종료 · 재시작. 상위 · 세 게임 루트 `CLAUDE.md` 정본 · 사본과 `_템플릿/작업지시서.md` 반영.
-4. **다음 세션이 확인할 것**: ① Claude Code `csharp-lsp` 가 `Defense.Unity` 의 `.cs` 에서 정의 이동 · 호버가 되는지 — 이 세션의 LSP 는 프로젝트가 생기기 전에 떠서 문서 심볼만 됐다(`csharp-ls --diagnose` 는 `Defense.Unity.slnx` 로드 ✔) ② Unity 플러그인 상시 컨텍스트 비용(`/context`) — 세션이 볼 수 없어 사용자가 보면 적는다. ③ X-04(NRE 감지) 남은 확인 2 — 콘솔 개별 메시지를 읽는 Pipeline 명령 유무 · `csharp-ls` 가 분석기 진단을 보이는지(P01 `DEF-M01` 에서 분석기를 넣은 뒤, [기술근거](01_검토/기술근거_20261030_NRE감지.md) 4절).
-5. **결정 끝(2026-10-30)**: G-12(에디터는 세션이 연다) · G-11(커밋 이메일 noreply — `Defense.Unity` 도 로컬 설정 ✔) · D-04 · D-05 · D-08(S2 실행 세부).
-6. **C# 코딩 표준 사본**: 사용자 요청(2026-10-30)으로 EasyCheck.Server `z.docs/dev/csharp_coding_standards.md`(EasyCheck 커밋 `eb7628e6`, `CLAUDE.md:95` 가 가리키는 현행 판)를 **그대로** [`../_템플릿/Unity_csharp_coding_standards.md`](../_템플릿/Unity_csharp_coding_standards.md) 에 두었다(SHA-256 일치 ✔). Unity 화(ASP.NET · DB · `[Developer]` · `>>`/`<<` 로깅 · INI 등 서버 전용 절 정리, `_템플릿/Unity_CLAUDE.md` 「코딩」과 대조)는 **아직 안 했다** — 사용자 「우선 가져오기만」. 자리는 S2 D1 7번 「우리 파일」에 `z.docs/dev/csharp_coding_standards.md` 로 넣는다. 예제가 든 긴 판(32 KB)은 EasyCheck `z.docs/z.old/csharp_coding_standards.md` 에 있다. **검토서 ✔ 2026-10-30** [`01_검토/검토서_20261030_코딩표준.md`](01_검토/검토서_20261030_코딩표준.md) — 절별 처리(유지 2 · 수정 13 · 교체 9 · 신설 7)와 6절 결정 14개(묶음 A 7 · 취향 B 7). **결정 ✔ D-06(묶음 A) · D-07(B)** 2026-10-30 → **S1b ✔**(표준 Unity 판 `6aefbe1` → 센서 고침 `df7ae07` · 회귀 고침 `736e8c7`; 기록 [`03_작업기록/코드리뷰_20261030_S1b/`](03_작업기록/코드리뷰_20261030_S1b/) — 지적 57 · 고침 54 · 의도 2(반론 수락) · S1c 1 · 미해결 0). 사용자 확인 ✔ 2026-10-30(더한 규칙 13 · `PlayerPrefs` · 분량). **S1c ✔** — `Defense.Unity` `aeccdae`(사본 2 · `CLAUDE.md` diff 0 · asmdef `Devman.Core` · IVT `Devman.Core.Tests.EditMode`) · `6130ea4`(센서 고침 — 장부 2행 · IVT 테스트) · `4d20f5b`(보고서 `z.docs/work_reports/20261030/2_modify_S1c_코딩표준반영_asmdef개명.md`), 기록 [`03_작업기록/코드리뷰_20261030_S1c/`](03_작업기록/코드리뷰_20261030_S1c/) 지적 6 · 미해결 0. 게이트 EditMode 2/2 · 경고 0. `Defense.Game` asmdef · `Devman.Core.Tests.EditMode` 어셈블리 · 템플릿 잔재 정리는 `DEF-M01`. S2 는 끝났다(`c543eeb` · Unity `4dfe06d`) — `Defense.Unity` 반영은 **S1c**(사본 2 · `CLAUDE.md` · asmdef `Defense.Core` → `Devman.Core` 개명 · 게이트, 승인 지점). 네임스페이스는 `Devman.Core.*` / `Defense.Game.*`(D-07 ⑤) — 웨이브 디렉터 · 드래프트의 소속은 P01 `DEF-M01` 에서.
+1. **지금 어느 단계**: 실행 — [`02_계획/계획서_20261030.md`](02_계획/계획서_20261030.md). 끝: S1 · S1b · S1c · S2 · S4(S1 · S2 로 흡수) · R1, 완료 기준(계획서 8절) 9개 중 5개 ✔. **남은 일은 아래 표가 전부다**(2026-10-30 세션 10 실측).
+
+   | # | 남은 일 | 선행 조건 | 누가 | 승인 지점 | 규모 | 근거 |
+   |---|---|---|---|---|---|---|
+   | ① | **S3 D2 Blender 공식 MCP** — 공식 저장소에서 출처 · 라이선스 · 설치 방법 확인(지금 △) · Blender 확장 설치 · `.mcp.json` 에 `blender` · `enabledMcpjsonServers` · 쓰기 도구(임의 Python 실행 등) `permissions.ask` · 도구 이름 대조 · 큐브 → FBX 내보내기(D-05) · 설정 사본을 「현재 상태」에 | 없음 — **지금 가능**(Blender 5.2.3 설치 ✔ · Unity 에디터 꺼짐 2026-10-30 19:58) | 세션(확장 설치가 GUI 면 사용자) | `.mcp.json` · `settings.json` 변경 | S | 계획서 4절 S3 |
+   | ② | **F0-2 비밀값 검사 도구** `_공통/_도구/비밀값_검사.py`(의존성 0 · 토큰 형태 + 개인 커밋 이메일, 값은 출력하지 않음) → 다섯 저장소 전체 이력 검사. 알려진 노출 1(세션 4 가 작성자 이메일을 한 번 출력 — 「함정」) | 없음 — 지금 가능 | 세션 | 찾으면 멈추고 알림 — 가리기는 ⑥ 재작성과 함께 | S | 계획서 4절 F0 2번 |
+   | ③ | **F0-3 `.gitignore` 에 `.DS_Store`** — Planning(파일 있음 · 줄 없음) · Design · Logs(파일 없음). `Defense.Unity` · `_공통` 은 있음 ✔ | 없음 — 지금 가능 | 세션 | — | S | 실측 2026-10-30 |
+   | ④ | **다른 두 게임 복사 목록**(D-02 · 완료 기준) — `_템플릿/` · 가이드 3(코드리뷰 · 프롬프트 · 지표) · `_도구/` · `Unity_CLAUDE.md` · 코딩 표준 · `.editorconfig` · `.gitignore` · `.gitattributes` · 비밀값 검사 · 설정 사본(`settings.json` · `.mcp.json`)을 이 NOTES 에 표로 | ② 뒤가 깔끔(비밀값 검사 도구가 아직 없다) | 세션 | — | S | 계획서 8절 |
+   | ⑤ | `_공통` **Q-01** 트레일러 · **Q-02** 계정 · 저장소 이름 · **Q-03** Logs 공개 여부 | — | **사용자** | — | — | `_공통/README.md` 3절 |
+   | ⑥ | **F0-1 작성자 재작성**(G-11) — `git-filter-repo` 설치(지금 없음) · Planning · Design · Logs · `_공통`(`Defense.Unity` 는 처음부터 noreply ✔) · 다른 세션을 모두 닫고(훅 커밋이 끼지 않게) | ⑤ Q-01 · ⑦ | 세션 | `brew install git-filter-repo` · 이력 재작성 — 하나씩 | S~M | 계획서 4절 F0 1번 |
+   | ⑦ | **F0-1 해시 참조 처리 방식** — 재작성으로 해시가 바뀌는 커밋 79, 그 해시를 가리키는 줄 Planning 100 · Logs 364(계획서 추정 34줄의 열 배 넘게). Logs 를 고치면 G-05 와 부딪힌다. 권장: 본문은 두고 커밋 지도 파일 하나 | — | **사용자** | — | — | 결정기록 「미결」 · 계획서 맨 위 추기 |
+   | ⑧ | **S5 F GitHub** — 저장소 5 생성(`games-common` · `Defense.Planning` · `Defense.Design` · `Defense.Logs` · `Defense.Unity`) · 원격 · 첫 푸시 · `main` 보호(강제 푸시 · 삭제 금지) · 문서 링크(Planning README 8절 · `Defense.Unity/README.md` · `_공통` 1절) | ② 0건 · ⑤ · ⑥ | 세션 | 저장소 생성 · 푸시 · 보호 규칙 — 저장소마다 | S | 계획서 4절 S5 |
+   | ⑨ | **종결** — Planning 루트에서 `python3 -I _도구/코드리뷰_집계.py --task P00` → `지표.md` 한 행 · 작업색인 · 과제 README · 현황판 → `z.completed/` 로 `git mv` | ①~④ · ⑧ | 세션 | — | S | 계획서 5 · 8절 |
+
+   순서 권장: 지금 ① · ② · ③ → ④ / 사용자 ⑤ · ⑦ → ⑥ → ⑧ → ⑨. ① 은 Blender 를 띄우므로 Unity 에디터를 쓰는 세션과 겹치지 않게 한다(G-01).
+2. **P01 로 넘기는 것** — P00 종결을 막지 않는다. P01 계획서 2차 `DEF-M01` 에 넣도록 `../P01_게임설계_코어/NOTES.md` 4번에 적었다: X-04 남은 확인 2([기술근거](01_검토/기술근거_20261030_NRE감지.md) 4절 — 콘솔 개별 메시지 명령 · `csharp-ls` 분석기 진단) · [`보류작업.md`](보류작업.md) H-01 도구 견고성(첫 코드 센서 전) · H-02 ① PC 품질 단계 WebGL 제외 ② 빌드 프로필 사본 테스트(③ 은 `_공통` Q-05 · `DEF-M05`) · `Defense.Game` asmdef · `Devman.Core.Tests.EditMode` 어셈블리 · 템플릿 잔재 `Assets/TutorialInfo/` 정리.
+3. **에디터는 세션이 연다 — `_공통` G-12**: 세션이 Unity CLI 로 창 없는 에디터를 띄워 `unity command` 로 다루고 끈다. 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」(`e227f1f` — 띄우기 4초 · 끄기 1초 실측). 사용자가 연 에디터의 종료 · 재시작은 승인 지점. 사용자 GUI 에디터를 쓰는 경로는 아직 실측 없음.
+4. **`Defense.Unity` 지금 모습**: 로컬 `main`, 원격 없음 — S2 `e46ecab`..`4dfe06d` · S1c `aeccdae` · `6130ea4` · `4d20f5b` · G-12 `e227f1f` · `e5741e3`. 게이트 에디터 닫힘 `unity test` 약 20초 · 열림 `unity command` 0.3초. 빌드 장부 `z.builds/BUILDS.md`(Android 개발 APK 42.7 MB · WebGL 14 MB). 작업 보고 `Defense.Unity/z.docs/work_reports/20261030/` 3편 · 센서 기록 `03_작업기록/코드리뷰_20261030_S1` · `_S1b` · `_S1c` · `_S2`. 코딩 표준 정본 `../_템플릿/Unity_csharp_coding_standards.md`(D-06 · D-07) = 사본 `Defense.Unity/z.docs/dev/csharp_coding_standards.md`, 네임스페이스 `Devman.Core.*` / `Defense.Game.*`.
+5. **닫은 확인(2026-10-30 세션 10)**: `csharp-lsp` 가 `Defense.Unity` 의 `.cs` 에서 호버(`GateSmokeTests.cs:20` → `Assembly core`) · 정의 이동(`:20` → `:13`) ✔ — 이 세션은 프로젝트가 생긴 뒤 열렸다. 개명 전 생성물 `Defense.Core.csproj`(17:30, git 밖)가 남아 있지만 `Defense.Unity.slnx` 는 `Devman.Core.csproj` 만 문다.
 
 ## 현재 상태 (덮어쓰기)
 
@@ -23,20 +36,23 @@ _갱신: 2026-10-30_
 
 | 항목 | 상태 |
 |---|---|
-| 검토 | 검토서 2026-10-29 ✔ · 코딩 표준 검토서 2026-10-30 ✔(결정 끝 D-06 · D-07) |
-| 결정 | D-01~D-05 · D-08 · 공통 G-01~G-11 · 미결 `_공통` Q-01~Q-05 · 코딩 표준 D-06 · D-07 ✔ |
-| 계획 | 계획서 1차 2026-10-30 — S1 ✔ · S2 ✔ · S4 흡수 ✔ · R1 ✔ · S1b · S1c ✔ · 남은 S3 D2 · F0 · S5 F |
-| 저장소 변경 | `Defense.Unity`(2026-10-30 신설) · `Defense.Planning` · `Defense.Design` · `Defense.Logs` · `_공통` 모두 `main` 로컬, 원격 없음. `Defense.Unity` 는 처음부터 noreply 작성자, 나머지는 기존 커밋이 noreply 아님(F0) |
-| 환경 | Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) + Android(OpenJDK 17 · SDK · NDK r27c · build-tools 36) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(PATH ✔) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`, 로그인 · 라이선스 Personal 활성) · Chrome(헤드리스 캡처) · gh ✔ `devman-kr`. 없음: git-lfs(D-05) · git-filter-repo(F0 때) |
-| Claude Code 플러그인 | `unity@claude-plugins-official` 0.1.6-beta ✔(스킬 `unity-cli` 외) · `csharp-lsp`(`csharp-ls` 0.28.0 — 4번 ①) · `session-report` · `microsoft-docs` |
+| 검토 | 검토서 2026-10-29 ✔ · 코딩 표준 검토서 2026-10-30 ✔ · NRE 감지 기술근거 2026-10-30 ✔ |
+| 결정 | D-01~D-08 · 공통 G-01~G-12 ✔ · 미결 `_공통` Q-01~Q-05 · 이 과제 미결 1(F0 해시 참조 방식 — 결정기록 「미결」) |
+| 계획 | 계획서 1차 2026-10-30 — S1 · S1b · S1c · S2 · S4(흡수) · R1 ✔ · 남은 일 1번 표 ①~⑨ |
+| 저장소 변경 | `Defense.Unity`(2026-10-30 신설) · `Defense.Planning` · `Defense.Design` · `Defense.Logs` · `_공통` 모두 `main` 로컬, 원격 없음. noreply 아닌 커밋: Planning 23/52 · Design 4/4 · Logs 2/15 · `_공통` 4/8 · Unity 0/13(2026-10-30 세션 10 — 개수만, 값은 출력하지 않음) |
+| 환경 | Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) + Android(OpenJDK 17 · SDK · NDK r27c · build-tools 36) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(PATH ✔) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`, 로그인 · 라이선스 Personal 활성 · 키체인 「항상 허용」 ✔) · Chrome(헤드리스 캡처) · gh ✔ `devman-kr`. 없음: git-lfs(D-05) · git-filter-repo(⑥ 때) |
+| Claude Code 플러그인 | `unity@claude-plugins-official` 0.1.6-beta ✔(스킬 `unity-cli` 외) · `csharp-lsp`(`csharp-ls` 0.28.0 — 호버 · 정의 이동 ✔ 2026-10-30) · `session-report` · `microsoft-docs` |
 | `Defense.Unity` 패키지 | 템플릿 기본 + `com.unity.pipeline` 0.9.1-exp.1(Unity 레지스트리 · 실험판 · `unity command` 용 — 플레이어 빌드에 런타임 미포함 확인) |
 | 훅 | 프롬프트 · 다이제스트 · `SessionEnd` 커밋 동작 ✔(Logs `99e4e35` 등 2026-10-30 — R1 닫음) |
 | GitHub MCP | 작업 공간 루트 `.mcp.json`(git 밖) — 공식 원격 서버 `https://api.githubcopilot.com/mcp/`, 헤더 `Authorization: Bearer ${GITHUB_PAT}` · `X-MCP-Toolsets: context,repos,issues,pull_requests,actions`. `.claude/settings.json` 에 `enabledMcpjsonServers: ["github"]` · `permissions.deny` `delete_repository` · `permissions.ask` 24개(저장소 생성 · 포크 · 파일 쓰기/삭제 · 브랜치 · PR 생성/수정/머지/리뷰 · 이슈 · 하위 이슈 · 댓글 · 워크플로 실행). **연결 ✔ 2026-10-29** — `get_me` 로그인 `devman-kr`. `gh auth status` 범위 `repo` · `workflow` · `read:org` · `gist` |
+| Blender MCP | 미등록 — `.mcp.json` 은 `github` 하나(2026-10-30 실측) → 1번 표 ① |
 
 ## 사용자 대기 (덮어쓰기)
 
+- `_공통` Q-01~Q-03 — S5 선행(1번 표 ⑤).
+- F0 해시 참조 처리 방식 — 작성자 재작성 전(1번 표 ⑦, 결정기록 「미결」).
+- Unity 플러그인 상시 컨텍스트 비용 — 세션이 `/context` 를 볼 수 없어 사용자가 보면 「현재 상태」에 적는다(P00 을 막지 않음).
 - `Defense.Unity` 실기기 설치(선택) — `z.builds/debug/defense_20261030_3d4abc4_android-dev.apk`.
-- `_공통` Q-01~Q-03(S5 선행).
 
 ---
 
@@ -61,6 +77,7 @@ _갱신: 2026-10-30_
 
 ## 발견 로그 (누적, 최신 위)
 
+- 2026-10-30 — 세션 10 잔여 정리: 계획서 8절 완료 기준 중 넷(Unity 버전 · S2 커밋 · 게이트 명령 · R1)은 이미 끝났는데 체크가 안 돼 있었다 — 세션마다 결과를 NOTES 6번 같은 긴 줄에 덧붙이고 8절은 S1c 만 고쳤다. 과제 README 「다음 행동」은 S1b · S1c 줄이 끼어들어 같은 문구가 두 번 들어가 있었다. F0 1번 비용은 계획 때 「문서 해시 참조 34줄」이었지만 작성자 재작성은 첫 커밋부터 해시를 바꿔(네 저장소 모두 첫 커밋부터 noreply 아님) 바뀌는 커밋 79 · 참조 줄 Planning 100 · Logs 364 다 — 세션이 하루 만에 열 배 넘게 키웠다. `_템플릿/작업지시서.md:29` 에 G-12 이전 문구 「사용자가 연 에디터」가 남아 있어 고쳤다(`04dfe9b` 는 21줄 승인 지점만 고쳤다). ✔
 - 2026-10-30 — 세션 9: G-12 열림 경로를 문서 명령 그대로 실측 — Blender 확인 → 창 없는 에디터 `ready` 4초(`Library/` 캐시) → `U test run --mode editor` 실패 0 → `script eval` 로 `EditorApplication.Exit(0)` 1초. 사용자 GUI 에디터를 쓰는 경로는 아직 실측 없음. ✔
 - 2026-10-30 — 세션 8(Opus 5.5) NRE 조기 감지 웹 조사 → X-04 · [`01_검토/기술근거_20261030_NRE감지.md`](01_검토/기술근거_20261030_NRE감지.md). 첫 제안의 Nullable 참조 형식은 코딩 표준 §5.5(`#nullable` 금지)와 충돌해 뺐다 — 웹 조사 전에 저장소 표준 · 작업 보고를 먼저 대조했어야 했다(S2 가 이미 끝나 「S2 에서 확인할 것」 셋 중 둘은 실측으로 답이 있었다). 공식 내장 직렬화 참조 검증 도구는 찾지 못했다(웹 검색 기준 △).
 - 2026-10-30 — S1c 세션 센서(sonnet 1): 폴더 [`03_작업기록/코드리뷰_20261030_S1c/`](03_작업기록/코드리뷰_20261030_S1c/) · 미해결 0 · H 후보 없음. 장부(G-02)에 문서 · AI 생성 사본도 적어야 한다는 지적 — 코드 아닌 파일을 장부 대상으로 생각하지 못했다. 둘째 게이트 실행 410초(첫 14초)는 `unity` CLI 의 키체인 접근 대화상자를 사용자가 6분 43초 뒤에 허용한 시간 — `securityd` 로그로 확인 ✔(「함정」). 세션 창이 닫혀도 서브에이전트 전사는 `subagents/` 에 남아 추출 도구가 그대로 뽑았다 ✔
