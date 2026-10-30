@@ -8,14 +8,14 @@
 
 ## 다음 세션 시작 전 확인 (덮어쓰기)
 
-_갱신: 2026-10-30 — 세션 6(Fable 5.1): 코딩 표준 D-06 · D-07 · S1b ✔(표준 Unity 판 · 센서 2라운드) · S1c(승인 대기). 그 전 세션 7(Opus 5.5): S2 D1 `Defense.Unity` 생성 · 게이트 실측 · 빌드 스모크_
+_갱신: 2026-10-30 — 세션 6(Fable 5.1): 코딩 표준 D-06 · D-07 · S1b · S1c ✔(표준 Unity 판 · `Defense.Unity` 반영 · 센서). 그 전 세션 7(Opus 5.5): S2 D1 `Defense.Unity` 생성 · 게이트 실측 · 빌드 스모크_
 
 1. **지금 어느 단계**: 실행 — [`02_계획/계획서_20261030.md`](02_계획/계획서_20261030.md). S1 ✔ · **S2 ✔(2026-10-30)** · S4 는 S1 · S2 로 흡수 끝(`_템플릿/Unity_CLAUDE.md` = `Defense.Unity/CLAUDE.md`, diff 0). R1 ✔. 남은 것: S3 D2 Blender MCP · 코딩 표준(6번) · F0 · S5 F(`_공통` Q-01~Q-03 뒤).
 2. **S2 결과**: `Defense.Unity`(로컬 `main`, 원격 없음) — `e46ecab` 템플릿 생성물 그대로 · `3d4abc4` 골격(CLAUDE.md · README · ASSETS · LICENSE MIT · `.gitattributes` · Core/Tests asmdef · 스모크 테스트 1 · `com.unity.pipeline` · PlayerSettings · 빌드 프로필 2) · `4ec4f97` · `4fdea24` 빌드 때 에디터 자동 변환 · `a89d77b` 작업 보고 · `59f9a07` 센서 지적 고침 · `4dfe06d` 보고 코드 리뷰 절. 게이트 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」 — 에디터 닫힘 `unity test` 약 20초 · 열림 `unity command` 0.3초. 빌드 장부 `z.builds/BUILDS.md`(Android 개발 APK 42.7 MB · WebGL 14 MB). 작업 보고 `Defense.Unity/z.docs/work_reports/20261030/1_create_저장소_골격.md`. 센서 기록 [`03_작업기록/코드리뷰_20261030_S2/`](03_작업기록/코드리뷰_20261030_S2/).
 3. **에디터를 누가 여나**: 이번 세션은 사용자 말(「unity cli 로 당신이 진행하면 될 것 같은데요」)대로 세션이 창 없는 에디터를 직접 띄워 `unity command` 로 다뤘다(D-08). 루트 `CLAUDE.md` · `_공통` 상위 `CLAUDE.md` 는 아직 「에디터는 사용자가 연다」 — 규칙으로 올릴지는 사용자 대기.
 4. **다음 세션이 확인할 것**: ① Claude Code `csharp-lsp` 가 `Defense.Unity` 의 `.cs` 에서 정의 이동 · 호버가 되는지 — 이 세션의 LSP 는 프로젝트가 생기기 전에 떠서 문서 심볼만 됐다(`csharp-ls --diagnose` 는 `Defense.Unity.slnx` 로드 ✔) ② Unity 플러그인 상시 컨텍스트 비용(`/context`) — 세션이 볼 수 없어 사용자가 보면 적는다.
 5. **결정 끝(2026-10-30)**: G-11(커밋 이메일 noreply — `Defense.Unity` 도 로컬 설정 ✔) · D-04 · D-05 · D-08(S2 실행 세부).
-6. **C# 코딩 표준 사본**: 사용자 요청(2026-10-30)으로 EasyCheck.Server `z.docs/dev/csharp_coding_standards.md`(EasyCheck 커밋 `eb7628e6`, `CLAUDE.md:95` 가 가리키는 현행 판)를 **그대로** [`../_템플릿/Unity_csharp_coding_standards.md`](../_템플릿/Unity_csharp_coding_standards.md) 에 두었다(SHA-256 일치 ✔). Unity 화(ASP.NET · DB · `[Developer]` · `>>`/`<<` 로깅 · INI 등 서버 전용 절 정리, `_템플릿/Unity_CLAUDE.md` 「코딩」과 대조)는 **아직 안 했다** — 사용자 「우선 가져오기만」. 자리는 S2 D1 7번 「우리 파일」에 `z.docs/dev/csharp_coding_standards.md` 로 넣는다. 예제가 든 긴 판(32 KB)은 EasyCheck `z.docs/z.old/csharp_coding_standards.md` 에 있다. **검토서 ✔ 2026-10-30** [`01_검토/검토서_20261030_코딩표준.md`](01_검토/검토서_20261030_코딩표준.md) — 절별 처리(유지 2 · 수정 13 · 교체 9 · 신설 7)와 6절 결정 14개(묶음 A 7 · 취향 B 7). **결정 ✔ D-06(묶음 A) · D-07(B)** 2026-10-30 → **S1b ✔**(표준 Unity 판 `6aefbe1` → 센서 고침 `df7ae07` · 회귀 고침 `736e8c7`; 기록 [`03_작업기록/코드리뷰_20261030_S1b/`](03_작업기록/코드리뷰_20261030_S1b/) — 지적 57 · 고침 54 · 의도 2(반론 수락) · S1c 1 · 미해결 0). **사용자 읽기 = 승인 지점 2** — `_템플릿/Unity_csharp_coding_standards.md`(32 KB — 검토서 4.4 의 12 KB 목표 초과, 4.5 추기)와 「작성 세션이 더한 규칙」 13곳(검토서 4.5 · D-07 비고) 확인. S2 는 끝났다(`c543eeb` · Unity `4dfe06d`) — `Defense.Unity` 반영은 **S1c**(사본 2 · `CLAUDE.md` · asmdef `Defense.Core` → `Devman.Core` 개명 · 게이트, 승인 지점). 네임스페이스는 `Devman.Core.*` / `Defense.Game.*`(D-07 ⑤) — 웨이브 디렉터 · 드래프트의 소속은 P01 `DEF-M01` 에서.
+6. **C# 코딩 표준 사본**: 사용자 요청(2026-10-30)으로 EasyCheck.Server `z.docs/dev/csharp_coding_standards.md`(EasyCheck 커밋 `eb7628e6`, `CLAUDE.md:95` 가 가리키는 현행 판)를 **그대로** [`../_템플릿/Unity_csharp_coding_standards.md`](../_템플릿/Unity_csharp_coding_standards.md) 에 두었다(SHA-256 일치 ✔). Unity 화(ASP.NET · DB · `[Developer]` · `>>`/`<<` 로깅 · INI 등 서버 전용 절 정리, `_템플릿/Unity_CLAUDE.md` 「코딩」과 대조)는 **아직 안 했다** — 사용자 「우선 가져오기만」. 자리는 S2 D1 7번 「우리 파일」에 `z.docs/dev/csharp_coding_standards.md` 로 넣는다. 예제가 든 긴 판(32 KB)은 EasyCheck `z.docs/z.old/csharp_coding_standards.md` 에 있다. **검토서 ✔ 2026-10-30** [`01_검토/검토서_20261030_코딩표준.md`](01_검토/검토서_20261030_코딩표준.md) — 절별 처리(유지 2 · 수정 13 · 교체 9 · 신설 7)와 6절 결정 14개(묶음 A 7 · 취향 B 7). **결정 ✔ D-06(묶음 A) · D-07(B)** 2026-10-30 → **S1b ✔**(표준 Unity 판 `6aefbe1` → 센서 고침 `df7ae07` · 회귀 고침 `736e8c7`; 기록 [`03_작업기록/코드리뷰_20261030_S1b/`](03_작업기록/코드리뷰_20261030_S1b/) — 지적 57 · 고침 54 · 의도 2(반론 수락) · S1c 1 · 미해결 0). 사용자 확인 ✔ 2026-10-30(더한 규칙 13 · `PlayerPrefs` · 분량). **S1c ✔** — `Defense.Unity` `aeccdae`(사본 2 · `CLAUDE.md` diff 0 · asmdef `Devman.Core` · IVT `Devman.Core.Tests.EditMode`) · `6130ea4`(센서 고침 — 장부 2행 · IVT 테스트) · `4d20f5b`(보고서 `z.docs/work_reports/20261030/2_modify_S1c_코딩표준반영_asmdef개명.md`), 기록 [`03_작업기록/코드리뷰_20261030_S1c/`](03_작업기록/코드리뷰_20261030_S1c/) 지적 6 · 미해결 0. 게이트 EditMode 2/2 · 경고 0. `Defense.Game` asmdef · `Devman.Core.Tests.EditMode` 어셈블리 · 템플릿 잔재 정리는 `DEF-M01`. S2 는 끝났다(`c543eeb` · Unity `4dfe06d`) — `Defense.Unity` 반영은 **S1c**(사본 2 · `CLAUDE.md` · asmdef `Defense.Core` → `Devman.Core` 개명 · 게이트, 승인 지점). 네임스페이스는 `Devman.Core.*` / `Defense.Game.*`(D-07 ⑤) — 웨이브 디렉터 · 드래프트의 소속은 P01 `DEF-M01` 에서.
 
 ## 현재 상태 (덮어쓰기)
 
@@ -25,7 +25,7 @@ _갱신: 2026-10-30_
 |---|---|
 | 검토 | 검토서 2026-10-29 ✔ · 코딩 표준 검토서 2026-10-30 ✔(결정 끝 D-06 · D-07) |
 | 결정 | D-01~D-05 · D-08 · 공통 G-01~G-11 · 미결 `_공통` Q-01~Q-05 · 코딩 표준 D-06 · D-07 ✔ |
-| 계획 | 계획서 1차 2026-10-30 — S1 ✔ · S2 ✔ · S4 흡수 ✔ · R1 ✔ · S1b ✔ · 남은 S1c(승인 대기) · S3 D2 · F0 · S5 F |
+| 계획 | 계획서 1차 2026-10-30 — S1 ✔ · S2 ✔ · S4 흡수 ✔ · R1 ✔ · S1b · S1c ✔ · 남은 S3 D2 · F0 · S5 F |
 | 저장소 변경 | `Defense.Unity`(2026-10-30 신설) · `Defense.Planning` · `Defense.Design` · `Defense.Logs` · `_공통` 모두 `main` 로컬, 원격 없음. `Defense.Unity` 는 처음부터 noreply 작성자, 나머지는 기존 커밋이 noreply 아님(F0) |
 | 환경 | Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) + Android(OpenJDK 17 · SDK · NDK r27c · build-tools 36) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(PATH ✔) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`, 로그인 · 라이선스 Personal 활성) · Chrome(헤드리스 캡처) · gh ✔ `devman-kr`. 없음: git-lfs(D-05) · git-filter-repo(F0 때) |
 | Claude Code 플러그인 | `unity@claude-plugins-official` 0.1.6-beta ✔(스킬 `unity-cli` 외) · `csharp-lsp`(`csharp-ls` 0.28.0 — 4번 ①) · `session-report` · `microsoft-docs` |
@@ -35,8 +35,6 @@ _갱신: 2026-10-30_
 
 ## 사용자 대기 (덮어쓰기)
 
-- **코딩 표준 읽기(승인 지점 2)** — `_템플릿/Unity_csharp_coding_standards.md` 19절. 특히 「작성 세션이 더한 규칙」 13곳(`??=` · `ReferenceEquals` · `Resources/` · `StreamingAssets/` · `DateTime.Now` · 문자열 `StartCoroutine` · `Routine` 접미 · 「애매하면 Game」 · `MaterialPropertyBlock` 금지 · SDK `Task` await 허용 · `destroyCancellationToken` · static 초기화 자리 둘 · 참조 있을 때만 `OnEnable` 구독)과 `PlayerPrefs` 미사용(D-06 ⑤ 추기) · 분량(32 KB). 2026-10-30.
-- **S1c 계획 승인** — `Defense.Unity` 반영(계획서 4절 S1c): 사본 2 · `CLAUDE.md` 「코딩」 · asmdef `Defense.Core` → `Devman.Core` · Core 테스트 어셈블리 `Devman.Core.Tests.EditMode` · 게이트. 저장소 규칙 형식(목표 · 영향 파일 · 단계)으로 제시함. 2026-10-30.
 - **에디터를 여는 주체** — 루트 `CLAUDE.md` 「공유 자원」 · `_공통` 상위 `CLAUDE.md` 「한 기기」의 「Unity 에디터는 사용자가 연다」를 「세션이 Unity CLI 로 창 없는 에디터를 띄워도 된다(Blender 와 동시 금지는 그대로)」로 바꿀지(D-08 은 이 세션 한정). 바꾸면 `_공통` G-nn 과 두 정본(`_공통/_템플릿/Games_CLAUDE.md` · `_템플릿/루트_CLAUDE.md`).
 - `Defense.Unity` 실기기 설치(선택) — `z.builds/debug/defense_20261030_3d4abc4_android-dev.apk`.
 - `_공통` Q-01~Q-03(S5 선행).
@@ -63,6 +61,7 @@ _갱신: 2026-10-30_
 
 ## 발견 로그 (누적, 최신 위)
 
+- 2026-10-30 — S1c 세션 센서(sonnet 1): 폴더 [`03_작업기록/코드리뷰_20261030_S1c/`](03_작업기록/코드리뷰_20261030_S1c/) · 미해결 0 · H 후보 없음. 장부(G-02)에 문서 · AI 생성 사본도 적어야 한다는 지적 — 코드 아닌 파일을 장부 대상으로 생각하지 못했다. 둘째 게이트 실행 410초(첫 14초) 원인 미확인 [추정 — 다른 세션 활동 중 재임포트]. 세션 창이 닫혀도 서브에이전트 전사는 `subagents/` 에 남아 추출 도구가 그대로 뽑았다 ✔
 - 2026-10-30 — S1b 세션 센서(sonnet, 2라운드 + 반론 D): 폴더 [`03_작업기록/코드리뷰_20261030_S1b/`](03_작업기록/코드리뷰_20261030_S1b/) · 미해결 0 · H 후보 없음(S1c 몫 1). 문서 리뷰에 Unity 매뉴얼 WebFetch 대조를 넣으니 「왜」의 사실 오류 2(파일 이름 · MPB)와 근거 없는 「왜」 6줄을 잡았다 — 결정 D-07 ⑦ 「매뉴얼로 확인한 것만」이 규칙으로 있어서 센서가 그 기준으로 대조할 수 있었다. 2라운드의 「처리표 고침 표본 검산」이 「부분만 고침」 4건을 되돌려 줬다. 분량 목표(12 KB)는 결정 항목(신설 7절 · 「왜」 · 근거)만으로 넘는 추정 오류였다 ✔
 - 2026-10-30 — S2 세션 센서(sonnet) + 판정 반론 1: 폴더 `03_작업기록/코드리뷰_20261030_S2/` · 미해결 0 · H 후보 H-02(PC 품질 단계 WebGL 제외 · 프로필 사본 테스트 · WebGL 게시처 압축). 고침 커밋 `Defense.Unity` `59f9a07`. ✔
 - 2026-10-30 — S2: `com.unity.pipeline` 런타임 어셈블리는 `defineConstraints` 가 `UNITY_EDITOR || ENABLE_RUNTIME_PIPELINE(_DEV)` 라 플레이어에 안 들어간다 — Android APK `global-metadata.dat` 에서 `Unity.Pipeline` 0건 · `Defense.Core` 1건으로 확인. 라이선스는 Unity Terms of Service(패키지 `LICENSE.md`), 템플릿 `com.unity.template.urp-blank` 17.1.0 은 Unity Companion License. ✔

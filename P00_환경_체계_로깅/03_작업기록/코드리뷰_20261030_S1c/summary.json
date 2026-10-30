@@ -1,0 +1,17 @@
+[
+ {
+  "id": "agent-af2c569354aad45c9",
+  "description": "센서A sonnet — S1c asmdef 개명 리뷰",
+  "model_requested": "sonnet",
+  "model": "claude-sonnet-5-5",
+  "start_kst": "2026-10-30 19:19:04",
+  "end_kst": "2026-10-30 19:24:33",
+  "tool_calls": 27,
+  "cache_creation": 335919,
+  "input": 86,
+  "output": 82960,
+  "cache_read": 3770928,
+  "new_tokens": 418965,
+  "final_source": "SubagentHandback"
+ }
+]
