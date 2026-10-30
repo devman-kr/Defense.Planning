@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s1c-readme
+title: 코드 리뷰 — P00 S1c · `Defense.Unity` — 코딩 표준 반영 · asmdef 개명 (2026-10-30)
+summary: S1c 리뷰 폴더 안내 — 범위 4dfe06d..aeccdae(asmdef 2 · .cs 2 · .editorconfig), 센서 에이전트 1개(agent-af2c569354aad45c9, 새 토큰 418,965), 지적 6 · 고침 2 · 처리 안 함 3 · 범위 밖 1 이고 2라운드는 없다.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 # 코드 리뷰 — P00 S1c · `Defense.Unity` — 코딩 표준 반영 · asmdef 개명 (2026-10-30)
 
 | 라운드 | 범위 | 크기 | 구성 | 원본 | 지시 |

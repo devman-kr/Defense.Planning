@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s2-readme
+title: 코드 리뷰 — P00 S2 · `Defense.Unity` (2026-10-30)
+summary: S2 리뷰 폴더 안내 — 범위 e46ecab..a89d77b(16파일 +315/−32), 센서 A 와 반론 D 에이전트 2개(새 토큰 1,051,278), 지적 16 · 고침 9(59f9a07) · 의도 1 · 범위 밖 1(H-02), 사람이 읽을 설정 diff 명령.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 # 코드 리뷰 — P00 S2 · `Defense.Unity` (2026-10-30)
 
 | 라운드 | 범위 | 크기 | 구성 | 원본 | 지시 |

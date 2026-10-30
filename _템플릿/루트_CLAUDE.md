@@ -1,3 +1,13 @@
+---
+id: 20261029-ws-root-claude
+title: Defense 작업 공간
+summary: Defense 작업 공간 루트의 에이전트 지침 정본으로, 세션 시작 순서 · 저장소 우선순위 · 저장소별 커밋 · 푸시 허락 범위 · Unity 에디터와 기기 공유 자원 · 코드 리뷰 세 층 · 세션 종료 절차를 정하며 사본이 Defense/CLAUDE.md 다.
+doc_type: guide
+status: final
+lifecycle: living
+created: 2026-10-29
+updated: 2026-10-30
+---
 # Defense 작업 공간
 
 이 폴더(`~/_Projects/_Personal/Games/Defense`)는 git 저장소가 아니라 **작업 공간**이다 — EasyCheck 작업 공간(`~/UBM`)과 같은 배치다. 안에 독립 git 저장소가 있다 — `Defense.Unity`(Unity 6 프로젝트, 공개 포트폴리오 저장소 — Unity 설치 뒤 생성) · `z.docs/Defense.Planning`(과제 관리 — 마일스톤 단위 작업 계획) · `z.docs/Defense.Design`(기획 문서, G-10) · `z.docs/Defense.Logs`(세션 로그 — 훅이 쓴다). 이 문서의 정본은 `z.docs/Defense.Planning/_템플릿/루트_CLAUDE.md` 이고 여기는 사본이다 — 고칠 때는 정본을 고치고 복사한다(X-01). 세 게임에 공통인 규칙은 상위 `../CLAUDE.md`(G-nn 은 `../_공통/README.md`). git 밖 설정은 이 Mac 에만 있다 — `.claude/settings.json`(로깅 훅 · 권한) · `.mcp.json`(GitHub MCP, 토큰은 환경 변수 `GITHUB_PAT`). 사본 · 설명은 Planning `P00_환경_체계_로깅/NOTES.md` 「현재 상태」.

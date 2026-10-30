@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s1-sensor-a-round2
+title: 코드 리뷰 P00 S1 2라운드 — 센서 A 원본 (수정 커밋 점검)
+summary: 1라운드 고침 커밋을 점검한 지적 5건 — first_file() 이 Time.timeScale · API.Spec 같은 점 든 낱말을 파일로 뽑는 회귀, 조사 · 기호 붙은 토큰, 공백 든 파일 이름, 자리표시 값 — 을 EasyCheck 처리표 430칸 비교로 보고했다.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 세션 모델: Sonnet 5.5 (지시는 Opus 5.5 기준).
 
 | # | 종류 | 심각도 | 기원 | 유형 | 파일:줄 | 실패 시나리오(입력 → 잘못된 결과) | 확신 |

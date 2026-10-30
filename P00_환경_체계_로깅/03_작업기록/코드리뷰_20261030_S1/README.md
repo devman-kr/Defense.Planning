@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s1-readme
+title: 코드 리뷰 — P00 S1 · Planning `_도구/` (2026-10-30)
+summary: S1 도구 변경 리뷰 폴더 안내 — 라운드 표(dd78126..1fab994 · 1fab994..0ae5a73), 센서 에이전트 2개의 모델 · 토큰(합계 533,307), 처리 결과(지적 11 · 고침 7 · 범위 밖 3 은 H-01)를 모았다.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 # 코드 리뷰 — P00 S1 · Planning `_도구/` (2026-10-30)
 
 | 라운드 | 범위 | 크기 | 구성 | 원본 | 지시 |

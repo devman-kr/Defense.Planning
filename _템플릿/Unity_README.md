@@ -1,4 +1,14 @@
-<!-- 골격: 2026-10-30 P00 S2 에서 Defense.Unity/README.md 로 복사했다(`3d4abc4`) — 살아 있는 판은 그쪽이고, 이 파일은 다른 게임 README 의 골격이다. 아래는 복사 전 안내: 「(채움)」은 해당 마일스톤에서 실제 값으로 바꾸고, 게임 소개는 `z.docs/Defense.Design/기획서.md` 를 따른다. 복사한 뒤 이 줄을 지운다. -->
+---
+id: 20261029-unity-readme-skeleton
+title: Lantern Rush! (랜턴 러시!)
+summary: 공개 게임 저장소 첫 화면용 README 골격으로, 슬로건 · 플레이 방법 표 · 기술 하이라이트 · 폴더 구조 · 직접 빌드하기 · 만든 방법(직접 제작 · CC0 · AI 생성 비중) · 라이선스 절을 갖추고 비운 값은 (채움) 으로 표시한다.
+doc_type: guide
+status: final
+lifecycle: living
+created: 2026-10-29
+updated: 2026-10-31
+---
+<!-- 골격: 2026-10-30 P00 S2 에서 Defense.Unity/README.md 로 복사했다(`3d4abc4`) — 살아 있는 판은 그쪽이고, 이 파일은 다른 게임 README 의 골격이다. 아래는 복사 전 안내: 「(채움)」은 해당 마일스톤에서 실제 값으로 바꾸고, 게임 소개는 `z.docs/Defense.Design/기획서.md` 를 따른다. 복사할 때 맨 앞 프론트매터 블록은 떼고(공개 저장소 첫 화면은 `_공통/문서규약.md` 1절 예외 — G-18), 복사한 뒤 이 줄을 지운다. -->
 
 # Lantern Rush! (랜턴 러시!)
 

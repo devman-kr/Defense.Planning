@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s1b-rebuttal-d
+title: 코드 리뷰 P00 S1b — 판정 반론 D 원본 (의도 2건)
+summary: 작성 세션이 의도로 닫은 지적 2건(8번 PlayerPrefs 금지 · 19번 32 KB 분량 초과)을 판정자가 기획서 6.1 · D-06 ⑤ · 4.5 추기와 대조해 둘 다 수락한 판정표.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 판정자 모델: Sonnet 5.5 (지시의 원본 기준 Opus 5.5 와 다르다)
 
 | # | 지적(요약) | 처리 | 작성 세션의 근거(요약) | 판정 | 이유 |

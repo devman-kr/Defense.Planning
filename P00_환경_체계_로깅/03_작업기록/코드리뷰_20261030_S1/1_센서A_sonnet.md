@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s1-sensor-a-round1
+title: 코드 리뷰 P00 S1 1라운드 — 센서 A 원본 (Planning 도구 변경)
+summary: 코드리뷰_집계.py 의 first_file() 확장자 목록이 Unity 파일을 다 담지 못함, 추출 도구 실행 위치가 문서마다 다름, summary.json 덮어쓰기 등 도구 변경에 대한 센서 A 지적 6건과 확인하지 않은 것.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 세션 모델: Sonnet 5.5 (지시는 Opus 5.5 기준이라 다르다).
 
 | # | 종류 | 심각도 | 기원 | 유형 | 파일:줄 | 실패 시나리오(입력 → 잘못된 결과) | 확신 |

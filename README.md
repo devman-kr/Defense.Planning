@@ -1,3 +1,13 @@
+---
+id: 20261029-planning-readme
+title: Defense.Planning — 저장소를 가로지르는 과제의 관리 체계
+summary: Defense.Planning 의 과제 관리 체계 정본으로, 과제 현황판(P00~P02)과 읽는 순서, 과제 폴더 규격 Pnn, 지칭 · 표기 규칙, 한 에이전트로 두 저장소를 다루는 규율, 저장소 규약과의 관계, 체계 결정 X-01~X-04 를 담는다.
+doc_type: guide
+status: final
+lifecycle: living
+created: 2026-10-29
+updated: 2026-10-30
+---
 # Defense.Planning — 저장소를 가로지르는 과제의 관리 체계
 
 이 폴더는 `Defense.Unity` · `Defense.Design` · `Defense.Logs` 저장소와 작업 공간에 걸치는 **과제(P-nn)** 의 검토 · 결정 · 계획 · 진행 상태 · 세션 인계를 담는다 — 마일스톤 단위의 작업 계획이다. 게임 기획(기획서 · 데이터 표 · 목업)은 [`../Defense.Design/`](../Defense.Design/README.md)(X-02). 2026-10-29 신설. 체계는 EasyCheck.Planning(`~/UBM/z.docs/EasyCheck.Planning`, 2026-09-22~)을 그대로 가져왔고, 이 게임에 맞게 바꾼 것만 7절 X-nn 에 적는다. 세 게임 공통 결정(G-nn)은 `../../../_공통/README.md`. 작업 공간의 에이전트 지침은 루트 [`CLAUDE.md`](../../CLAUDE.md)(정본 [`_템플릿/루트_CLAUDE.md`](_템플릿/루트_CLAUDE.md)).

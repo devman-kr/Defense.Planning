@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s1b-readme
+title: 코드 리뷰 — P00 S1b · Planning 템플릿 · 가이드 — C# 코딩 표준 Unity 판 (2026-10-30)
+summary: S1b 코딩 표준 리뷰 폴더 안내 — 1라운드 06a668d..6aefbe1 · 반론 · 2라운드 6aefbe1..df7ae07 표, 에이전트 3개(agent-a3b9772cf659725b1 등, 새 토큰 합 1,903,035), 지적 39+17 의 처리 결과.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 # 코드 리뷰 — P00 S1b · Planning 템플릿 · 가이드 — C# 코딩 표준 Unity 판 (2026-10-30)
 
 | 라운드 | 범위 | 크기 | 구성 | 원본 | 지시 |

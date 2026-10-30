@@ -1,3 +1,14 @@
+---
+id: 20261029-p00-notes
+title: NOTES — P00 작업 메모
+summary: P00 를 이어받는 세션이 먼저 읽는 메모 — 남은 일 표 ①~⑨(F0 · S5 GitHub · 종결 포함), 환경 · 훅 · GitHub MCP 현재 상태, 사용자 대기, unity CLI 키체인 대화상자 같은 함정, 발견 로그를 담는다.
+doc_type: note
+status: final
+lifecycle: living
+created: 2026-10-29
+updated: 2026-10-30
+work_unit: P00
+---
 # NOTES — P00 작업 메모
 
 세션이 작업하면서 **다음 세션이 알아야 할 것**을 적는 곳이다. 과제 지도는 [`README.md`](README.md), 결정은 [`결정기록.md`](결정기록.md), 여러 과제에 걸치는 메모는 [`../NOTES.md`](../NOTES.md), 세 게임 공통은 `_공통/README.md`.

@@ -1,3 +1,14 @@
+---
+id: 20261029-p01-notes
+title: NOTES — P01 작업 메모
+summary: P01 세션 인계 메모로, 설계 확정 상태와 다음 순서(계획서 1차 · 지시서 S1 승인 → S1 → S2 → 계획서 2차)를 적고, 2차에 넣을 DEF-M01 몫(X-04 NRE 감지 · P00 H-01 · H-02)과 누적 함정 · 발견 로그 · 미해결을 담는다.
+doc_type: note
+status: final
+lifecycle: living
+created: 2026-10-29
+updated: 2026-10-30
+work_unit: P01
+---
 # NOTES — P01 작업 메모
 
 세션이 작업하면서 **다음 세션이 알아야 할 것**을 적는 곳이다. 과제 지도는 [`README.md`](README.md), 결정은 [`결정기록.md`](결정기록.md), 여러 과제에 걸치는 메모는 [`../NOTES.md`](../NOTES.md), 세 게임 공통은 `_공통/README.md`.

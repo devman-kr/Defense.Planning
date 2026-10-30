@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s2-rebuttal-d
+title: 코드 리뷰 P00 S2 — 판정 반론 D 원본 (의도 1건)
+summary: 승인 지점 변경을 한 커밋 3d4abc4 에 묶었다는 P00.S2.UNI.02 를 계획서 7절 6번 · D-05 · D-08 과 대조해 위반이 아니라 승인된 설계로 보고 수락한 판정표.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 세션 모델: Sonnet 5.5 (지시는 Opus 5.5 기준이라 다름)
 
 | # | 지적(요약) | 처리 | 작성 세션의 근거(요약) | 판정 | 이유 |

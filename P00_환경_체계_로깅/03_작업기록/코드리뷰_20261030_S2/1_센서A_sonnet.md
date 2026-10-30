@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s2-sensor-a-round1
+title: 코드 리뷰 P00 S2 1라운드 — 센서 A 원본 (Defense.Unity 저장소 골격)
+summary: Defense.Unity 저장소 골격을 읽은 센서 A 의 지적 16건 — Android-Dev 프로필 m_BuildType 불일치, 3d4abc4 한 커밋에 승인 지점 변경 묶음, ENABLE_RUNTIME_PIPELINE 검토 기준 부재, URP 자동 변환 기록 오차.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 세션 모델: Sonnet 5.5 (지시는 Opus 5.5 기준으로 쓰였음)
 
 | # | 종류 | 심각도 | 기원 | 유형 | 파일:줄 | 실패 시나리오(입력 → 잘못된 결과) | 확신 |

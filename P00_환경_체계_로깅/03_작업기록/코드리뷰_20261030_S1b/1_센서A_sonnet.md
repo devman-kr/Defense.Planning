@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s1b-sensor-a-round1
+title: 코드 리뷰 P00 S1b 1라운드 — 센서 A 원본 (C# 코딩 표준 Unity 판)
+summary: 코딩 표준 Unity 판을 읽은 센서 A 의 지적 39건(blocking 2) — 검토서 4.1 약속 누락, D-07 ⑥ 로그 한국어 누락, MaterialPropertyBlock 과 SRP Batcher 충돌, 규칙 간 모순, .editorconfig 오류.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 리뷰어 모델: Sonnet 5.5 (지시의 원본 기준 Opus 5.5 와 다르다).
 
 표기: 표준 = `_템플릿/Unity_csharp_coding_standards.md`, 템플릿 = `_템플릿/Unity_CLAUDE.md`, ec = `_템플릿/Unity_.editorconfig`, 검토서 = `P00_환경_체계_로깅/01_검토/검토서_20261030_코딩표준.md`, 가이드 = `코드리뷰_가이드.md`.

@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s1b-sensor-a-round2
+title: 코드 리뷰 P00 S1b 2라운드 — 센서 A 원본 (수정 커밋 점검)
+summary: 표준 수정 커밋을 다시 읽은 2라운드 센서 A 의 지적 17건 — D-06 추기 확인 대기 표시 누락, §7.10 과 §9.6 어긋남 등 — 과 처리표 고침 표본 12건 검산(부분 고침 · 다르게 고침 포함) 결과.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 리뷰어 모델: Sonnet 5.5 (지시의 원본 기준 Opus 5.5 와 다르다). 읽기만 했고 저장소 파일은 건드리지 않았다. 검증용 임시 프로젝트는 scratchpad 에서 돌렸다.
 
 표기: 표준 = `_템플릿/Unity_csharp_coding_standards.md`, 템플릿 = `_템플릿/Unity_CLAUDE.md`, ec = `_템플릿/Unity_.editorconfig`, 가이드 = `코드리뷰_가이드.md`, 검토서 = `P00_환경_체계_로깅/01_검토/검토서_20261030_코딩표준.md`, 결정기록 = `P00_환경_체계_로깅/결정기록.md`.

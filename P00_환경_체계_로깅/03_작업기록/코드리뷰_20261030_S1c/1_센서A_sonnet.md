@@ -1,3 +1,14 @@
+---
+id: 20261030-p00-codereview-s1c-sensor-a-round1
+title: 코드 리뷰 P00 S1c 1라운드 — 센서 A 원본 (asmdef 개명)
+summary: asmdef 를 Devman.Core 로 개명한 diff 를 읽은 센서 A 의 지적 6건 — ASSETS.md 장부에 표준 · .editorconfig 행 없음, IVT 이름 미고정, 플레이어 빌드 미검증 — 과 고위험 경로 미접촉 확인.
+doc_type: review
+status: final
+lifecycle: static
+created: 2026-10-30
+updated: 2026-10-30
+work_unit: P00
+---
 모델: Sonnet 5.5 (지시 원본은 Opus 5.5 기준 — 모델이 다름). 대상 `4dfe06d..aeccdae`, 읽기만 했고 저장소 파일은 건드리지 않았다. `.editorconfig` 규칙 실측을 위해서만 스크래치패드(`/private/tmp/claude-501/-Users-devman--Projects--Personal-Games-Defense/abaec91e-2696-4da4-b2f6-220ad23a9cee/scratchpad/enumtest/`)에 임시 프로젝트를 만들어 `dotnet format style` 을 돌렸다.
 
 | # | 종류 | 심각도 | 기원 | 유형 | 파일:줄 | 실패 시나리오(입력 → 잘못된 결과) | 확신 |

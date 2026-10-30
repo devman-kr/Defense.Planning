@@ -1,3 +1,14 @@
+---
+id: 20261029-p00-readme
+title: P00 — 환경 · 체계 · 로깅
+summary: P00 과제의 지도 — 상태와 다음 행동, 파일별 성격 표(NOTES · 결정기록 · 보류작업 · 검토서 · 계획서), 스트림 A~F 와 저장소 매핑(Planning · Logs · Unity · 루트), DEF-M00 선행 조건을 담는다.
+doc_type: guide
+status: final
+lifecycle: living
+created: 2026-10-29
+updated: 2026-10-30
+work_unit: P00
+---
 # P00 — 환경 · 체계 · 로깅
 
 **상태** 실행 — 계획서 1차(남은 구축만) · **등재** 2026-10-29 · **다음 행동** 남은 일 9개는 [`NOTES.md`](NOTES.md) 「다음 세션 시작 전 확인」 1번 표(2026-10-30 정리). 지금 할 수 있는 것: S3 Blender MCP · F0 비밀값 검사 · `.gitignore` · 복사 목록. 사용자 결정 뒤: F0 작성자 재작성 → S5 GitHub(`_공통` Q-01~Q-03) → 종결. 끝난 것: S1 · S1b · S1c · S2 · S4(S1 · S2 로 흡수) · R1 — 커밋은 [`03_작업기록/작업색인.md`](03_작업기록/작업색인.md), 계획서 8절 완료 기준 9개 중 5개 ✔
