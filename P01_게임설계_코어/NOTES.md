@@ -1,12 +1,12 @@
 ---
 id: 20261029-p01-notes
 title: NOTES — P01 작업 메모
-summary: P01 세션 인계 메모로, 설계 확정 상태와 다음 순서(계획서 1차 · 지시서 S1 승인 → S1 → S2 → 계획서 2차)를 적고, 2차에 넣을 DEF-M01 몫(X-04 NRE 감지 · P00 H-01 · H-02)과 누적 함정 · 발견 로그 · 미해결을 담는다.
+summary: P01 세션 인계 메모로, 설계 확정 상태와 다음 순서(계획서 1차 · 지시서 S1 승인 → S1 → S2 → 계획서 2차)를 적고, 2차에 넣을 DEF-M01 몫(X-04 NRE 감지 · P00 에서 넘어온 보류 H-05 · H-06)과 DEF-M03 Blender CLI 메모, 누적 함정 · 발견 로그 · 미해결을 담는다.
 doc_type: note
 status: final
 lifecycle: living
 created: 2026-10-29
-updated: 2026-10-30
+updated: 2026-10-31
 work_unit: P01
 ---
 # NOTES — P01 작업 메모
@@ -24,7 +24,7 @@ _갱신: 2026-10-30 — 세션 3 이어서: D-07~D-11 확정, 기획 저장소 �
 1. **지금 어느 단계**: 계획 — 설계 확정, 미결 없음. 기획 정본은 `../../Defense.Design/기획서.md`. 이 폴더의 검토서는 시점 기록(추기만). 코드는 P00 D(`Defense.Unity` 생성) 뒤.
 2. **다음 할 일 순서**: 계획서 1차(`02_계획/계획서_20261030.md`) · 지시서 S1 승인(사용자) → [S1](02_계획/지시서/20261030_S1_Design_데이터표.md) 데이터 표 · 곡선 목업 → [S2](02_계획/지시서/20261030_S2_Design_플레이검사체크리스트.md) 플레이검사 체크리스트 → 계획서 2차(P00 B · D 뒤 — 게이트 · 고위험 경로가 정해져야 구현 단계 검증 절을 쓴다). **P00 B · D 끝(2026-10-30 S2) — 계획서 2차 착수 가능**: 게이트 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」, 고위험 경로는 `코드리뷰_가이드.md` 5절. `Defense.Unity` 에는 `Assets/_Project/Core/` · `Tests/EditMode/` asmdef 와 스모크 테스트 하나만 있다(나머지 폴더 · 코어 코드는 `DEF-M01`).
 3. **착수 전 확인**: 기획을 바꾸는 지시는 결정기록 D-nn → 기획서 순서(검토서는 고치지 않는다). 새 기획안 · 신기능은 목업으로 먼저 보인다(사용자 2026-10-30 — 제작 템플릿은 작업 공간 루트 `NOTES.md` 할 일). 에셋 라이선스는 전부 △(`_공통/조사/무료_3D에셋_후보.md`) — 내려받을 때 팩 안 파일로 ✔. 제목 「Lantern Rush!」 스토어 직접 검색 · 상표는 공개(M05) 전.
-4. **계획서 2차에 넣을 것(2026-10-30 세션 8)**: `DEF-M01` 범위에 NRE 조기 감지 장치 — Planning README 7절 X-04(분석기 DLL + `Default.ruleset` · `[Required]` · `validate_references` `[CliCommand]` · 같은 검증의 EditMode 테스트 · PlayMode 스모크 · 빌드 전 검증)와 그 게이트 명령. 근거 · 남은 확인 2는 [`../P00_환경_체계_로깅/01_검토/기술근거_20261030_NRE감지.md`](../P00_환경_체계_로깅/01_검토/기술근거_20261030_NRE감지.md). 분석기 DLL 은 외부 파일(`ASSETS.md`), 나머지는 직접 작성. **P00 에서 넘어온 `DEF-M01` 몫도 함께(2026-10-30 P00 잔여 정리)**: P00 [`보류작업.md`](../P00_환경_체계_로깅/보류작업.md) H-01 Planning 도구 견고성(첫 코드 센서 기록 전) · H-02 ① PC 품질 단계에서 WebGL 제외 ② 빌드 프로필 PlayerSettings 사본 테스트(③ 은 `_공통` Q-05 · `DEF-M05`) · `Defense.Game` asmdef · `Devman.Core.Tests.EditMode` 어셈블리 · 템플릿 잔재 `Defense.Unity/Assets/TutorialInfo/` 정리.
+4. **계획서 2차에 넣을 것(2026-10-30 세션 8)**: `DEF-M01` 범위에 NRE 조기 감지 장치 — Planning README 7절 X-04(분석기 DLL + `Default.ruleset` · `[Required]` · `validate_references` `[CliCommand]` · 같은 검증의 EditMode 테스트 · PlayMode 스모크 · 빌드 전 검증)와 그 게이트 명령. 근거 · 남은 확인 2는 [`../z.completed/P00_환경_체계_로깅/01_검토/기술근거_20261030_NRE감지.md`](../z.completed/P00_환경_체계_로깅/01_검토/기술근거_20261030_NRE감지.md). 분석기 DLL 은 외부 파일(`ASSETS.md`), 나머지는 직접 작성. **P00 에서 넘어온 `DEF-M01` 몫도 함께(2026-10-30 잔여 정리 · 2026-10-31 P00 종결 때 보류 이관)**: [`보류작업.md`](보류작업.md) H-05 Planning 도구 견고성(첫 코드 센서 기록 전 — P00 H-01) · H-06 ① PC 품질 단계에서 WebGL 제외 ② 빌드 프로필 PlayerSettings 사본 테스트(③ 은 `_공통` Q-05 · `DEF-M05` — P00 H-02) · `Defense.Game` asmdef · `Devman.Core.Tests.EditMode` 어셈블리 · 템플릿 잔재 `Defense.Unity/Assets/TutorialInfo/` 정리. **`DEF-M03`(아트)에 넣을 것**: Blender 는 CLI 로 다룬다(`_공통` G-17) — P00 이 확인한 명령 · 결과는 [`../z.completed/P00_환경_체계_로깅/NOTES.md`](../z.completed/P00_환경_체계_로깅/NOTES.md) 「현재 상태」 Blender 행, 렌더 · 스크립트는 작업 공간 `z.captures/20261030/`(git 밖). Unity 로 가져오면 클립 이름에 뼈대 이름이 붙고(`Rig|Idle`) 루트에 X 270° 가 남는다 — 내보낼 때 `bake_space_transform` 이나 가져올 때 `bakeAxisConversion` 으로 정리한다(둘 다 미실측). 실시간 공동 작업용 공식 MCP 는 보류 H-07(P00 H-03).
 
 ## 현재 상태 (덮어쓰기)
 
