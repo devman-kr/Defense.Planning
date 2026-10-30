@@ -7,6 +7,8 @@
 #   python3 -X utf8 -I _도구/코드리뷰_집계.py                 # 전체(z.completed 포함) — 표준 출력
 #   python3 -X utf8 -I _도구/코드리뷰_집계.py --task P01      # 과제 하나(지표 행 초안용)
 #   python3 -X utf8 -I _도구/코드리뷰_집계.py --write         # 전체 결과를 코드리뷰_집계.md 로 덮어쓴다(과제 종결 때)
+#   --write 는 파일 맨 앞에 프론트매터(_공통/문서규약.md — register · final · living)를 붙인다. 이미 있는 파일의 id · created 는
+#   이어 쓰고 updated 는 실행일. 표준 출력에는 붙이지 않는다.
 #
 # 읽는 것: 처리.md 의 표 행 가운데 첫 칸이 식별자(`<과제>.<세션>.<저장소>.<번호>`)인 행. 열 순서는 가이드 8절 고정 —
 #   식별자 · 원본 · 라운드 · 종류 · 심각도 · 기원 · 영역 · 유형 · 파일:줄 · 실패 시나리오 · 확신 · 처리 · 근거 · 커밋 · 반론 (14열).
@@ -20,12 +22,96 @@ import os
 import re
 import sys
 from collections import Counter, defaultdict
+from datetime import datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ID_RE = re.compile(r"^`?([A-Z]\d{2}[A-Za-z0-9]*)\.([^.`|]+)\.([A-Z]+)\.(\d+)`?$")
 # 영역 코드는 가이드 부록 A(Unity 판, X-03) — 바꾸면 같이 바꾼다
 AREAS = ["SAVE", "ECON", "LIFE", "TIME", "PERF", "INPUT", "CONTRACT", "TEST", "UI", "BUILD"]
 PROCS = ["고침", "틀림", "의도", "범위 밖", "처리 안 함", "미해결"]
+
+# ── 프론트매터 쓰기(_공통/문서규약.md 2 · 9절). python3 -I 라 다른 모듈을 불러오지 않고 스크립트마다 같은 함수를 둔다
+FM_QUOTE_START = tuple("-?:,[]{}#&*!|>'\"%@`")  # 9절 4번 — 이 글자로 시작하는 값은 따옴표
+FM_QUOTE_WORDS = {"true", "false", "yes", "no", "on", "off", "null", "~"}
+FM_ID_RE = re.compile(r"^\d{8}-[a-z0-9-]{2,40}$")
+FM_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def fm_text(value) -> str:
+    """값 한 줄 — 줄바꿈 · 제어 문자는 공백, { } 는 ( )(L17 자리표시와 겹치지 않게), 앞뒤 공백은 뗀다."""
+    out = []
+    for ch in str(value):
+        code = ord(ch)
+        if code < 0x20 or 0x7F <= code <= 0x9F or code in (0x2028, 0x2029) or 0xD800 <= code <= 0xDFFF:
+            ch = " "
+        out.append("(" if ch == "{" else ")" if ch == "}" else ch)
+    return "".join(out).strip()
+
+
+def fm_clip(text: str, limit: int) -> str:
+    """limit 자 안으로 — 넘치면 끝 한 글자를 … 로."""
+    return text if len(text) <= limit else text[:limit - 1].rstrip() + "…"
+
+
+def fm_value(text: str) -> str:
+    """9절 3 · 4번 — 맨 값으로 쓸 수 없으면 큰따옴표로 감싸고 안의 역슬래시 · 큰따옴표를 이스케이프한다."""
+    if (not text or text != text.strip() or " #" in text or ": " in text or text.endswith(":")
+            or text.startswith(FM_QUOTE_START) or text.lower() in FM_QUOTE_WORDS):
+        return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"'
+    return text
+
+
+def fm_block(fields) -> str:
+    """[(키, 값)] → `---` 로 감싼 블록(끝 줄바꿈 포함). 값이 None 인 키는 쓰지 않는다."""
+    lines = ["---"] + [f"{key}: {fm_value(fm_text(value))}" for key, value in fields if value is not None]
+    block = "\n".join(lines + ["---", ""])
+    block.encode("utf-8")  # 쓸 수 없는 글자가 있으면 본문을 쓰기 전에 여기서 예외
+    return block
+
+
+def existing_head(path: str):
+    """이미 있는 파일 프론트매터의 (id, created) — 없거나 id 가 형식에 맞지 않으면 (None, None)."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            lines = f.read().split("\n")
+    except (OSError, UnicodeDecodeError):
+        return None, None
+    if lines[0] != "---":
+        return None, None
+    found = {}
+    for line in lines[1:]:
+        if line == "---":
+            break
+        key, sep, value = line.partition(": ")
+        if sep:
+            value = value.strip()
+            if len(value) >= 2 and value[0] == value[-1] == '"':
+                value = re.sub(r'\\(["\\])', r"\1", value[1:-1])
+            found[key] = value
+    else:
+        return None, None  # 닫는 --- 가 없다
+    fid, created = found.get("id", ""), found.get("created", "")
+    if not FM_ID_RE.match(fid):
+        return None, None
+    if not FM_DATE_RE.match(created):
+        created = f"{fid[:4]}-{fid[4:6]}-{fid[6:8]}"  # id 의 날짜가 created 다(규약 4절)
+    return fid, created
+
+
+def aggregate_frontmatter(path: str, summary: str) -> str:
+    """코드리뷰_집계.md 의 프론트매터 — register · final · living, updated 는 실행일."""
+    today = datetime.now().strftime("%Y-%m-%d")
+    fid, created = existing_head(path)
+    return fm_block([
+        ("id", fid or f"{today.replace('-', '')}-review-aggregate"),
+        ("title", "코드리뷰 집계"),
+        ("summary", fm_clip(summary, 200)),
+        ("doc_type", "register"),
+        ("status", "final"),
+        ("lifecycle", "living"),
+        ("created", created or today),
+        ("updated", today),
+    ])
 
 
 def norm_proc(v: str) -> str:
@@ -186,8 +272,12 @@ def main() -> None:
     text = "\n".join(out) + "\n"
     print(text)
     if write:
-        with open(os.path.join(ROOT, "코드리뷰_집계.md"), "w", encoding="utf-8", newline="\n") as f:
-            f.write(text)
+        path = os.path.join(ROOT, "코드리뷰_집계.md")
+        scope = f"과제 {task_filter} 의" if task_filter else f"과제 {len(by_task)}개의"
+        head = aggregate_frontmatter(path, f"{scope} 처리표 {len(set(r['folder'] for r in rows))}개 · 지적 {len(rows)}건을 처리 · 영역별로 "
+                                           f"센 결과다(같은 파일 3세션 후보 {len(hits)}건 · 미해결 · 반박 {len(unresolved)}건).")
+        with open(path, "w", encoding="utf-8", newline="\n") as f:  # 프론트매터는 파일을 열기 전에 만든다
+            f.write(head + text)
         print(f"→ {os.path.join(ROOT, '코드리뷰_집계.md')}")
 
 

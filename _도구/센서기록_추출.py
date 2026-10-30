@@ -14,6 +14,8 @@
 # 산출(출력 폴더):
 #   agent-<id>_final.md   — 에이전트의 최종 보고(마지막 `SubagentHandback` 메시지. 없으면 마지막 assistant 텍스트). 한 글자도 고치지 않는다.
 #   agent-<id>_prompt.md  — 작성 세션이 보낸 첫 지시 원문.
+#   두 .md 는 맨 앞에 프론트매터(_공통/문서규약.md — review · final · static)를 붙이고 바로 뒤에 원문을 그대로 둔다. id · created · work_unit 은
+#   출력 폴더 경로 `…/Pnn_*/03_작업기록/코드리뷰_<YYYYMMDD>_<세션>/` 에서 얻는다(못 얻으면 실행일 · work_unit 생략). 파일 이름을 바꿔도 id 는 그대로.
 #   summary.json · 표준 출력의 마크다운 표 — 역할 설명(meta.json description) · 모델 · 시작 · 끝(KST) · 도구 호출 수 · 토큰.
 # 역할(A · B · C · D · 2라운드)은 description 과 prompt 첫 줄로 구분해 작성 세션이 파일 이름을 바꾼다(선례: 1_센서A_opus.md …).
 # 비밀값 · 토큰 문자열이 섞였는지는 작성 세션이 눈으로 확인한다 — 스크립트는 가리지 않는다.
@@ -26,10 +28,104 @@ from __future__ import annotations
 import glob
 import json
 import os
+import re
 import sys
+import unicodedata
 from datetime import datetime, timedelta, timezone
 
 KST = timezone(timedelta(hours=9))
+
+# ── 프론트매터 쓰기(_공통/문서규약.md 2 · 9절). python3 -I 라 다른 모듈을 불러오지 않고 스크립트마다 같은 함수를 둔다
+FM_QUOTE_START = tuple("-?:,[]{}#&*!|>'\"%@`")  # 9절 4번 — 이 글자로 시작하는 값은 따옴표
+FM_QUOTE_WORDS = {"true", "false", "yes", "no", "on", "off", "null", "~"}
+RECORD_RE = re.compile(r"^코드리뷰_(\d{8})_(.+)$")
+
+
+def fm_text(value) -> str:
+    """값 한 줄 — 줄바꿈 · 제어 문자는 공백, { } 는 ( )(L17 자리표시와 겹치지 않게), 앞뒤 공백은 뗀다."""
+    out = []
+    for ch in str(value):
+        code = ord(ch)
+        if code < 0x20 or 0x7F <= code <= 0x9F or code in (0x2028, 0x2029) or 0xD800 <= code <= 0xDFFF:
+            ch = " "
+        out.append("(" if ch == "{" else ")" if ch == "}" else ch)
+    return "".join(out).strip()
+
+
+def fm_clip(text: str, limit: int) -> str:
+    """limit 자 안으로 — 넘치면 끝 한 글자를 … 로."""
+    return text if len(text) <= limit else text[:limit - 1].rstrip() + "…"
+
+
+def fm_value(text: str) -> str:
+    """9절 3 · 4번 — 맨 값으로 쓸 수 없으면 큰따옴표로 감싸고 안의 역슬래시 · 큰따옴표를 이스케이프한다."""
+    if (not text or text != text.strip() or " #" in text or ": " in text or text.endswith(":")
+            or text.startswith(FM_QUOTE_START) or text.lower() in FM_QUOTE_WORDS):
+        return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"'
+    return text
+
+
+def fm_block(fields) -> str:
+    """[(키, 값)] → `---` 로 감싼 블록(끝 줄바꿈 포함). 값이 None 인 키는 쓰지 않는다."""
+    lines = ["---"] + [f"{key}: {fm_value(fm_text(value))}" for key, value in fields if value is not None]
+    block = "\n".join(lines + ["---", ""])
+    block.encode("utf-8")  # 쓸 수 없는 글자가 있으면 본문을 쓰기 전에 여기서 예외
+    return block
+
+
+def fm_slug(text: str) -> str:
+    """id slug 조각 — 영소문자 · 숫자 밖의 글자는 하이픈으로."""
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def record_info(out: str):
+    """출력 폴더 `…/Pnn_*/03_작업기록/코드리뷰_<YYYYMMDD>_<세션>/` → (YYYYMMDD, 세션, 과제 ID). 못 얻은 것은 None."""
+    parts = unicodedata.normalize("NFC", os.path.abspath(out)).split(os.sep)
+    day = session = task = None
+    m = RECORD_RE.match(parts[-1])
+    if m:
+        session = m.group(2)
+        try:
+            datetime(int(m.group(1)[:4]), int(m.group(1)[4:6]), int(m.group(1)[6:]))
+            day = m.group(1)
+        except ValueError:
+            pass
+    if len(parts) >= 3 and parts[-2] == "03_작업기록":
+        t = re.match(r"^(P\d{2})_", parts[-3])
+        task = t.group(1) if t else None
+    return day, session, task
+
+
+def record_frontmatter(info, r: dict, kind: str) -> str:
+    """센서 원본 한 파일(kind = final · prompt)의 프론트매터 — info 는 record_info 결과, r 은 extract 결과."""
+    day, session, task = info
+    day = day or datetime.now().strftime("%Y%m%d")  # 경로에서 못 얻으면 실행일
+    id8 = (r["id"][len("agent-"):] if r["id"].startswith("agent-") else r["id"])[:8]
+    pre = task.lower() if task else ""
+    tail = "-".join(p for p in (fm_slug(id8), kind) if p)
+    sess = fm_slug(session or "")[:max(0, 40 - len(pre) - len(tail) - 2)].strip("-")  # slug 40자 안
+    what = "최종 보고 원문" if kind == "final" else "지시 원문"
+    title = f"코드리뷰 {session} — 에이전트 {id8} {what}" if session else f"코드리뷰 — 에이전트 {id8} {what}"
+    who = f"{r.get('model') or r.get('model_requested') or '?'} · 도구 호출 {r.get('tool_calls', 0)}"
+    if kind == "final":
+        summary = f"에이전트({who})가 돌려준 최종 보고 원문 — 출처 {r.get('final_source')}."
+    else:
+        summary = f"에이전트({who})에 작성 세션이 보낸 첫 지시 원문."
+    desc = fm_text(r.get("description") or "")
+    if desc:
+        summary = f"「{fm_clip(desc, max(1, 200 - len(summary) - 3))}」 {summary}"
+    date = f"{day[:4]}-{day[4:6]}-{day[6:]}"
+    return fm_block([
+        ("id", f"{day}-" + "-".join(p for p in (pre, sess, tail) if p)),
+        ("title", fm_clip(title, 120)),
+        ("summary", fm_clip(summary, 200)),
+        ("doc_type", "review"),
+        ("status", "final"),
+        ("lifecycle", "static"),
+        ("created", date),
+        ("updated", date),
+        ("work_unit", task),
+    ])
 
 
 def resolve_src(arg: str) -> str:
@@ -116,16 +212,19 @@ def main() -> None:
     if "--only" in sys.argv:
         only = sys.argv[sys.argv.index("--only") + 1].split(",")
     os.makedirs(out, exist_ok=True)
+    info = record_info(out)
     rows = []
     for path in sorted(glob.glob(os.path.join(src, "agent-*.jsonl"))):
         aid = os.path.basename(path)[:-len(".jsonl")]
         if only and not any(aid.startswith("agent-" + o) or aid.startswith(o) for o in only):
             continue
         r = extract(path)
+        prompt, final = r.pop("prompt"), r.pop("final")
+        heads = {kind: record_frontmatter(info, r, kind) for kind in ("prompt", "final")}  # 파일을 열기 전에 만든다
         with open(os.path.join(out, aid + "_prompt.md"), "w", encoding="utf-8", newline="\n") as f:
-            f.write(r.pop("prompt"))
+            f.write(heads["prompt"] + prompt)
         with open(os.path.join(out, aid + "_final.md"), "w", encoding="utf-8", newline="\n") as f:
-            f.write(r.pop("final"))
+            f.write(heads["final"] + final)
         rows.append(r)
     with open(os.path.join(out, "summary.json"), "w", encoding="utf-8", newline="\n") as f:
         json.dump(rows, f, ensure_ascii=False, indent=1)
