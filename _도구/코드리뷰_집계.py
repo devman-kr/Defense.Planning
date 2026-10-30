@@ -36,11 +36,17 @@ def norm_proc(v: str) -> str:
     return "기타(" + v[:10] + ")"
 
 
+LINE_RE = re.compile(r":\d+(?:-\d+)?$")
+FILE_RE = re.compile(r"[\w./\\-]*\.[A-Za-z0-9]+")
+
+
 def first_file(cell: str) -> str:
-    m = re.search(r"`?([\w./\\-]+\.(?:cs|asmdef|asset|unity|prefab|shader|hlsl|uss|uxml|inputactions|md|json|py|yml|yaml|xml|js|ts|html|gitignore|gitattributes))", cell)
-    if not m:
-        return cell.strip().split()[0].strip("`") if cell.strip() else ""
-    return os.path.basename(m.group(1).replace("\\", "/"))
+    # 칸의 첫 「경로.확장자」 토큰 — 확장자 목록에 묶지 않는다(Unity 파일 종류가 많고, 목록은 접두 일치로 `.shadergraph` 를 `.shader` 로 자른다)
+    for tok in re.split(r"[\s,`()]+", cell):
+        tok = LINE_RE.sub("", tok)
+        if FILE_RE.fullmatch(tok):
+            return os.path.basename(tok.replace("\\", "/"))
+    return LINE_RE.sub("", cell.strip().split()[0].strip("`")) if cell.strip() else ""
 
 
 def load_rows(path: str):
