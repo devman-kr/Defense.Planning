@@ -1,0 +1,47 @@
+[
+ {
+  "id": "agent-a3b9772cf659725b1",
+  "description": "센서A sonnet — 코딩 표준 Unity 판 리뷰",
+  "model_requested": "sonnet",
+  "model": "claude-sonnet-5-5",
+  "start_kst": "2026-10-30 18:21:56",
+  "end_kst": "2026-10-30 18:37:01",
+  "tool_calls": 60,
+  "cache_creation": 681622,
+  "input": 178,
+  "output": 327392,
+  "cache_read": 12682673,
+  "new_tokens": 1009192,
+  "final_source": "SubagentHandback"
+ },
+ {
+  "id": "agent-a8d8a48d1321957c0",
+  "description": "반론D sonnet — 코딩 표준 「의도」 2건 재검토",
+  "model_requested": "sonnet",
+  "model": "claude-sonnet-5-5",
+  "start_kst": "2026-10-30 18:47:07",
+  "end_kst": "2026-10-30 18:49:09",
+  "tool_calls": 13,
+  "cache_creation": 269588,
+  "input": 38,
+  "output": 37772,
+  "cache_read": 1063243,
+  "new_tokens": 307398,
+  "final_source": "SubagentHandback"
+ },
+ {
+  "id": "agent-adb9a4e54e9af1188",
+  "description": "2라운드A sonnet — 코딩 표준 수정 커밋 리뷰",
+  "model_requested": "sonnet",
+  "model": "claude-sonnet-5-5",
+  "start_kst": "2026-10-30 18:50:59",
+  "end_kst": "2026-10-30 19:02:01",
+  "tool_calls": 46,
+  "cache_creation": 426877,
+  "input": 152,
+  "output": 159416,
+  "cache_read": 11010920,
+  "new_tokens": 586445,
+  "final_source": "SubagentHandback"
+ }
+]
