@@ -1,0 +1,32 @@
+[
+ {
+  "id": "agent-a22f4e7a8ed3dd546",
+  "description": "S2 세션 센서 리뷰",
+  "model_requested": "sonnet",
+  "model": "claude-sonnet-5-5",
+  "start_kst": "2026-10-30 17:39:59",
+  "end_kst": "2026-10-30 17:57:27",
+  "tool_calls": 82,
+  "cache_creation": 595726,
+  "input": 257,
+  "output": 241474,
+  "cache_read": 24510195,
+  "new_tokens": 837457,
+  "final_source": "SubagentHandback"
+ },
+ {
+  "id": "agent-a42087e8ba67f1d99",
+  "description": "S2 판정 반론 1건",
+  "model_requested": "sonnet",
+  "model": "claude-sonnet-5-5",
+  "start_kst": "2026-10-30 17:58:54",
+  "end_kst": "2026-10-30 18:00:42",
+  "tool_calls": 11,
+  "cache_creation": 178653,
+  "input": 30,
+  "output": 35138,
+  "cache_read": 803110,
+  "new_tokens": 213821,
+  "final_source": "SubagentHandback"
+ }
+]

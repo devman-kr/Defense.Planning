@@ -8,14 +8,14 @@
 
 ## 다음 세션 시작 전 확인 (덮어쓰기)
 
-_갱신: 2026-10-30 — 세션 6(Fable 5.1): 6번 C# 코딩 표준 사본 · 검토서(결정 대기). 그 전 세션 4(Opus 5.5): 계획서 1차 → S1 템플릿 Unity 화 완료(`1fab994` · X-03)_
+_갱신: 2026-10-30 — 세션 7(Opus 5.5): S2 D1 `Defense.Unity` 생성 · 게이트 실측 · 빌드 스모크. 그 전 세션 6(Fable 5.1): C# 코딩 표준 사본 · 검토서(결정 대기)_
 
-1. **지금 어느 단계**: 계획 — [`02_계획/계획서_20261030.md`](02_계획/계획서_20261030.md). 끝난 것(A 골격 · C 훅 · gh · GitHub MCP · Design · Unity 템플릿 초안)은 0절에 한 번 적고 다시 계획하지 않는다(사용자 2026-10-30).
-2. **S1 완료**: 템플릿 · 가이드 · 도구가 Unity 판(Planning README 7절 X-03). 게이트 명령은 템플릿에 쓰지 않고 `Defense.Unity/CLAUDE.md` 「결정론 게이트」 한 곳 — **S2 에서 실측해 거기와 `_템플릿/Unity_CLAUDE.md` 에 같이 쓴다**. S4 는 이것으로 흡수(계획서 추기). 세션 센서 기록 `03_작업기록/코드리뷰_20261030_S1/`. 세션 5(Fable 5.1)가 가이드를 검토해 5절 「고」 범위를 재화 · 영구 강화 · 해금 · 저장으로 좁혔다(X-03 추기).
-3. **결정 끝(2026-10-30)**: 7절 #1 → `_공통` G-11(커밋 이메일 noreply — 저장소 10개 로컬 설정 완료, 기존 커밋 재작성은 F0) · #2 → D-04(E 는 P01 `DEF-M03` 으로) · #3~#8 → D-05. `Defense.Unity` 를 만들 때 로컬 `user.email` 도 noreply 로(G-11).
-4. **설치 끝(2026-10-30)**: Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) + Android(OpenJDK 17 · SDK · NDK r27c) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(`~/.dotnet/tools`) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`) · Claude Code `unity` 플러그인 0.1.6-beta. Hub 권장판 6000.6.7f1 은 LTS 가 아니라 지웠다(17 GB). **다음은 S2** — 사용자가 Unity Hub 에서 에디터를 열 수 있는 상태면 된다(프로젝트는 S2 가 만든다). S3(Blender)는 S2 와 같은 시간에 하지 않는다(G-01). 토큰 노출 확인: 이 세션 다이제스트에 값 형태 0건 ✔.
-5. **R1**: 이 세션이 끝난 뒤 `git -C z.docs/Defense.Logs log -1` 에 새 `chore: 세션 로그` 커밋이 있는지(작업 공간 루트에서). 10-29 16:08 `7c6c0cd` 뒤로 훅 커밋이 없고 미커밋 변경 3건이 남아 있다(2026-10-30 실측).
-6. **C# 코딩 표준 사본**: 사용자 요청(2026-10-30)으로 EasyCheck.Server `z.docs/dev/csharp_coding_standards.md`(EasyCheck 커밋 `eb7628e6`, `CLAUDE.md:95` 가 가리키는 현행 판)를 **그대로** [`../_템플릿/Unity_csharp_coding_standards.md`](../_템플릿/Unity_csharp_coding_standards.md) 에 두었다(SHA-256 일치 ✔). Unity 화(ASP.NET · DB · `[Developer]` · `>>`/`<<` 로깅 · INI 등 서버 전용 절 정리, `_템플릿/Unity_CLAUDE.md` 「코딩」과 대조)는 **아직 안 했다** — 사용자 「우선 가져오기만」. 자리는 S2 D1 7번 「우리 파일」에 `z.docs/dev/csharp_coding_standards.md` 로 넣는다. 예제가 든 긴 판(32 KB)은 EasyCheck `z.docs/z.old/csharp_coding_standards.md` 에 있다. **검토서 ✔ 2026-10-30** [`01_검토/검토서_20261030_코딩표준.md`](01_검토/검토서_20261030_코딩표준.md) — 절별 처리(유지 2 · 수정 13 · 교체 9 · 신설 7)와 6절 결정 14개(묶음 A 7 · 취향 B 7). 답이 오면 D-06 · D-07 → 표준 수정(같은 파일 덮어쓰기) → 템플릿 「코딩」 분담 → 계획서 S2 D1 7번에 사본 · `.editorconfig` → 세션 센서(문서 · 저위험). 순서는 검토서 7절.
+1. **지금 어느 단계**: 실행 — [`02_계획/계획서_20261030.md`](02_계획/계획서_20261030.md). S1 ✔ · **S2 ✔(2026-10-30)** · S4 는 S1 · S2 로 흡수 끝(`_템플릿/Unity_CLAUDE.md` = `Defense.Unity/CLAUDE.md`, diff 0). R1 ✔. 남은 것: S3 D2 Blender MCP · 코딩 표준(6번) · F0 · S5 F(`_공통` Q-01~Q-03 뒤).
+2. **S2 결과**: `Defense.Unity`(로컬 `main`, 원격 없음) — `e46ecab` 템플릿 생성물 그대로 · `3d4abc4` 골격(CLAUDE.md · README · ASSETS · LICENSE MIT · `.gitattributes` · Core/Tests asmdef · 스모크 테스트 1 · `com.unity.pipeline` · PlayerSettings · 빌드 프로필 2) · `4ec4f97` · `4fdea24` 빌드 때 에디터 자동 변환 · `a89d77b` 작업 보고 · `59f9a07` 센서 지적 고침 · `4dfe06d` 보고 코드 리뷰 절. 게이트 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」 — 에디터 닫힘 `unity test` 약 20초 · 열림 `unity command` 0.3초. 빌드 장부 `z.builds/BUILDS.md`(Android 개발 APK 42.7 MB · WebGL 14 MB). 작업 보고 `Defense.Unity/z.docs/work_reports/20261030/1_create_저장소_골격.md`. 센서 기록 [`03_작업기록/코드리뷰_20261030_S2/`](03_작업기록/코드리뷰_20261030_S2/).
+3. **에디터를 누가 여나**: 이번 세션은 사용자 말(「unity cli 로 당신이 진행하면 될 것 같은데요」)대로 세션이 창 없는 에디터를 직접 띄워 `unity command` 로 다뤘다(D-08). 루트 `CLAUDE.md` · `_공통` 상위 `CLAUDE.md` 는 아직 「에디터는 사용자가 연다」 — 규칙으로 올릴지는 사용자 대기.
+4. **다음 세션이 확인할 것**: ① Claude Code `csharp-lsp` 가 `Defense.Unity` 의 `.cs` 에서 정의 이동 · 호버가 되는지 — 이 세션의 LSP 는 프로젝트가 생기기 전에 떠서 문서 심볼만 됐다(`csharp-ls --diagnose` 는 `Defense.Unity.slnx` 로드 ✔) ② Unity 플러그인 상시 컨텍스트 비용(`/context`) — 세션이 볼 수 없어 사용자가 보면 적는다.
+5. **결정 끝(2026-10-30)**: G-11(커밋 이메일 noreply — `Defense.Unity` 도 로컬 설정 ✔) · D-04 · D-05 · D-08(S2 실행 세부).
+6. **C# 코딩 표준 사본**: 사용자 요청(2026-10-30)으로 EasyCheck.Server `z.docs/dev/csharp_coding_standards.md`(EasyCheck 커밋 `eb7628e6`, `CLAUDE.md:95` 가 가리키는 현행 판)를 **그대로** [`../_템플릿/Unity_csharp_coding_standards.md`](../_템플릿/Unity_csharp_coding_standards.md) 에 두었다(SHA-256 일치 ✔). Unity 화(ASP.NET · DB · `[Developer]` · `>>`/`<<` 로깅 · INI 등 서버 전용 절 정리, `_템플릿/Unity_CLAUDE.md` 「코딩」과 대조)는 **아직 안 했다** — 사용자 「우선 가져오기만」. 자리는 S2 D1 7번 「우리 파일」에 `z.docs/dev/csharp_coding_standards.md` 로 넣는다. 예제가 든 긴 판(32 KB)은 EasyCheck `z.docs/z.old/csharp_coding_standards.md` 에 있다. **검토서 ✔ 2026-10-30** [`01_검토/검토서_20261030_코딩표준.md`](01_검토/검토서_20261030_코딩표준.md) — 절별 처리(유지 2 · 수정 13 · 교체 9 · 신설 7)와 6절 결정 14개(묶음 A 7 · 취향 B 7). 답이 오면 D-06 · D-07 → 표준 수정(같은 파일 덮어쓰기) → 템플릿 「코딩」 분담 → 계획서 S2 D1 7번에 사본 · `.editorconfig` → 세션 센서(문서 · 저위험). 순서는 검토서 7절. **S2 에는 넣지 않았다**(사용자 2026-10-30 「다른 세션에서 프로젝트에 맞게 정리한 다음 넣기로」) — 넣을 때 `Defense.Unity/CLAUDE.md` 「코딩」에서 가리키고 정본 `_템플릿/Unity_CLAUDE.md` 도 같이 고친다.
 
 ## 현재 상태 (덮어쓰기)
 
@@ -23,24 +23,33 @@ _갱신: 2026-10-30_
 
 | 항목 | 상태 |
 |---|---|
-| 검토 | 검토서 2026-10-29 ✔ |
-| 결정 | D-01~D-03 · 공통 G-01~G-10 · 미결 `_공통` Q-01~Q-05 · 이 과제 계획서 7절 #1~#8 |
-| 계획 | 계획서 1차 2026-10-30 — S1 B1 · S2 D1 · S3 D2 · S4 B2 · F0 · S5 F · R1 |
-| 저장소 변경 | `Defense.Planning` · `Defense.Design` · `Defense.Logs` · `_공통` 모두 `main` 로컬, 원격 없음. 커밋 작성자 이메일이 전부 noreply 아님(계획서 1절 #9) |
-| 환경 | 2026-10-30 설치 뒤 실측: Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) + Android(OpenJDK 17 · SDK · NDK r27c) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(`~/.dotnet/tools`) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`) · Claude Code `unity` 플러그인 0.1.6-beta. gh ✔ `devman-kr`. 디스크 여유 304 GiB. 없음: git-lfs(D-05 — 쓰지 않음) · git-filter-repo(F0 때) |
-| Claude Code 플러그인 | 설치됨 `session-report` · `microsoft-docs` · `csharp-lsp`(.NET SDK 없어 미동작). Unity 플러그인 `unity@claude-plugins-official` 은 카탈로그에만 |
-| 훅 | 프롬프트 · 다이제스트 동작 ✔. `SessionEnd` 커밋은 1회(`7c6c0cd`)만 확인 → R1 |
+| 검토 | 검토서 2026-10-29 ✔ · 코딩 표준 검토서 2026-10-30 ✔(결정 대기) |
+| 결정 | D-01~D-05 · D-08 · 공통 G-01~G-11 · 미결 `_공통` Q-01~Q-05 · 코딩 표준 D-06 · D-07(예약) |
+| 계획 | 계획서 1차 2026-10-30 — S1 ✔ · S2 ✔ · S4 흡수 ✔ · R1 ✔ · 남은 S3 D2 · F0 · S5 F |
+| 저장소 변경 | `Defense.Unity`(2026-10-30 신설) · `Defense.Planning` · `Defense.Design` · `Defense.Logs` · `_공통` 모두 `main` 로컬, 원격 없음. `Defense.Unity` 는 처음부터 noreply 작성자, 나머지는 기존 커밋이 noreply 아님(F0) |
+| 환경 | Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) + Android(OpenJDK 17 · SDK · NDK r27c · build-tools 36) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(PATH ✔) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`, 로그인 · 라이선스 Personal 활성) · Chrome(헤드리스 캡처) · gh ✔ `devman-kr`. 없음: git-lfs(D-05) · git-filter-repo(F0 때) |
+| Claude Code 플러그인 | `unity@claude-plugins-official` 0.1.6-beta ✔(스킬 `unity-cli` 외) · `csharp-lsp`(`csharp-ls` 0.28.0 — 4번 ①) · `session-report` · `microsoft-docs` |
+| `Defense.Unity` 패키지 | 템플릿 기본 + `com.unity.pipeline` 0.9.1-exp.1(Unity 레지스트리 · 실험판 · `unity command` 용 — 플레이어 빌드에 런타임 미포함 확인) |
+| 훅 | 프롬프트 · 다이제스트 · `SessionEnd` 커밋 동작 ✔(Logs `99e4e35` 등 2026-10-30 — R1 닫음) |
 | GitHub MCP | 작업 공간 루트 `.mcp.json`(git 밖) — 공식 원격 서버 `https://api.githubcopilot.com/mcp/`, 헤더 `Authorization: Bearer ${GITHUB_PAT}` · `X-MCP-Toolsets: context,repos,issues,pull_requests,actions`. `.claude/settings.json` 에 `enabledMcpjsonServers: ["github"]` · `permissions.deny` `delete_repository` · `permissions.ask` 24개(저장소 생성 · 포크 · 파일 쓰기/삭제 · 브랜치 · PR 생성/수정/머지/리뷰 · 이슈 · 하위 이슈 · 댓글 · 워크플로 실행). **연결 ✔ 2026-10-29** — `get_me` 로그인 `devman-kr`. `gh auth status` 범위 `repo` · `workflow` · `read:org` · `gist` |
 
 ## 사용자 대기 (덮어쓰기)
 
 - **C# 코딩 표준 Unity 화 결정** — [`01_검토/검토서_20261030_코딩표준.md`](01_검토/검토서_20261030_코딩표준.md) 6절: 묶음 A(1 · 2 · 3 · 4 · 7 · 12 · 묶음)는 한 번에, B(5 · 6 · 8 · 9 · 10 · 11 · 13 · 14)는 하나씩. 2026-10-30.
-- `~/.zshrc` 끝에 `export PATH="$PATH:$HOME/.dotnet/tools"` 한 줄 · VS Code 재시작(⌘Q) — `csharp-ls` 가 Claude Code 에 잡히게(세션의 셸 설정 수정은 권한 정책에 막힘).
-- `_공통` Q-01~Q-03(S5 선행). 계획서 7절 #1~#8 은 결정 끝(G-11 · D-04 · D-05).
+- **에디터를 여는 주체** — 루트 `CLAUDE.md` 「공유 자원」 · `_공통` 상위 `CLAUDE.md` 「한 기기」의 「Unity 에디터는 사용자가 연다」를 「세션이 Unity CLI 로 창 없는 에디터를 띄워도 된다(Blender 와 동시 금지는 그대로)」로 바꿀지(D-08 은 이 세션 한정). 바꾸면 `_공통` G-nn 과 두 정본(`_공통/_템플릿/Games_CLAUDE.md` · `_템플릿/루트_CLAUDE.md`).
+- `Defense.Unity` 실기기 설치(선택) — `z.builds/debug/defense_20261030_3d4abc4_android-dev.apk`.
+- `_공통` Q-01~Q-03(S5 선행).
 
 ---
 
 ## 함정 · 주의 (누적)
+
+- **`unity command` 의 전역 옵션은 `command` 앞에** — `unity command … --no-banner editor status` 처럼 뒤에 두면 `--no-banner` 가 다음 낱말을 값으로 먹어 `status` 만 남는다(2026-10-30). `unity --no-banner command --project-path "$PWD" --caller plugin --skill unity-cli <그룹> <이름>` 꼴로 쓴다(`Defense.Unity/CLAUDE.md` 의 `U`).
+- **`build create_profile --platform Web` 은 PlayerSettings 전체 사본(944줄)을 프로필에 넣는다** — 그대로 두면 `ProjectSettings/` 를 바꿔도 Web 빌드에 반영되지 않는다. 내부 `BuildProfile.RemovePlayerSettings(true)` 로는 안 지워졌고 `SerializedObject` 로 `m_PlayerSettingsYaml.m_Settings` 를 비워야 했다(Android 프로필은 사본 없이 생성). `Defense.Unity/CLAUDE.md` 「검토 기준」 한 줄.
+- **`build run --profileName` 만 주면 활성 대상(macOS)으로 빌드된다** — pipeline 0.9.1 `Editor/Commands/Build/BuildCommand.cs` 가 대상을 프로필 적용 전에 정하고 개발 빌드도 `options` 로만 받는다. `--target Android --options '["Development"]'` 를 같이 준다. 첫 시도가 `.app` 을 만들어 지웠다(2026-10-30).
+- **플랫폼을 바꿔 빌드하면 에디터가 URP 에셋(셰이더 프리필터) · `ProjectSettings.asset`(플랫폼별 배칭)을 다시 저장한다** — 빌드 뒤 `git status`, 「에디터 자동 변환」 커밋으로 따로(`4ec4f97` · `4fdea24`). WebGL 은 Mobile · PC 두 품질 단계를 다 담아(PC 단계는 Android · iPhone 만 제외) 둘 다 바뀐다 · `UniversalRenderPipelineGlobalSettings` 의 `m_RuntimeSettings` 는 빌드 중에만 채워지는 스트리핑 결과라 마지막 빌드 플랫폼이 커밋 내용을 정한다(센서 `P00.S2.UNI.05` · `.07` △ — 소스 `ShaderBuildPreprocessor.cs` · `BuildTargetExtensions.cs`).
+- **창 없는 에디터(`Unity -batchmode` 를 `-quit` 없이)는 `unity status` 에 안 나온다** — 준비는 `unity command … editor status` 의 `ready` 로 본다. 끌 때는 `script eval` 로 `EditorApplication.delayCall += () => EditorApplication.Exit(0)`(4초). 에디터가 프로젝트를 잡고 있으면 `unity test` · `unity build` 는 시작 전에 거부된다(종료 6).
+- **헤드리스 Chrome `--virtual-time-budget` 으로 Unity WebGL 을 찍으면 스플래시에서 멈춘다**(실제 약 5초만 돈다). `--remote-debugging-port` 로 띄우고 DevTools 프로토콜(`Page.navigate` → 실제 대기 → `Page.captureScreenshot`)로 찍는다 — Node 24 내장 `WebSocket` 으로 40줄. Brotli 빌드는 `.br` 에 `Content-Encoding: br` 를 붙이는 서버가 필요하다(`python3 -m http.server` 로는 안 열린다).
 
 - **Unity 에디터 프로세스의 명령줄을 출력하지 않는다**(`pgrep -fl Unity` · `ps aux`) — Hub 가 띄운 에디터는 `-accessToken <값>` 을 인자로 받는다. 2026-10-30 세션 4 가 한 번 출력했다(다이제스트는 도구 결과 앞 600자만 남겨 Logs 에는 0건 — `grep -c accessToken` 으로 확인). 실행 여부는 `pgrep -q -f 'Unity.app/Contents/MacOS/Unity' && echo 실행 중` 처럼 개수 · 참거짓만 본다.
 - Homebrew 에 `csharp-ls` formula 가 없다(2026-10-30 — `brew install csharp-ls` 가 비슷한 이름의 cask 만 제안). `dotnet tool install --global csharp-ls` 로 `~/.dotnet/tools` 에 설치한다. .NET 설치기가 만든 `/etc/paths.d/dotnet-cli-tools` 는 `~/.dotnet/tools` 를 문자 그대로 담아 macOS `path_helper` 가 풀지 못한다 — 셸 설정에 `export PATH="$PATH:$HOME/.dotnet/tools"` 가 따로 필요하다(세션의 `~/.zshrc` 수정은 권한 정책에 막혀 사용자가 넣는다).
@@ -52,6 +61,11 @@ _갱신: 2026-10-30_
 - 2026-10-29 첫 골격은 루트 단일 `games.planning`(InvestBuddy 판 기반)이었고 사용자 지시로 게임별 분리 · EasyCheck 원본 기준으로 다시 만들었다(G-06). 옛 골격은 삭제했다 — 내용은 이 과제와 `_공통` 에 옮겼다.
 
 ## 발견 로그 (누적, 최신 위)
+
+- 2026-10-30 — S2 세션 센서(sonnet) + 판정 반론 1: 폴더 `03_작업기록/코드리뷰_20261030_S2/` · 미해결 0 · H 후보 H-02(PC 품질 단계 WebGL 제외 · 프로필 사본 테스트 · WebGL 게시처 압축). 고침 커밋 `Defense.Unity` `59f9a07`. ✔
+- 2026-10-30 — S2: `com.unity.pipeline` 런타임 어셈블리는 `defineConstraints` 가 `UNITY_EDITOR || ENABLE_RUNTIME_PIPELINE(_DEV)` 라 플레이어에 안 들어간다 — Android APK `global-metadata.dat` 에서 `Unity.Pipeline` 0건 · `Defense.Core` 1건으로 확인. 라이선스는 Unity Terms of Service(패키지 `LICENSE.md`), 템플릿 `com.unity.template.urp-blank` 17.1.0 은 Unity Companion License. ✔
+- 2026-10-30 — S2: Unity 6000.3.27f1 의 「Universal 3D」 템플릿은 URP 17.1 에셋으로 만들어져 17.3 에디터가 처음 열 때 · 빌드할 때 다시 저장한다(에셋 버전 12→13 · 머티리얼 버전 9→10). batchmode 라 「URP Material upgrade」 대화상자는 취소 로그만 남는다(Assets 에 머티리얼 0개). ✔
+- 2026-10-30 — S2: 게이트 실측(Mac M5) — 에디터 닫힘 `unity test --mode EditMode` 18~20초 · 컴파일 오류는 종료 6 `TEST_RUN_ERROR` · 열림 `test run` 0.34초 · Android 개발 APK(IL2CPP) 첫 빌드 240초 · WebGL 377초(전환 재임포트 포함) · 프로젝트 생성 72초. ✔
 
 - 2026-10-30 — S1 세션 센서(sonnet, 2라운드): 지적 11 · 고침 7 · 범위 밖 3 → H-01 · 미해결 0. 폴더 `03_작업기록/코드리뷰_20261030_S1/`. 1라운드 고침이 2라운드에서 회귀(점이 든 일반 단어를 파일로)를 만들었다 — 확장자 목록을 없애는 쪽보다 목록 + 경계 정규식이 맞았고, 실제 처리표 430칸 비교가 합성 사례보다 회귀를 잘 잡았다. ✔
 - 2026-10-30 — 커밋 작성자 이메일이 네 저장소 전부 noreply 가 아닌 한 주소다(`git log --format=%ae` 종류 1 · `noreply` 일치 0 — 값은 출력하지 않음). 공개 GitHub 에서는 모든 커밋에 드러난다. 바꾸려면 원격이 없는 지금 이력 재작성(커밋 26 · 문서 해시 참조 34줄) → 계획서 7절 #1. ✔

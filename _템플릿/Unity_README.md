@@ -1,4 +1,4 @@
-<!-- 정본: z.docs/Defense.Planning/_템플릿/Unity_README.md — P00 스트림 D 에서 Defense.Unity/README.md 로 복사한다. 「(채움)」은 해당 마일스톤에서 실제 값으로 바꾸고, 게임 소개는 `z.docs/Defense.Design/기획서.md` 를 따른다. 복사한 뒤 이 줄을 지운다. -->
+<!-- 골격: 2026-10-30 P00 S2 에서 Defense.Unity/README.md 로 복사했다(`3d4abc4`) — 살아 있는 판은 그쪽이고, 이 파일은 다른 게임 README 의 골격이다. 아래는 복사 전 안내: 「(채움)」은 해당 마일스톤에서 실제 값으로 바꾸고, 게임 소개는 `z.docs/Defense.Design/기획서.md` 를 따른다. 복사한 뒤 이 줄을 지운다. -->
 
 # Lantern Rush! (랜턴 러시!)
 

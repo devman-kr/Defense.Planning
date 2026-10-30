@@ -1,6 +1,6 @@
 # P00 — 환경 · 체계 · 로깅
 
-**상태** 계획 — 계획서 1차(남은 구축만) · **등재** 2026-10-29 · **다음 행동** C# 코딩 표준 결정([검토서](01_검토/검토서_20261030_코딩표준.md) 6절 — 사용자, 2026-10-30) · 설치 ✔(Unity 6000.3.27f1 LTS 외) → S2 D1 `Defense.Unity`(게이트 명령 실측 · 템플릿 정본 반영 포함) → S3 D2 Blender MCP → F0 · S5 F(`_공통` Q-01~Q-03 뒤). S1 완료 2026-10-30 · S4 는 S1 · S2 로 흡수
+**상태** 실행 — 계획서 1차(남은 구축만) · **등재** 2026-10-29 · **다음 행동** C# 코딩 표준 결정([검토서](01_검토/검토서_20261030_코딩표준.md) 6절 — 사용자) → 표준 사본을 `Defense.Unity` 에 · S3 D2 Blender MCP → F0 · S5 F(`_공통` Q-01~Q-03 뒤). S1 ✔ · **S2 ✔ 2026-10-30**(`Defense.Unity` 생성 · 게이트 실측 · 빌드 스모크 — D-08) · S4 는 S1 · S2 로 흡수 끝 · R1 ✔
 
 **한 줄**: Defense 작업 공간을 시작할 수 있는 상태로 만든다 — EasyCheck 체계 골격(완료) · 세션 로깅 훅(완료) · Unity 6 와 도구 설치 · 템플릿 Unity 화 · `Defense.Unity` 저장소 생성 · GitHub 연결. 세 게임 중 첫 번째라 환경 · 도구 설치는 여기서 한 번만 하고, 다른 두 게임의 P00 은 이것을 복사한다. 세 게임 공통 결정은 `_공통` G-01~G-09.
 
@@ -32,7 +32,7 @@
 | A | 체계 골격 — 게임별 작업 공간 · Planning · Logs · 루트 CLAUDE.md · `_공통` | ✔ 2026-10-29 | ✔ | | ✔ | | | — |
 | B | 템플릿 · 코드리뷰 가이드 · 리뷰어 지시 · 작업지시서 · 계획서를 Unity 저장소 하나 기준으로(게이트 · 고위험 경로 · 실행 환경 · 경로) | ✔ 2026-10-30 S1(`1fab994` · X-03). 게이트 명령은 `Defense.Unity/CLAUDE.md` 한 곳 — S2 에서 실측 | | | 루트 `CLAUDE.md` ✔ | | — | — |
 | C | 로깅 훅 — 프롬프트 로그 · 세션 다이제스트 · 로컬 자동 커밋 | | ✔ 2026-10-29 | | ✔ settings.json | | 첫 세션에서 자동 실행 확인 | — |
-| D | 도구 설치 확인 · Unity 공식 Claude Code 플러그인 · Blender 공식 MCP 연결 · `Defense.Unity` 생성(URP · 모바일 · Force Text · .gitignore · ASSETS.md · CLAUDE.md) | 기록 · 템플릿 `Unity_CLAUDE.md` · `Unity_README.md` ✔ | | 생성(D1 · S2) | `.mcp.json` ✔ GitHub · Blender 예정(D2 · S3) | 설치 · 로그인 | 실행 요청 1 · 2 · 4 · 계획서 7절 | `DEF-M00` |
+| D | 도구 설치 확인 · Unity 공식 Claude Code 플러그인 · Blender 공식 MCP 연결 · `Defense.Unity` 생성(URP · 모바일 · Force Text · .gitignore · ASSETS.md · CLAUDE.md) | 기록 · 템플릿 `Unity_CLAUDE.md`(= 저장소 `CLAUDE.md`) · `Unity_README.md` ✔ | | ✔ D1 · S2 2026-10-30(`e46ecab`..`4dfe06d`) | `.mcp.json` ✔ GitHub · Blender 예정(D2 · S3) | 설치 · 로그인 | 실행 요청 1 · 2 · 4 · 계획서 7절 | `DEF-M00` |
 | E | 레퍼런스 스타일 보드 확정 · 무료 에셋 라이선스 확인 | | | | | 캡처 제공(실행 요청 5) | | — · **P01 `DEF-M03` 로 이관**(D-04) |
 | F | F0 공개 전 정리(작성자 이메일 · 비밀값 검사 · `.gitignore`) → GitHub 저장소 생성(`_공통` · Planning · Design · Logs · Unity) · 원격 연결 · 첫 푸시(허락 뒤) · `main` 보호 | | | | | gh 로그인 ✔ · 계정 | Q-01 · Q-02 · Q-03 · 계획서 7절 #1 | — |
 
