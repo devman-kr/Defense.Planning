@@ -35,7 +35,6 @@ _갱신: 2026-10-30_
 
 ## 사용자 대기 (덮어쓰기)
 
-- **키체인 대화상자 「항상 허용」** — `unity` CLI 가 토큰을 읽을 때 뜨는 macOS 대화상자에서 「항상 허용」을 누를지(누르면 다음 실행부터 안 뜬다 — 세션이 게이트를 혼자 돌릴 수 있다). 2026-10-30.
 - **에디터를 여는 주체** — 루트 `CLAUDE.md` 「공유 자원」 · `_공통` 상위 `CLAUDE.md` 「한 기기」의 「Unity 에디터는 사용자가 연다」를 「세션이 Unity CLI 로 창 없는 에디터를 띄워도 된다(Blender 와 동시 금지는 그대로)」로 바꿀지(D-08 은 이 세션 한정). 바꾸면 `_공통` G-nn 과 두 정본(`_공통/_템플릿/Games_CLAUDE.md` · `_템플릿/루트_CLAUDE.md`).
 - `Defense.Unity` 실기기 설치(선택) — `z.builds/debug/defense_20261030_3d4abc4_android-dev.apk`.
 - `_공통` Q-01~Q-03(S5 선행).
@@ -44,7 +43,7 @@ _갱신: 2026-10-30_
 
 ## 함정 · 주의 (누적)
 
-- **`unity` CLI 는 실행마다 macOS 키체인 접근 대화상자를 띄운다**(저장된 로그인 토큰 읽기 — Hub `broker-audit` 「stored-token-valid」). 사용자가 「항상 허용」을 누르기 전까지 batchmode 게이트도 그 응답을 기다린다 — 2026-10-30 19:28:33 프롬프트 → 19:35:16 허용(403초), 실제 게이트 7초. 세션은 게이트를 돌릴 때 대화상자를 알리고 시간에서 뺀다. 「항상 허용」 여부는 사용자 결정(사용자 대기에 올림). `securityd` 로그 확인: `/usr/bin/log show --predicate 'process == "securityd"' | grep 'keychain prompt'`(zsh 의 `log` 는 내장 명령이라 `/usr/bin/log`).
+- **`unity` CLI 는 실행마다 macOS 키체인 접근 대화상자를 띄운다**(저장된 로그인 토큰 읽기 — Hub `broker-audit` 「stored-token-valid」). 사용자가 「항상 허용」을 누르기 전까지 batchmode 게이트도 그 응답을 기다린다 — 2026-10-30 19:28:33 프롬프트 → 19:35:16 허용(403초), 실제 게이트 7초. 세션은 게이트를 돌릴 때 대화상자를 알리고 시간에서 뺀다. 사용자 결정 2026-10-30: **다음에 뜨면 「항상 허용」을 누른다** — 그 뒤 첫 `unity` 실행에서 대화상자가 안 뜨는지(실행 시간이 7초 안팎인지) 다음 세션이 확인하고 이 항목을 「닫음」으로. `securityd` 로그 확인: `/usr/bin/log show --predicate 'process == "securityd"' | grep 'keychain prompt'`(zsh 의 `log` 는 내장 명령이라 `/usr/bin/log`).
 - **`unity command` 의 전역 옵션은 `command` 앞에** — `unity command … --no-banner editor status` 처럼 뒤에 두면 `--no-banner` 가 다음 낱말을 값으로 먹어 `status` 만 남는다(2026-10-30). `unity --no-banner command --project-path "$PWD" --caller plugin --skill unity-cli <그룹> <이름>` 꼴로 쓴다(`Defense.Unity/CLAUDE.md` 의 `U`).
 - **`build create_profile --platform Web` 은 PlayerSettings 전체 사본(944줄)을 프로필에 넣는다** — 그대로 두면 `ProjectSettings/` 를 바꿔도 Web 빌드에 반영되지 않는다. 내부 `BuildProfile.RemovePlayerSettings(true)` 로는 안 지워졌고 `SerializedObject` 로 `m_PlayerSettingsYaml.m_Settings` 를 비워야 했다(Android 프로필은 사본 없이 생성). `Defense.Unity/CLAUDE.md` 「검토 기준」 한 줄.
 - **`build run --profileName` 만 주면 활성 대상(macOS)으로 빌드된다** — pipeline 0.9.1 `Editor/Commands/Build/BuildCommand.cs` 가 대상을 프로필 적용 전에 정하고 개발 빌드도 `options` 로만 받는다. `--target Android --options '["Development"]'` 를 같이 준다. 첫 시도가 `.app` 을 만들어 지웠다(2026-10-30).
