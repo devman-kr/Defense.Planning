@@ -8,13 +8,14 @@
 
 ## 다음 세션 시작 전 확인 (덮어쓰기)
 
-_갱신: 2026-10-30 — 세션 4(Opus 5.5): 계획서 1차 → S1 템플릿 Unity 화 완료(`1fab994` · X-03)_
+_갱신: 2026-10-30 — 세션 6(Fable 5.1): 6번 C# 코딩 표준 사본 추가. 그 전 세션 4(Opus 5.5): 계획서 1차 → S1 템플릿 Unity 화 완료(`1fab994` · X-03)_
 
 1. **지금 어느 단계**: 계획 — [`02_계획/계획서_20261030.md`](02_계획/계획서_20261030.md). 끝난 것(A 골격 · C 훅 · gh · GitHub MCP · Design · Unity 템플릿 초안)은 0절에 한 번 적고 다시 계획하지 않는다(사용자 2026-10-30).
 2. **S1 완료**: 템플릿 · 가이드 · 도구가 Unity 판(Planning README 7절 X-03). 게이트 명령은 템플릿에 쓰지 않고 `Defense.Unity/CLAUDE.md` 「결정론 게이트」 한 곳 — **S2 에서 실측해 거기와 `_템플릿/Unity_CLAUDE.md` 에 같이 쓴다**. S4 는 이것으로 흡수(계획서 추기). 세션 센서 기록 `03_작업기록/코드리뷰_20261030_S1/`. 세션 5(Fable 5.1)가 가이드를 검토해 5절 「고」 범위를 재화 · 영구 강화 · 해금 · 저장으로 좁혔다(X-03 추기).
 3. **결정 끝(2026-10-30)**: 7절 #1 → `_공통` G-11(커밋 이메일 noreply — 저장소 10개 로컬 설정 완료, 기존 커밋 재작성은 F0) · #2 → D-04(E 는 P01 `DEF-M03` 으로) · #3~#8 → D-05. `Defense.Unity` 를 만들 때 로컬 `user.email` 도 noreply 로(G-11).
 4. **설치 뒤**: S2 D1 은 실행 요청 1(Unity) · 4(.NET — 이제 권장) 뒤, S3 D2 는 실행 요청 2(Blender) 뒤이고 **S2 와 같은 시간에 하지 않는다**(G-01). 설치 확인은 `ls /Applications/Unity/Hub/Editor` · `ls /Applications/Blender.app` · `dotnet --version`.
 5. **R1**: 이 세션이 끝난 뒤 `git -C z.docs/Defense.Logs log -1` 에 새 `chore: 세션 로그` 커밋이 있는지(작업 공간 루트에서). 10-29 16:08 `7c6c0cd` 뒤로 훅 커밋이 없고 미커밋 변경 3건이 남아 있다(2026-10-30 실측).
+6. **C# 코딩 표준 사본**: 사용자 요청(2026-10-30)으로 EasyCheck.Server `z.docs/dev/csharp_coding_standards.md`(EasyCheck 커밋 `eb7628e6`, `CLAUDE.md:95` 가 가리키는 현행 판)를 **그대로** [`../_템플릿/Unity_csharp_coding_standards.md`](../_템플릿/Unity_csharp_coding_standards.md) 에 두었다(SHA-256 일치 ✔). Unity 화(ASP.NET · DB · `[Developer]` · `>>`/`<<` 로깅 · INI 등 서버 전용 절 정리, `_템플릿/Unity_CLAUDE.md` 「코딩」과 대조)는 **아직 안 했다** — 사용자 「우선 가져오기만」. 자리는 S2 D1 7번 「우리 파일」에 `z.docs/dev/csharp_coding_standards.md` 로 넣는다. 예제가 든 긴 판(32 KB)은 EasyCheck `z.docs/z.old/csharp_coding_standards.md` 에 있다.
 
 ## 현재 상태 (덮어쓰기)
 
