@@ -40,6 +40,7 @@ _갱신: 2026-10-30_
 
 ## 함정 · 주의 (누적)
 
+- **커밋 작성자를 확인할 때 `%ae` 를 찍지 않는다** — G-11 이전 커밋은 개인 이메일이라 그대로 출력되고, 출력은 세션 다이제스트(Logs)에 남는다. noreply 여부만 `grep -c noreply` 로 센다. 2026-10-30 세션 4 가 `git log --format='%h %ae %s' -3` 으로 한 번 노출 → F0 비밀값 검사 대상에 넣었다.
 - GitHub MCP 도구 이름은 서버 판마다 바뀐다(2026-10-29 실측: `issue_write` · `sub_issue_write` · `actions_run_trigger` · `pull_request_review_write` · `delete_repository` 가 세션 2 의 예상 목록에 없었다). **서버를 다시 연결하거나 도구 목록이 바뀌면 쓰기 도구가 전부 `permissions.ask` · `deny` 에 있는지 다시 대조한다** — 빠진 도구는 확인 없이 원격에 쓴다.
 
 - 이 세션(훅 설치 세션)은 상위 `Games/` 에서 열려 있어 Defense 의 훅이 돌지 않았다. 다음부터는 `Games/Defense/` 에서 연다.
