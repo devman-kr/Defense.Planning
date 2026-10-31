@@ -23,7 +23,7 @@ updated: 2026-10-31
 | [P00](z.completed/P00_환경_체계_로깅/README.md) | 환경 · 체계 · 로깅 | 종결(2026-10-31, `z.completed/`) — [계획서](z.completed/P00_환경_체계_로깅/02_계획/계획서_20261030.md) 완료 기준 9 전부 ✔: Unity 6 · `Defense.Unity` · 게이트 · 코딩 표준 · Blender CLI(D-09) · 첫 푸시 전 비밀값 검사(G-19) · 작성자 재작성(G-16) · GitHub 저장소 5 · 첫 푸시 · `main` 보호 · NRE 감지 X-04(구현은 P01 `DEF-M01`) | 없음 — 다른 두 게임 P00 은 [복사 목록](z.completed/P00_환경_체계_로깅/NOTES.md)(「다음 세션 시작 전 확인」 2번)부터. P01 로 넘긴 것은 P01 보류 H-05~H-07 · NOTES 4번 | 2026-10-31 |
 | [P01](P01_게임설계_코어/README.md) | 게임 설계 구체화 · 코어 프로토타입(수직 슬라이스) | 계획 — 설계 확정 | D-01~D-11 확정(2026-10-30), 기획 정본 [`../Defense.Design/기획서.md`](../Defense.Design/기획서.md) v0.4(G-10), 룩앤필 목업 v1(사용자 확인). 다음: 계획서 1차 · 지시서 S1 승인(사용자) → S1 데이터 표 · S2 체크리스트 → 계획서 2차(P00 B · D 뒤 — `DEF-M01` 에 X-04 NRE 감지 장치 포함). 코드는 P00 D(`Defense.Unity` 생성) 뒤 | 2026-10-30 |
 | [P02](z.completed/P02_문서_프론트매터/README.md) | 문서 프론트매터 규약(세 게임 · `_공통`, G-18) | 종결(2026-10-31, `z.completed/`) — [계획서](z.completed/P02_문서_프론트매터/02_계획/계획서_20261030.md) 완료 기준 전부 ✔: 규약 1.2 · 검사기 · 훅 세 작업 공간 · 이행 125건 · 엄격 검사 오류 0 | 없음 — 남은 확인 둘(새 세션의 CLAUDE.md · GitHub 의 표 렌더)은 P00 NOTES 6번. P00 은 세션 10 이 잇는다 | 2026-10-31 |
-| [P03](P03_CLI_환경테스트/README.md) | CLI 환경 시험 — Blender 로 샘플 적 캐릭터 · Unity 샘플 씬 캡처 · 녹화 | 검토 — 결정 대기 | [검토서](P03_CLI_환경테스트/01_검토/검토서_20261031.md) 6절 확인 사항 8개(범위 · Unity 작업 위치 · 에셋 운명 · 캐릭터 · 녹화 · 세션 구성 · 기록 위치 · 완료 기준) 답 → 결정기록 D-01~ → 계획서 · 지시서 S1 · S2 → **다른 세션이 실행**. 사전 확인: Blender 한 바퀴 5초 ✔ · 사본 프로젝트 클론 ✔(git 밖 `z.tmp/p03/`) | 2026-10-31 |
+| [P03](P03_CLI_환경테스트/README.md) | CLI 환경 시험 — Blender 로 샘플 적 캐릭터 · Unity 샘플 씬 캡처 · 녹화 | 계획 — 실행 대기(S0 ✔) | D-01~D-10 확정(2026-10-31) · [계획서](P03_CLI_환경테스트/02_계획/계획서_20261031.md) · S0 준비 ✔(`Defense.Unity` `763866b` — 번호 폴더 D-09 · `Tools/Blender/`). **다음은 사용자**: 계획서 7절 (a) worktree 준비 → S1 Sonnet 5.5 세션에 [지시서 S1·S2](P03_CLI_환경테스트/02_계획/지시서/20261031_S1S2_Unity_P03_실행.md) → (b) 격리 → S2 Opus 5.5 → (d) 복원 → S3 판정([지시서 S3](P03_CLI_환경테스트/02_계획/지시서/20261031_S3_판정.md), Fable) | 2026-10-31 |
 
 ---
 
@@ -69,7 +69,7 @@ Pnn_한글슬러그/
 
 - **과제**는 `P00` 처럼 두 자리. **마일스톤은 저장소 접두를 반드시 붙인다**: `DEF-M01`(Unity 저장소). 다른 게임의 같은 번호와 섞이지 않게 접두는 게임마다 다르다(Defense `DEF` · AirShooter `AIR` · RideShooter `RIDE`).
 - **커밋 제목 과제 태그**: 저장소 규약 `verb: 제목` 을 지키면서 `verb: [P01] 제목`. 트레일러는 저장소 `CLAUDE.md` 대로(`_공통` G-13 — 그 세션 모델 이름).
-- **경로**: 문서끼리는 그 문서 위치 기준 상대경로. 저장소 파일은 작업 공간 루트 기준 `Defense.Unity/Assets/Scripts/Core/WaveDirector.cs:42` 처럼 경로 + 줄 번호.
+- **경로**: 문서끼리는 그 문서 위치 기준 상대경로. 저장소 파일은 작업 공간 루트 기준 `Defense.Unity/Assets/10_Scripts/Core/WaveDirector.cs:42` 처럼 경로 + 줄 번호.
 - **근거 표기**: 직접 파일을 열어 확인한 것은 ✔, 조사 에이전트 보고를 옮긴 것은 △(착수 전 확인), 추정은 [추정]. 검토서에는 표기를 생략하되 기술근거에는 반드시 붙인다.
 - **날짜 접미** `_YYYYMMDD` 는 시점 문서(검토서 · 계획서 · 기술근거 · 지시서)에만. 살아 있는 문서(README · NOTES · 결정기록 · 보류작업 · 작업색인)에는 붙이지 않는다.
 - **지시서 파일 이름**: `02_계획/지시서/YYYYMMDD_Sn_제목.md` — 작성일 접두 · Sn = 계획서 분할표의 세션 번호(`S1` · `S3a`) · 제목 = 저장소 · 마일스톤 · 일. 계획 밖 임시 지시서는 `YYYYMMDD_제목.md`.
@@ -134,6 +134,7 @@ Pnn_한글슬러그/
 - `z.docs` 루트는 git 이 아니다. `Defense.Planning` · `Defense.Design` · `Defense.Logs` 가 독립 git 저장소다. 원격은 공개 GitHub `https://github.com/devman-kr/<저장소 이름>`(G-04 · G-14) — 이름은 폴더 이름 그대로이고 `_공통` 만 `games-common`. 2026-10-31 첫 푸시 · `main` 보호(강제 푸시 · 삭제 금지, 관리자 포함 — P00 S5). 푸시 명령은 P00 NOTES 「현재 상태」 GitHub 저장소 행.
 - 2026-10-31 첫 푸시 전에 Planning · Design · Logs · `_공통`(과 다른 두 게임 저장소)의 작성자 이메일을 재작성했다(`_공통` G-11 · G-16). 그 전에 문서에 적힌 이 저장소들의 커밋 해시는 옛 값이라 GitHub 에서 열리지 않는다 — 고치지 않는다(G-16). `Defense.Unity` 는 재작성 대상이 아니라 해시가 그대로다.
 - GitHub MCP 는 작업 공간 루트 `.mcp.json`(git 밖)에 공식 원격 서버(`https://api.githubcopilot.com/mcp/`)로 등록했고, 토큰은 환경 변수 `GITHUB_PAT`(값은 `gh auth token`)에서 읽는다. 쓰기 도구는 푸시와 같은 승인 지점이다 — 루트 `CLAUDE.md` 「푸시」 · `.claude/settings.json` `permissions.ask`. 설정 사본은 `z.completed/P00_환경_체계_로깅/NOTES.md` 「현재 상태」.
+- **`Defense.Unity` 폴더 체계는 번호 폴더**(`00_Scenes` · `10_Scripts` · `20_Animations` · `30_Assets`, P03 D-09 · 2026-10-31) — `_Project/` 를 대체. 규칙은 `Defense.Unity/CLAUDE.md` 「코딩」(정본 `_템플릿/Unity_CLAUDE.md`). `bpy` 스크립트는 `Defense.Unity/Tools/Blender/`(GPL).
 - Unity 6000.3.27f1 LTS · Blender 5.2.3 · gh 설치 끝(2026-10-30). `Defense.Unity` 저장소는 2026-10-30 P00 S2 에서 만들었다(`e46ecab` 템플릿 생성물 · `3d4abc4` 골격) — 원격은 `https://github.com/devman-kr/Defense.Unity`(G-14).
 - Unity 에디터는 세션이 연다(`_공통` G-12, 2026-10-30) — 사용자에게 열어 달라 하지 않고 창 없는 에디터를 띄워 `unity command` 로 다루고 끈다. 명령은 `Defense.Unity/CLAUDE.md` 「결정론 게이트」.
 - 게임 기획의 정본은 `../Defense.Design/기획서.md`(X-02, 2026-10-30 — `Defense.Unity/z.docs/design/` 에 두려던 계획을 대체). P01 검토서는 2026-10-29 시점 기록이다(추기만).

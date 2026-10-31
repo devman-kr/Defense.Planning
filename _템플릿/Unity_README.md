@@ -46,18 +46,20 @@ updated: 2026-10-31
 ## 구조
 
 ```
-Assets/_Project/
-  Core/      게임 무관 — 풀 · 상태 기계 · 스탯 · 드래프트 · 웨이브 디렉터 · 저장 · UI 틀
-  Defense/   이 게임 — 탑 · 무기 · 적 · 낮의 섬 · 하루 순환
-  Data/      밸런스 데이터(ScriptableObject)
-  Tests/     EditMode · PlayMode
-z.docs/      마일스톤 · 작업 보고서(기획서는 별도 기획 저장소)
+Assets/
+  00_Scenes/      씬
+  10_Scripts/     코드 — Core/(게임 무관: 풀 · 상태 기계 · 스탯 · 드래프트 · 웨이브 디렉터 · 저장 · UI 틀)
+                  · <게임>/(이 게임의 규칙) · Editor/ · Tests/(EditMode · PlayMode)
+  20_Animations/  애니메이터 · 클립 · 타임라인
+  30_Assets/      모델 · 프리팹 · 텍스처 · 머티리얼 · 소리 · Data/(밸런스 ScriptableObject) · ThirdParty/
+Tools/Blender/    로우폴리 모델을 만드는 bpy 스크립트(창 없는 Blender) — 이 폴더만 GPL-3.0-or-later
+z.docs/           마일스톤 · 작업 보고서(기획서는 별도 기획 저장소)
 ```
 
 ## 직접 빌드하기
 
 1. Unity (채움 — `ProjectSettings/ProjectVersion.txt`) + Android · WebGL 모듈
-2. 저장소를 Unity Hub 에서 열고 `Assets/_Project/Scenes/Main.unity` 실행
+2. 저장소를 Unity Hub 에서 열고 `Assets/00_Scenes/Main.unity` 실행
 3. 빌드: (채움)
 
 ## 만든 방법 — Claude 와 함께
@@ -74,4 +76,4 @@ z.docs/      마일스톤 · 작업 보고서(기획서는 별도 기획 저장�
 
 ## 라이선스
 
-코드: (채움 — MIT 권장). 외부 에셋은 각자의 라이선스를 따른다(`ASSETS.md`).
+코드: (채움 — MIT 권장). `Tools/Blender/` 의 Blender 스크립트는 GPL-3.0-or-later(그 폴더의 `LICENSE` — Blender Python API 를 쓰는 스크립트는 공개하면 GPL이고, 만든 모델은 영향이 없다). 외부 에셋은 각자의 라이선스를 따른다(`ASSETS.md`).

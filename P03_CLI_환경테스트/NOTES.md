@@ -1,7 +1,7 @@
 ---
 id: 20261031-p03-notes
 title: NOTES — P03 작업 메모
-summary: P03 세션 인계 메모로, 사전 확인(Blender 5.35초 · 사본 프로젝트 클론 7.5초)의 산출물 위치, 결정 대기 8개, 미실측 목록(창 없는 에디터 카메라 렌더 · 클론 Library · Blender MP4 인코딩), 발견 로그(날개 UV · 클립 이름 이중 접두)를 담는다.
+summary: P03 세션 인계 메모 — 실행 대기 상태(K1 763866b · 지시서 S1·S2 · S3), 사용자 손 절차 (a)~(d) 순서, 미실측 5(창 없는 에디터 카메라 렌더 · 클론 Library · Blender MP4 · bake_space_transform · clipAnimations), 격리 조건, 발견 로그.
 doc_type: note
 status: final
 lifecycle: living
@@ -19,12 +19,13 @@ work_unit: P03
 
 ## 다음 세션 시작 전 확인 (덮어쓰기)
 
-_갱신: 2026-10-31 — 세션 a3a90bb0(Fable 5.1): P03 등재 · 검토서 · 사전 확인(Blender 한 바퀴 · 사본 프로젝트 클론). 사용자 지시로 실행은 멈추고 계획으로 — 실행은 다른 세션_
+_갱신: 2026-10-31 — 세션 a3a90bb0(Fable 5.1): 등재 · 검토 · 의논 3라운드 → D-01~D-10 · 계획서 · S0 준비(Defense.Unity `7f88bef` · `1f87826` · `763866b`) · 지시서 S1·S2 · S3. 실행은 다른 세션 둘(Sonnet 5.5 → Opus 5.5)_
 
-1. **지금 어느 단계**: 검토 — 결정 대기. [검토서](01_검토/검토서_20261031.md) 6절 확인 사항 8개(범위 · Unity 작업 위치 · 에셋 운명 · 캐릭터 · 녹화 형식 · 세션 구성 · 기록 위치 · 완료 기준)의 답을 기다린다. 답이 오면 `결정기록.md` D-01~ → 계획서 → 지시서(S1 Blender · S2 Unity).
-2. **사전 확인 산출물(git 밖, 이 세션)**: `z.tmp/p03/blender/make_enemies.py`(사본 `z.captures/20261031/`) · `z.tmp/p03/blender_out/`(슬라임 · 박쥐 · 탑 FBX 각 2변형 `*.fbx` · `*_bst.fbx`, `palette.png` 4×4, 렌더 7장, `p03_enemies.blend`, `run1.log` — 결과 JSON 은 로그의 `P03_RESULT` 줄) · `z.tmp/p03/unity/`(`Defense.Unity` 의 APFS 클론 — `.git` · `Temp` 없음, `Library/` 8.9 GB 포함). 실행 세션은 이것을 이어 쓰거나 지우고 다시 만든다 — 둘 다 싸다(Blender 5초 · 클론 7.5초).
-3. **착수 전 확인**: 에디터 · Blender 가 떠 있지 않은지(`pgrep -x Blender` · `pgrep -f 'Unity.app/Contents/MacOS/Unity'`) · 디스크(2026-10-31 295 GB 여유) · 결정 2 가 「사본」이면 `Defense.Unity` 는 읽기만.
-4. **미실측(실행 세션이 닫는다)**: ① 창 없는 에디터에서 `capture game_view --source camera` 가 그림을 내는지 ② 클론한 `Library/` 로 다른 경로에서 에디터가 바로 열리는지 ③ Blender 내장 ffmpeg 로 PNG 연속 → MP4 ④ `bake_space_transform` 켠 FBX 의 Unity 루트 회전(P00 미실측 그대로) ⑤ `ModelImporter.clipAnimations` 로 `Rig|Idle` 접두 벗기기.
+1. **지금 어느 단계**: 계획 — 실행 대기. 결정 D-01~D-10 끝, 미결 없음. 시작 커밋 K1 = `Defense.Unity` `763866b`(`main`). 지시서 둘은 `02_계획/지시서/`.
+2. **다음 할 일 순서(사용자 손 절차 — [계획서](02_계획/계획서_20261031.md) 7절)**: (a) worktree `z.tmp/wt/p03-sonnet` + `Library/` 클론 + `z.captures/<날짜>/sonnet/` → 작업 공간 루트에서 새 세션 `/model sonnet` · `/effort high`, [지시서 S1·S2](02_계획/지시서/20261031_S1S2_Unity_P03_실행.md) 「프롬프트 본문」 붙여 넣기, 시작 시각 기록 → 끝나면 `/cost` · 끝 시각 · 멈춤 · 개입 횟수 기록 → (b) 격리(번들 · worktree 제거 · 브랜치 삭제 · 캡처 이동) → (a) 를 `opus` 로 → (c) 격리 → (d) 복원 → `/model fable` 세션에 [지시서 S3](02_계획/지시서/20261031_S3_판정.md).
+3. **착수 전 확인**: 에디터 · Blender 가 떠 있지 않은지(`pgrep -x Blender` · `pgrep -f 'Unity.app/Contents/MacOS/Unity'`). `git -C Defense.Unity branch` 에 `p03/exec-*` 가 남아 있지 않은지(S2 전). 실행 세션은 Planning 을 읽지 않는다(지시서만) — 이 NOTES 는 S3 와 사용자용.
+4. **미실측(실행 세션이 닫는다 — 지시서 「알려진 함정」)**: ① 창 없는 에디터의 `capture game_view --source camera` ② 클론 `Library/` 로 다른 경로에서 열리는지 ③ Blender ffmpeg MP4 ④ `bake_space_transform` 켠 FBX 의 Unity 루트 회전 ⑤ `clipAnimations` 로 접두 벗기기.
+5. **S3 가 받을 것**: 두 세션의 시간 · `/cost` · 멈춤 · 개입 기록(사용자) · 번들 둘(`z.tmp/p03_results/<모델>/`) · 캡처 폴더 둘.
 
 ## 현재 상태 (덮어쓰기)
 
@@ -32,15 +33,17 @@ _갱신: 2026-10-31_
 
 | 항목 | 상태 |
 |---|---|
-| 검토 | 검토서 2026-10-31 초안 ✔(결정 대기) |
-| 결정 | 미결 1~8 |
-| 계획 | 없음 — 결정 뒤 |
-| 저장소 변경 | `Defense.Planning` 만(등재). `Defense.Unity` · Design · `_공통` 변경 없음 |
-| 환경 | Unity 6000.3.27f1 · Unity CLI 1.0.0-beta.13 · `com.unity.pipeline` 0.9.1-exp.1 · Blender 5.2.3 LTS(내장 ffmpeg H264 · MPEG4 · WEBM) · 인코더 ffmpeg · ImageMagick · PIL 없음 · 에디터 꺼짐 · 활성 플랫폼 WebGL [추정, P00 마지막 빌드] |
+| 검토 | 검토서 2026-10-31 ✔(확인 사항 8 전부 답) |
+| 결정 | D-01~D-10 ✔ · 미결 없음 |
+| 계획 | 계획서 2026-10-31 ✔ · 지시서 S1·S2(두 모델 공통) · S3 ✔ |
+| S0 | ✔ `Defense.Unity` `7f88bef`(이동) · `1f87826`(문서 · `Tools/Blender`) · `763866b`(보고) — 게이트 2/2 · 경고 0 · 센서 생략(사용자) |
+| 저장소 변경 | `Defense.Unity` `main` `763866b`(미푸시 3) · `Defense.Planning` `main`(등재 `5d822fc` + 이 세션 커밋 — 작업색인) |
+| 환경 | Unity 6000.3.27f1 · Unity CLI 1.0.0-beta.13 · pipeline 0.9.1 · Blender 5.2.3(내장 ffmpeg) · 에디터 꺼짐 · 활성 플랫폼 WebGL [추정] · 인코더 ffmpeg · ImageMagick · PIL 없음 |
 
 ## 사용자 대기 (덮어쓰기)
 
-- 검토서 6절 확인 사항 1~8.
+- 푸시 허락(세션 끝 질문) — `Defense.Unity` 3 커밋 · Planning 2 커밋.
+- 실행 세션 열기(위 2번) — 세션이 아니라 사용자가 한다.
 
 ---
 
@@ -49,7 +52,9 @@ _갱신: 2026-10-31_
 - 한 기기(G-01) — Blender(약 0.4 GB) 와 에디터를 같이 띄우지 않는다. 동영상 인코딩(Blender)은 에디터를 끈 뒤.
 - `bpy` 스크립트를 공개 저장소에 두면 그 폴더가 GPL-3.0-or-later(G-17) — P03 동안 git 밖(`z.tmp` · `z.captures`).
 - 사본 프로젝트에서 에디터를 띄울 때 `--project-path` 를 사본 경로로 준다. `Defense.Unity` 를 연 에디터와 사본을 연 에디터를 같이 띄우지 않는다(메모리 · 혼동).
-- 기획서 9절은 적 모델을 Quaternius 1순위로 적었다 — P03 은 기획서를 고치지 않는다(시험). 들이면 `DEF-M03` D-nn → 기획서.
+- 기획서 9절은 적 모델을 Quaternius 1순위로 적었다 — P03 은 기획서를 고치지 않는다(시험). 본편에 쓰면 `DEF-M03` D-nn → 기획서.
+- **격리 조건(D-04)**: 실행 세션은 Planning · Design · Logs 를 읽거나 쓰지 않고, 다른 브랜치 · 다른 모델 캡처 폴더를 열지 않는다. S1 이 끝나면 사용자가 번들로 빼고 브랜치를 지운 뒤 S2 를 연다 — 순서를 어기면 비교가 성립하지 않는다.
+- 사용자가 Finder 로 만든 폴더 이름(「00. Scenes」)은 S0 에서 `00_Scenes` 로 바꿨다(D-09). 에디터는 `.meta` 로 빈 폴더를 다시 만든다 — 번호 폴더 `.meta` 넷이 `7f88bef` 에 있다.
 
 ## 발견 로그 (누적, 최신 위)
 

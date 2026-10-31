@@ -6,7 +6,7 @@ doc_type: guide
 status: final
 lifecycle: living
 created: 2026-10-29
-updated: 2026-10-30
+updated: 2026-10-31
 work_unit: P01
 ---
 # P01 — 게임 설계 구체화 · 코어 프로토타입
@@ -54,6 +54,6 @@ work_unit: P01
 
 - 설계는 가설이다. B 의 플레이검사 결과로 기획서 2~5절을 고치는 것이 정상 경로다(결정기록 D-nn 먼저).
 - 기획 정본은 `Defense.Design/기획서.md`(X-02, 2026-10-30 이관). 이 폴더의 검토서는 시점 기록 — 추기만.
-- 코어(`Assets/_Project/Core/`)는 AirShooter 가 복사해 간다(G-07). Core 가 Game 을 참조하지 않게 asmdef 로 막는다. 이름은 `Devman.Core`(게임 이름 없음) · 이 게임은 `Defense.Game`(P00 D-07 ⑤ · 코딩 표준 §1). 웨이브 디렉터 · 드래프트 · 스탯이 어느 쪽인지는 `DEF-M01` asmdef 분할 때 정한다 — 검토서 4절은 코어, D-07 답변은 게임.
+- 코어(`Assets/10_Scripts/Core/`)는 AirShooter 가 복사해 간다(G-07). Core 가 Game 을 참조하지 않게 asmdef 로 막는다. 이름은 `Devman.Core`(게임 이름 없음) · 이 게임은 `Defense.Game`(P00 D-07 ⑤ · 코딩 표준 §1). 웨이브 디렉터 · 드래프트 · 스탯이 어느 쪽인지는 `DEF-M01` asmdef 분할 때 정한다 — 검토서 4절은 코어, D-07 답변은 게임.
 
 _갱신: 2026-10-30_

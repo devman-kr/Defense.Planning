@@ -24,7 +24,7 @@ updated: 2026-10-31
 
 _갱신: 2026-10-31 — 세션 10(Opus 5.5): P00 종결(F0 작성자 재작성 · 첫 푸시 전 비밀값 검사 · S5 GitHub). 그 전: P02 문서 프론트매터 종결(2026-10-31) · 세션 10 잔여 정리(2026-10-30) · 세션 9: `_공통` G-12 · 세션 7: P00 S2 `Defense.Unity` 생성_
 
-1. 열린 과제는 P01 — `P01_게임설계_코어/NOTES.md` 「다음 세션 시작 전 확인」부터. P00 · P02 는 종결(`z.completed/`).
+1. 열린 과제는 P01 과 **P03**(2026-10-31 — CLI 환경 시험 · Sonnet 5.5 vs Opus 5.5 비교 실행 대기, `P03_CLI_환경테스트/NOTES.md`). P03 실행 세션은 지시서만 읽는다(격리 D-04) — 이 NOTES 를 읽는 세션이 실행 세션이면 지시서로 돌아간다. P00 · P02 는 종결(`z.completed/`).
 2. **P00 종결(2026-10-31)** — 계획서 완료 기준 9 전부 ✔. 원격은 공개 GitHub `https://github.com/devman-kr/`(`games-common` · `Defense.Unity` · `Defense.Planning` · `Defense.Design` · `Defense.Logs` — `main` 보호: 강제 푸시 · 삭제 금지). **푸시는 사용자 허락 뒤** — 명령은 `z.completed/P00_환경_체계_로깅/NOTES.md` 「현재 상태」 GitHub 저장소 행(전역 git 에 GitHub 인증 도우미가 없다). 다른 두 게임 P00 은 같은 NOTES 2번 복사 목록부터. 결정론 게이트 명령은 `../../Defense.Unity/CLAUDE.md` 「결정론 게이트」(에디터 닫힘 `unity test` · `unity build` / 열림 `unity command`). **Unity 에디터는 세션이 연다**(`_공통` G-12 — 사용자에게 열어 달라 하지 않는다).
 3. P01 은 설계 확정 — 기획 정본은 `../Defense.Design/기획서.md`. 게임 기획 · 특징은 Design 에만 적고 `CLAUDE.md` 에는 적지 않는다(`_공통` G-10, 세 게임 공통). P00 B · D 가 끝나 **계획서 2차를 쓸 수 있다** — 다음 일은 `P01_게임설계_코어/NOTES.md` 「다음 세션」.
 4. 훅: 프롬프트 · 다이제스트 · `SessionEnd` 커밋 모두 ✔(Logs `99e4e35` 등 2026-10-30 — P00 R1 닫음).
@@ -41,7 +41,7 @@ _갱신: 2026-10-31_
 | 항목 | 상태 |
 |---|---|
 | 저장소 | `Defense.Planning` · `Defense.Design`(X-02 → G-10) · `Defense.Logs` · **`Defense.Unity`(2026-10-30 신설 — Unity 6000.3.27f1 · URP 17.3)** 모두 `main` — 2026-10-31 공개 GitHub `devman-kr` 에 첫 푸시 · `main` 보호(`_공통` 은 `games-common`) |
-| 도구 | Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) + Android(OpenJDK 17 · SDK · NDK r27c) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(PATH ✔) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`) · Claude Code `unity` 플러그인 0.1.6-beta · Chrome · Xcode 26.6 · Node 24.21 · Python 3.9.6 · uv · Homebrew · gh · git-filter-repo 2.47.0(2026-10-30 실측) |
+| 도구 | Unity Hub 3.22.5 · Unity **6000.3.27f1 LTS**(arm64) · `com.unity.pipeline` 0.9.1-exp.1(`capture game_view` · `script run` 등 166 명령) + Android(OpenJDK 17 · SDK · NDK r27c) · WebGL · Blender 5.2.3 LTS · .NET SDK 10.0.403 · `csharp-ls` 0.28.0(PATH ✔) · Unity CLI 1.0.0-beta.13(`~/.unity/bin`) · Claude Code `unity` 플러그인 0.1.6-beta · Chrome · Xcode 26.6 · Node 24.21 · Python 3.9.6 · uv · Homebrew · gh · git-filter-repo 2.47.0(2026-10-30 실측) |
 | 훅 | `.claude/settings.json` 등록 완료(G-05). 프롬프트 · 다이제스트 · `SessionEnd` 커밋 ✔ · 문서 검사(`PostToolUse`, G-18 — 2026-10-31) ✔ |
 | MCP | `.mcp.json` GitHub(공식 원격) 연결 ✔ 2026-10-29 — 계정 `devman-kr`. 쓰기 도구 `permissions.ask` 24 · 저장소 삭제 `deny` |
 
@@ -60,6 +60,7 @@ _갱신: 2026-10-31_
 
 ## 발견 로그 (누적, 최신 위)
 
+- 2026-10-31 — `Defense.Unity/Assets` 폴더 체계를 `_Project/` 에서 번호 폴더(`00_Scenes` · `10_Scripts` · `20_Animations` · `30_Assets`)로 바꿨다(P03 D-09, `7f88bef`). 사용자가 Finder 로 만든 「00. Scenes」 꼴과 `CLAUDE.md` 규칙의 충돌을 D-09 로 풀었고 규칙 문서 · 템플릿 · 가이드 경로를 전부 고쳤다. `unity test`(batchmode)가 빈 폴더의 `.meta` 를 만든다 ✔
 - 2026-10-31 — GitHub 은 마크다운 맨 앞 YAML 프론트매터를 표로 그린다(Planning README 렌더 HTML 의 첫 `<table>`) — 공개 첫 화면 `*.Unity/README.md` 를 예외로 둔 `_공통/문서규약.md` 1절이 맞았다. ✔
 - 2026-10-29 — Claude Code 전사의 thinking 블록은 세션당 0~4K자(Fable · Opus 4세션 실측). 사고 과정은 전사로 복원할 수 없다 → G-05 보완 규칙. ✔
 
