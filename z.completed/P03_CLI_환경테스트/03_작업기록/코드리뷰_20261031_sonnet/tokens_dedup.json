@@ -1,0 +1,106 @@
+{
+ "definition": "고유 메시지(요청) 1회 · 새 토큰 = cache_creation + input + output · total_with_cache_read = 새 토큰 + cache_read",
+ "cutoff_final_report": "2026-10-31T21:52:57+09:00",
+ "agents": [
+  {
+   "id": "agent-a3ff2b61f2cd648f1",
+   "description": "2라운드 센서 — 수정 커밋 리뷰어 A(opus)",
+   "model": "claude-opus-5-5",
+   "input_tokens": 70,
+   "output_tokens": 89775,
+   "cache_creation_input_tokens": 172977,
+   "cache_read_input_tokens": 3027080,
+   "new_tokens": 262822,
+   "total_with_cache_read": 3289902,
+   "requests": 36,
+   "per_line_sum_new_tokens(extractor,not_used)": 582109,
+   "harness_subagent_tokens(final_context+last_output)": 187387
+  },
+  {
+   "id": "agent-a9f798dc8841d4dfc",
+   "description": "판정 반론 D — 틀림 · 의도 3건 재검토(opus)",
+   "model": "claude-opus-5-5",
+   "input_tokens": 47,
+   "output_tokens": 108983,
+   "cache_creation_input_tokens": 172442,
+   "cache_read_input_tokens": 2311511,
+   "new_tokens": 281472,
+   "total_with_cache_read": 2592983,
+   "requests": 25,
+   "per_line_sum_new_tokens(extractor,not_used)": 684762,
+   "harness_subagent_tokens(final_context+last_output)": 189455
+  },
+  {
+   "id": "agent-ac5b1a740b1edf0c9",
+   "description": "세션 센서 — 코드 리뷰어 A(opus)",
+   "model": "claude-opus-5-5",
+   "input_tokens": 55,
+   "output_tokens": 158175,
+   "cache_creation_input_tokens": 424251,
+   "cache_read_input_tokens": 2654621,
+   "new_tokens": 582481,
+   "total_with_cache_read": 3237102,
+   "requests": 29,
+   "per_line_sum_new_tokens(extractor,not_used)": 1189222,
+   "harness_subagent_tokens(final_context+last_output)": 275586
+  }
+ ],
+ "main": {
+  "model": "claude-sonnet-5-5",
+  "until_final_report": {
+   "input_tokens": 301,
+   "output_tokens": 496016,
+   "cache_creation_input_tokens": 794695,
+   "cache_read_input_tokens": 72406295,
+   "new_tokens": 1291012,
+   "total_with_cache_read": 73697307,
+   "requests": 147
+  },
+  "after_final_report": {
+   "input_tokens": 12,
+   "output_tokens": 23651,
+   "cache_creation_input_tokens": 29622,
+   "cache_read_input_tokens": 4161752,
+   "new_tokens": 53285,
+   "total_with_cache_read": 4215037,
+   "requests": 5
+  },
+  "all": {
+   "input_tokens": 313,
+   "output_tokens": 519667,
+   "cache_creation_input_tokens": 824317,
+   "cache_read_input_tokens": 76568047,
+   "new_tokens": 1344297,
+   "total_with_cache_read": 77912344,
+   "requests": 152
+  },
+  "per_line_sum_new_tokens(not_used)": 4768943
+ },
+ "subagents_total": {
+  "input_tokens": 172,
+  "output_tokens": 356933,
+  "cache_creation_input_tokens": 769670,
+  "cache_read_input_tokens": 7993212,
+  "new_tokens": 1126775,
+  "total_with_cache_read": 9119987,
+  "requests": 90
+ },
+ "grand_total_all": {
+  "input_tokens": 485,
+  "output_tokens": 876600,
+  "cache_creation_input_tokens": 1593987,
+  "cache_read_input_tokens": 84561259,
+  "new_tokens": 2471072,
+  "total_with_cache_read": 87032331,
+  "requests": 242
+ },
+ "grand_total_until_final_report": {
+  "input_tokens": 473,
+  "output_tokens": 852949,
+  "cache_creation_input_tokens": 1564365,
+  "cache_read_input_tokens": 80399507,
+  "new_tokens": 2417787,
+  "total_with_cache_read": 82817294,
+  "requests": 237
+ }
+}

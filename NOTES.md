@@ -1,12 +1,12 @@
 ---
 id: 20261029-planning-notes
 title: NOTES — 과제 공통 작업 메모
-summary: 여러 과제에 걸치는 세션 인계 메모로, 세션 10 기준 다음 세션 확인 9개(P00 남은 일 · P01 설계 확정 · P02 프론트매터 끝남)와 환경 상태 표, 사용자 대기 Q-01~Q-05 · F0 해시, 누적 함정 · 발견 로그 · 미해결을 담는다.
+summary: 여러 과제에 걸치는 세션 인계 메모로, 다음 세션 확인 9개(P03 종결 · P01 설계 확정 · P00 · P02 종결)와 환경 상태 표, 사용자 대기, 누적 함정 · 발견 로그(토큰 집계 부풀림 · CLI 캡처) · 미해결을 담는다.
 doc_type: note
 status: final
 lifecycle: living
 created: 2026-10-29
-updated: 2026-10-31
+updated: 2026-11-01
 ---
 # NOTES — 과제 공통 작업 메모
 
@@ -22,9 +22,9 @@ updated: 2026-10-31
 
 ## 다음 세션 시작 전 확인 (덮어쓰기)
 
-_갱신: 2026-10-31 — 세션 10(Opus 5.5): P00 종결(F0 작성자 재작성 · 첫 푸시 전 비밀값 검사 · S5 GitHub). 그 전: P02 문서 프론트매터 종결(2026-10-31) · 세션 10 잔여 정리(2026-10-30) · 세션 9: `_공통` G-12 · 세션 7: P00 S2 `Defense.Unity` 생성_
+_갱신: 2026-11-01 — 세션 a3a90bb0(Fable 5.1): P03 종결(S3 판정 — Opus 머지 · 비교표). 그 전 2026-10-31 — 세션 10(Opus 5.5): P00 종결(F0 작성자 재작성 · 첫 푸시 전 비밀값 검사 · S5 GitHub). 그 전: P02 문서 프론트매터 종결(2026-10-31) · 세션 10 잔여 정리(2026-10-30) · 세션 9: `_공통` G-12 · 세션 7: P00 S2 `Defense.Unity` 생성_
 
-1. 열린 과제는 P01 과 **P03**(2026-10-31 — CLI 환경 시험 · Sonnet 5.5 vs Opus 5.5 비교 실행 대기, `P03_CLI_환경테스트/NOTES.md`). P03 실행 세션은 지시서만 읽는다(격리 D-04) — 이 NOTES 를 읽는 세션이 실행 세션이면 지시서로 돌아간다. P00 · P02 는 종결(`z.completed/`).
+1. 열린 과제는 **P01 뿐**. **P03 종결(2026-11-01)** — Sonnet 5.5 · Opus 5.5 가 같은 지시서로 실행한 두 브랜치를 판정해 `p03/exec-opus` 를 `Defense.Unity` `main` 에 머지(`39266b4`), 비교표는 `z.completed/P03_CLI_환경테스트/03_작업기록/비교표_20261101.md`. CLI 캡처 · 녹화 명령은 `../../Defense.Unity/CLAUDE.md` 「결정론 게이트」 캡처 줄(D-07), 아트 파이프라인 발견은 P01 NOTES 4번 `DEF-M03` 메모. P00 · P02 · P03 은 `z.completed/`.
 2. **P00 종결(2026-10-31)** — 계획서 완료 기준 9 전부 ✔. 원격은 공개 GitHub `https://github.com/devman-kr/`(`games-common` · `Defense.Unity` · `Defense.Planning` · `Defense.Design` · `Defense.Logs` — `main` 보호: 강제 푸시 · 삭제 금지). **푸시는 사용자 허락 뒤** — 명령은 `z.completed/P00_환경_체계_로깅/NOTES.md` 「현재 상태」 GitHub 저장소 행(전역 git 에 GitHub 인증 도우미가 없다). 다른 두 게임 P00 은 같은 NOTES 2번 복사 목록부터. 결정론 게이트 명령은 `../../Defense.Unity/CLAUDE.md` 「결정론 게이트」(에디터 닫힘 `unity test` · `unity build` / 열림 `unity command`). **Unity 에디터는 세션이 연다**(`_공통` G-12 — 사용자에게 열어 달라 하지 않는다).
 3. P01 은 설계 확정 — 기획 정본은 `../Defense.Design/기획서.md`. 게임 기획 · 특징은 Design 에만 적고 `CLAUDE.md` 에는 적지 않는다(`_공통` G-10, 세 게임 공통). P00 B · D 가 끝나 **계획서 2차를 쓸 수 있다** — 다음 일은 `P01_게임설계_코어/NOTES.md` 「다음 세션」.
 4. 훅: 프롬프트 · 다이제스트 · `SessionEnd` 커밋 모두 ✔(Logs `99e4e35` 등 2026-10-30 — P00 R1 닫음).
@@ -60,6 +60,8 @@ _갱신: 2026-10-31_
 
 ## 발견 로그 (누적, 최신 위)
 
+- 2026-11-01 — `_도구/센서기록_추출.py` 의 새 토큰은 세션 기록(JSONL)이 한 응답을 내용 블록마다 여러 줄로 쓰고 줄마다 같은 `usage` 를 붙이는 것을 줄마다 더해 **2.0~3.6배 부풀려진다** — P03 S1(Sonnet) · S2(Opus) 두 세션이 독립적으로 찾았다(S1 `코드리뷰_20261031_sonnet/tokens_dedup.json`). P00 지표 행의 새 토큰 3,906,585 도 같은 비율로 과장됐을 수 있다 → P01 보류 H-05 ④. 하네스 알림의 `subagent_tokens` 는 누적이 아니라 마지막 요청의 컨텍스트 + 출력이다. ✔
+- 2026-11-01 — 창 없는 에디터(`-batchmode`, `-nographics` 없이)에서 `capture game_view --source camera` 가 그림을 낸다(두 실행 세션 실측, 한 장 0.3초). `--save_path` 는 `Assets/` 기준. 명령은 `Defense.Unity/CLAUDE.md` 캡처 줄. 두 모델이 같은 지시서로 같은 결론(날갯짓 「결함」은 원근 착시)에 이른 것도 기록해 둔다. ✔
 - 2026-10-31 — `Defense.Unity/Assets` 폴더 체계를 `_Project/` 에서 번호 폴더(`00_Scenes` · `10_Scripts` · `20_Animations` · `30_Assets`)로 바꿨다(P03 D-09, `7f88bef`). 사용자가 Finder 로 만든 「00. Scenes」 꼴과 `CLAUDE.md` 규칙의 충돌을 D-09 로 풀었고 규칙 문서 · 템플릿 · 가이드 경로를 전부 고쳤다. `unity test`(batchmode)가 빈 폴더의 `.meta` 를 만든다 ✔
 - 2026-10-31 — GitHub 은 마크다운 맨 앞 YAML 프론트매터를 표로 그린다(Planning README 렌더 HTML 의 첫 `<table>`) — 공개 첫 화면 `*.Unity/README.md` 를 예외로 둔 `_공통/문서규약.md` 1절이 맞았다. ✔
 - 2026-10-29 — Claude Code 전사의 thinking 블록은 세션당 0~4K자(Fable · Opus 4세션 실측). 사고 과정은 전사로 복원할 수 없다 → G-05 보완 규칙. ✔

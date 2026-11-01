@@ -6,7 +6,7 @@ doc_type: guide
 status: final
 lifecycle: living
 created: 2026-10-29
-updated: 2026-10-31
+updated: 2026-11-01
 ---
 # Defense.Planning — 저장소를 가로지르는 과제의 관리 체계
 
@@ -23,7 +23,7 @@ updated: 2026-10-31
 | [P00](z.completed/P00_환경_체계_로깅/README.md) | 환경 · 체계 · 로깅 | 종결(2026-10-31, `z.completed/`) — [계획서](z.completed/P00_환경_체계_로깅/02_계획/계획서_20261030.md) 완료 기준 9 전부 ✔: Unity 6 · `Defense.Unity` · 게이트 · 코딩 표준 · Blender CLI(D-09) · 첫 푸시 전 비밀값 검사(G-19) · 작성자 재작성(G-16) · GitHub 저장소 5 · 첫 푸시 · `main` 보호 · NRE 감지 X-04(구현은 P01 `DEF-M01`) | 없음 — 다른 두 게임 P00 은 [복사 목록](z.completed/P00_환경_체계_로깅/NOTES.md)(「다음 세션 시작 전 확인」 2번)부터. P01 로 넘긴 것은 P01 보류 H-05~H-07 · NOTES 4번 | 2026-10-31 |
 | [P01](P01_게임설계_코어/README.md) | 게임 설계 구체화 · 코어 프로토타입(수직 슬라이스) | 계획 — 설계 확정 | D-01~D-11 확정(2026-10-30), 기획 정본 [`../Defense.Design/기획서.md`](../Defense.Design/기획서.md) v0.4(G-10), 룩앤필 목업 v1(사용자 확인). 다음: 계획서 1차 · 지시서 S1 승인(사용자) → S1 데이터 표 · S2 체크리스트 → 계획서 2차(P00 B · D 뒤 — `DEF-M01` 에 X-04 NRE 감지 장치 포함). 코드는 P00 D(`Defense.Unity` 생성) 뒤 | 2026-10-30 |
 | [P02](z.completed/P02_문서_프론트매터/README.md) | 문서 프론트매터 규약(세 게임 · `_공통`, G-18) | 종결(2026-10-31, `z.completed/`) — [계획서](z.completed/P02_문서_프론트매터/02_계획/계획서_20261030.md) 완료 기준 전부 ✔: 규약 1.2 · 검사기 · 훅 세 작업 공간 · 이행 125건 · 엄격 검사 오류 0 | 없음 — 남은 확인 둘(새 세션의 CLAUDE.md · GitHub 의 표 렌더)은 P00 NOTES 6번. P00 은 세션 10 이 잇는다 | 2026-10-31 |
-| [P03](P03_CLI_환경테스트/README.md) | CLI 환경 시험 — Blender 로 샘플 적 캐릭터 · Unity 샘플 씬 캡처 · 녹화 | 계획 — 실행 대기(S0 ✔) | D-01~D-10 확정(2026-10-31) · [계획서](P03_CLI_환경테스트/02_계획/계획서_20261031.md) · S0 준비 ✔(`Defense.Unity` `763866b` — 번호 폴더 D-09 · `Tools/Blender/`). **다음은 사용자**: 계획서 7절 (a) worktree 준비 → S1 Sonnet 5.5 세션에 [지시서 S1·S2](P03_CLI_환경테스트/02_계획/지시서/20261031_S1S2_Unity_P03_실행.md) → (b) 격리 → S2 Opus 5.5 → (d) 복원 → S3 판정([지시서 S3](P03_CLI_환경테스트/02_계획/지시서/20261031_S3_판정.md), Fable) | 2026-10-31 |
+| [P03](z.completed/P03_CLI_환경테스트/README.md) | CLI 환경 시험 — Blender 로 샘플 적 캐릭터 · Unity 샘플 씬 캡처 · 녹화 | 종결(2026-11-01) | D-01~D-11 · S1 Sonnet 5.5 · S2 Opus 5.5 가 같은 지시서로 실행 → S3 판정 [비교표](z.completed/P03_CLI_환경테스트/03_작업기록/비교표_20261101.md): `p03/exec-opus` 머지(`Defense.Unity` `39266b4`) · `CLAUDE.md` 캡처 명령(D-07) · `DEF-M03` 메모(P01 NOTES 4번) · 지표 한 행 · 도구 버그 → P01 H-05 ④ | 2026-11-01 |
 
 ---
 
